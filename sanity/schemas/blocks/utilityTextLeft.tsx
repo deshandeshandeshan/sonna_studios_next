@@ -10,7 +10,7 @@ export const utilityTextLeftType = defineType({
     }),
     defineField({
       name: "text",
-      type: "blockContent",
+      type: "string",
     }),
   ],
 });

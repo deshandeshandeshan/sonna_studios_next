@@ -10,7 +10,7 @@ export const fullBleedType = defineType({
     }),
     defineField({
       name: "text",
-      type: "blockContent",
+      type: "string",
     }),
   ],
 });

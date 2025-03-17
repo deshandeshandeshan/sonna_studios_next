@@ -9,6 +9,6 @@ export const pageBuilderType = defineType({
     defineArrayMember({ type: "largeImageLeft" }),
     defineArrayMember({ type: "largeText" }),
     defineArrayMember({ type: "stickyImage" }),
-    defineArrayMember({ type: "utilityText" }),
+    defineArrayMember({ type: "utilityTextLeft" }),
   ],
 });

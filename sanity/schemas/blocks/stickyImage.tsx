@@ -6,7 +6,7 @@ export const stickyImageType = defineType({
   fields: [
     defineField({
       name: "text",
-      type: "blockContent",
+      type: "string",
     }),
     defineField({
       name: "title",

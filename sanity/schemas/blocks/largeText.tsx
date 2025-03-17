@@ -10,7 +10,7 @@ export const largeTextType = defineType({
     }),
     defineField({
       name: "text",
-      type: "blockContent",
+      type: "string",
     }),
   ],
 });

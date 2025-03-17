@@ -10,7 +10,7 @@ export const largeImageLeftType = defineType({
     }),
     defineField({
       name: "text",
-      type: "blockContent",
+      type: "string",
     }),
   ],
 });
