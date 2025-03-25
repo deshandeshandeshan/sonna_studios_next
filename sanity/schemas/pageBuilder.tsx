@@ -4,11 +4,12 @@ export const pageBuilderType = defineType({
   name: "pageBuilder",
   type: "array",
   of: [
+    defineArrayMember({ type: "brandModule" }),
+    defineArrayMember({ type: "caseStudy" }),
     defineArrayMember({ type: "fullBleed" }),
-    defineArrayMember({ type: "horizontalImageScroll" }),
-    defineArrayMember({ type: "largeImageLeft" }),
+    defineArrayMember({ type: "landingModule" }),
+    defineArrayMember({ type: "largeImage" }),
     defineArrayMember({ type: "largeText" }),
-    defineArrayMember({ type: "stickyImage" }),
-    defineArrayMember({ type: "utilityTextLeft" }),
+    defineArrayMember({ type: "offeringsModule" }),
   ],
 });

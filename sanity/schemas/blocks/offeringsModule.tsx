@@ -1,7 +1,7 @@
 import { defineField, defineType } from "sanity";
 
-export const utilityTextLeftType = defineType({
-  name: "utilityTextLeft",
+export const offeringsModuleType = defineType({
+  name: "offeringsModule",
   type: "object",
   fields: [
     defineField({
@@ -9,8 +9,12 @@ export const utilityTextLeftType = defineType({
       type: "string",
     }),
     defineField({
-      name: "text",
+      name: "description",
       type: "string",
+    }),
+    defineField({
+      name: "image",
+      type: "image",
     }),
   ],
 });

@@ -1,13 +1,16 @@
 import { defineField, defineType } from "sanity";
 
-export const horizontalImageScrollType = defineType({
-  name: "horizontalImageScroll",
+export const largeImageType = defineType({
+  name: "largeImage",
   type: "object",
   fields: [
     defineField({
       name: "image",
       type: "image",
-      title: "string",
+    }),
+    defineField({
+      name: "text",
+      type: "string",
     }),
   ],
 });

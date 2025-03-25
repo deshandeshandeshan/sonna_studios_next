@@ -1,15 +1,19 @@
 import { defineField, defineType } from "sanity";
 
-export const stickyImageType = defineType({
-  name: "stickyImage",
+export const brandModuleType = defineType({
+  name: "brandModule",
   type: "object",
   fields: [
     defineField({
-      name: "text",
+      name: "title",
       type: "string",
     }),
     defineField({
-      name: "title",
+      name: "image",
+      type: "image",
+    }),
+    defineField({
+      name: "text",
       type: "string",
     }),
   ],

@@ -1,7 +1,7 @@
 import { defineField, defineType } from "sanity";
 
-export const largeImageLeftType = defineType({
-  name: "largeImageLeft",
+export const landingModuleType = defineType({
+  name: "landingModule",
   type: "object",
   fields: [
     defineField({
@@ -9,8 +9,8 @@ export const largeImageLeftType = defineType({
       type: "image",
     }),
     defineField({
-      name: "text",
-      type: "string",
+      name: "video",
+      type: "file",
     }),
   ],
 });
