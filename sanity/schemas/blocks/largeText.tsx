@@ -1,4 +1,5 @@
 import { defineField, defineType } from "sanity";
+import { TextIcon } from "@sanity/icons";
 
 export const largeTextType = defineType({
   name: "largeText",
@@ -13,4 +14,17 @@ export const largeTextType = defineType({
       type: "string",
     }),
   ],
+  icon: TextIcon,
+  preview: {
+    select: {
+      title: "title",
+    },
+    prepare({ title }) {
+      return {
+        title: title,
+        subtitle: "Large Text",
+        media: TextIcon,
+      };
+    },
+  },
 });

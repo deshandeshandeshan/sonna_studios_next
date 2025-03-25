@@ -1,3 +1,4 @@
+import { BlockContentIcon } from "@sanity/icons";
 import { defineField, defineType } from "sanity";
 
 export const brandModuleType = defineType({
@@ -17,4 +18,18 @@ export const brandModuleType = defineType({
       type: "string",
     }),
   ],
+  icon: BlockContentIcon,
+  preview: {
+    select: {
+      title: "title",
+      media: "image",
+    },
+    prepare({ title, media }) {
+      return {
+        title: title,
+        subtitle: "Brand Module",
+        media: media ?? BlockContentIcon,
+      };
+    },
+  },
 });

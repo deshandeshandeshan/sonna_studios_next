@@ -1,3 +1,4 @@
+import { BlockContentIcon } from "@sanity/icons";
 import { defineField, defineType } from "sanity";
 
 export const largeImageType = defineType({
@@ -13,4 +14,18 @@ export const largeImageType = defineType({
       type: "string",
     }),
   ],
+  icon: BlockContentIcon,
+  preview: {
+    select: {
+      title: "title",
+      media: "image",
+    },
+    prepare({ title, media }) {
+      return {
+        title: title,
+        subtitle: "Large Image",
+        media: media ?? BlockContentIcon,
+      };
+    },
+  },
 });
