@@ -1,7 +1,7 @@
 import { defineConfig } from "sanity";
 import { structureTool } from "sanity/structure";
 import { structure } from "@/sanity/structure";
-import { schema } from "../sanity/schemas";
+import { schema } from "./sanity/schemas";
 import { visionTool } from "@sanity/vision";
 
 const config = defineConfig({
