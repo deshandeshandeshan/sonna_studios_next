@@ -1,7 +1,7 @@
 import { defineType, defineArrayMember } from "sanity";
 
-export const pageBuilderType = defineType({
-  name: "pageBuilder",
+export const homePageBuilderType = defineType({
+  name: "homePageBuilder",
   type: "array",
   of: [
     defineArrayMember({ type: "brandModule" }),
