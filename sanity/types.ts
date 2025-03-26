@@ -288,9 +288,9 @@ export type Slug = {
 export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | Geopoint | OfferingsModule | LandingModule | CaseStudy | BrandModule | LargeText | LargeImage | FullBleed | PageBuilder | Page | SanityFileAsset | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Slug;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: sanity/lib/queries.tsx
-// Variable: PAGE_QUERY
-// Query: *[_type == "page" && slug.current == $slug][0]{  ...,  content[]{    ...,    _type == "faqs" => {      ...,      faqs[]->    }  }}
-export type PAGE_QUERYResult = {
+// Variable: HOME_QUERY
+// Query: *[_type == "page" && slug.current == "home-page-test"]{...}
+export type HOME_QUERYResult = Array<{
   _id: string;
   _type: "page";
   _createdAt: string;
@@ -298,116 +298,7 @@ export type PAGE_QUERYResult = {
   _rev: string;
   title?: string;
   slug?: Slug;
-  content: Array<{
-    _key: string;
-    _type: "brandModule";
-    title?: string;
-    image?: {
-      asset?: {
-        _ref: string;
-        _type: "reference";
-        _weak?: boolean;
-        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-      };
-      hotspot?: SanityImageHotspot;
-      crop?: SanityImageCrop;
-      _type: "image";
-    };
-    text?: string;
-  } | {
-    _key: string;
-    _type: "caseStudy";
-    title?: string;
-    client?: string;
-    services?: string;
-    industry?: string;
-    location?: string;
-    image?: {
-      asset?: {
-        _ref: string;
-        _type: "reference";
-        _weak?: boolean;
-        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-      };
-      hotspot?: SanityImageHotspot;
-      crop?: SanityImageCrop;
-      _type: "image";
-    };
-  } | {
-    _key: string;
-    _type: "fullBleed";
-    image?: {
-      asset?: {
-        _ref: string;
-        _type: "reference";
-        _weak?: boolean;
-        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-      };
-      hotspot?: SanityImageHotspot;
-      crop?: SanityImageCrop;
-      _type: "image";
-    };
-    text?: string;
-  } | {
-    _key: string;
-    _type: "landingModule";
-    image?: {
-      asset?: {
-        _ref: string;
-        _type: "reference";
-        _weak?: boolean;
-        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-      };
-      hotspot?: SanityImageHotspot;
-      crop?: SanityImageCrop;
-      _type: "image";
-    };
-    video?: {
-      asset?: {
-        _ref: string;
-        _type: "reference";
-        _weak?: boolean;
-        [internalGroqTypeReferenceTo]?: "sanity.fileAsset";
-      };
-      _type: "file";
-    };
-  } | {
-    _key: string;
-    _type: "largeImage";
-    image?: {
-      asset?: {
-        _ref: string;
-        _type: "reference";
-        _weak?: boolean;
-        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-      };
-      hotspot?: SanityImageHotspot;
-      crop?: SanityImageCrop;
-      _type: "image";
-    };
-    text?: string;
-  } | {
-    _key: string;
-    _type: "largeText";
-    title?: string;
-    text?: string;
-  } | {
-    _key: string;
-    _type: "offeringsModule";
-    title?: string;
-    description?: string;
-    image?: {
-      asset?: {
-        _ref: string;
-        _type: "reference";
-        _weak?: boolean;
-        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-      };
-      hotspot?: SanityImageHotspot;
-      crop?: SanityImageCrop;
-      _type: "image";
-    };
-  }> | null;
+  content?: PageBuilder;
   mainImage?: {
     asset?: {
       _ref: string;
@@ -419,12 +310,12 @@ export type PAGE_QUERYResult = {
     crop?: SanityImageCrop;
     _type: "image";
   };
-} | null;
+}>;
 
 // Query TypeMap
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    "*[_type == \"page\" && slug.current == $slug][0]{\n  ...,\n  content[]{\n    ...,\n    _type == \"faqs\" => {\n      ...,\n      faqs[]->\n    }\n  }\n}": PAGE_QUERYResult;
+    "*[_type == \"page\" && slug.current == \"home-page-test\"]\n{...}": HOME_QUERYResult;
   }
 }

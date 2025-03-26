@@ -10,6 +10,8 @@ const config = defineConfig({
   title: "SONNA Studios Website",
   apiVersion: "2025-03-11",
   basePath: "/admin",
+  useCdn: process.env.NODE_ENV === "production",
+  token: process.env.SANITY_API_TOKEN,
   schema,
   plugins: [structureTool({ structure }), visionTool()],
 });
