@@ -1,34 +1,34 @@
-import { DocumentIcon } from "@sanity/icons";
 import { defineField, defineType } from "sanity";
 
-export const homePageType = defineType({
-  name: "homePage",
-  title: "Home Page",
+export const pageType = defineType({
+  name: "page",
+  title: "Pages",
   type: "document",
-  icon: DocumentIcon,
   fields: [
     defineField({
-      name: "title",
       type: "string",
+      name: "title",
+      title: "Title",
+      validation: (rule) => rule.required(),
     }),
-    defineField({
+    {
       name: "slug",
       type: "slug",
       options: {
         source: "title",
       },
-    }),
-    defineField({
+    },
+    {
       name: "content",
       type: "pageBuilder",
-    }),
-    defineField({
+    },
+    {
       name: "mainImage",
       type: "image",
       options: {
         hotspot: true,
       },
-    }),
+    },
   ],
   preview: {
     select: {
