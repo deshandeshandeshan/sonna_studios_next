@@ -8,10 +8,15 @@ export const landscapeType = defineType({
     defineField({
       name: "image",
       type: "image",
-    }),
-    defineField({
-      name: "text",
-      type: "string",
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        defineField({
+          name: "caption",
+          type: "string",
+        }),
+      ],
     }),
   ],
   icon: BlockContentIcon,

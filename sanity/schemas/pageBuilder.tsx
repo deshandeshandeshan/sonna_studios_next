@@ -15,7 +15,6 @@ export const pageBuilderType = defineType({
     defineArrayMember({ type: "imageLargeLeft" }),
     defineArrayMember({ type: "imageLargeRight" }),
     defineArrayMember({ type: "landscape" }),
-    defineArrayMember({ type: "servicesBlock" }),
     defineArrayMember({ type: "singlePortrait" }),
     defineArrayMember({ type: "videoCaseStudy" }),
   ],

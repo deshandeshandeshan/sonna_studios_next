@@ -6,12 +6,30 @@ export const imageLargeLeftType = defineType({
   type: "object",
   fields: [
     defineField({
-      name: "image",
+      name: "leftImage",
       type: "image",
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        defineField({
+          name: "caption",
+          type: "string",
+        }),
+      ],
     }),
     defineField({
-      name: "text",
-      type: "string",
+      name: "rightImage",
+      type: "image",
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        defineField({
+          name: "caption",
+          type: "string",
+        }),
+      ],
     }),
   ],
   icon: BlockContentIcon,

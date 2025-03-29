@@ -12,7 +12,6 @@ import { doublePortraitType } from "./blocks/photographyBlocks/doublePortrait";
 import { imageLargeLeftType } from "./blocks/photographyBlocks/imageLargeLeft";
 import { imageLargeRightType } from "./blocks/photographyBlocks/imageLargeRight";
 import { landscapeType } from "./blocks/photographyBlocks/landscape";
-import { servicesBlockType } from "./blocks/photographyBlocks/servicesBlock";
 import { singlePortraitType } from "./blocks/photographyBlocks/singlePortrait";
 import { videoCaseStudyType } from "./blocks/videographyBlocks/videoCaseStudy";
 
@@ -32,7 +31,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     imageLargeLeftType,
     imageLargeRightType,
     landscapeType,
-    servicesBlockType,
     singlePortraitType,
     videoCaseStudyType,
   ],

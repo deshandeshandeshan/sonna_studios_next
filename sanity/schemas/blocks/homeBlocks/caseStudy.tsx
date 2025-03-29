@@ -28,6 +28,15 @@ export const caseStudyType = defineType({
     defineField({
       name: "image",
       type: "image",
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        defineField({
+          name: "caption",
+          type: "string",
+        }),
+      ],
     }),
   ],
   icon: BlockContentIcon,

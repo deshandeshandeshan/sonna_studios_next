@@ -6,12 +6,28 @@ export const videoCaseStudyType = defineType({
   type: "object",
   fields: [
     defineField({
-      name: "image",
-      type: "image",
+      name: "title",
+      type: "string",
     }),
     defineField({
-      name: "text",
+      name: "description",
       type: "string",
+    }),
+    defineField({
+      name: "client",
+      type: "string",
+    }),
+    defineField({
+      name: "Industry",
+      type: "string",
+    }),
+    defineField({
+      name: "Location",
+      type: "string",
+    }),
+    defineField({
+      name: "video",
+      type: "file",
     }),
   ],
   icon: BlockContentIcon,
