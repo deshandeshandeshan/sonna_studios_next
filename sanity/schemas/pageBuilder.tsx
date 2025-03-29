@@ -11,5 +11,12 @@ export const pageBuilderType = defineType({
     defineArrayMember({ type: "largeImage" }),
     defineArrayMember({ type: "largeText" }),
     defineArrayMember({ type: "offeringsModule" }),
+    defineArrayMember({ type: "doublePortrait" }),
+    defineArrayMember({ type: "imageLargeLeft" }),
+    defineArrayMember({ type: "imageLargeRight" }),
+    defineArrayMember({ type: "landscape" }),
+    defineArrayMember({ type: "servicesBlock" }),
+    defineArrayMember({ type: "singlePortrait" }),
+    defineArrayMember({ type: "videoCaseStudy" }),
   ],
 });

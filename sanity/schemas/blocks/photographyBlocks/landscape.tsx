@@ -1,21 +1,17 @@
 import { BlockContentIcon } from "@sanity/icons";
 import { defineField, defineType } from "sanity";
 
-export const offeringsModuleType = defineType({
-  name: "offeringsModule",
+export const landscapeType = defineType({
+  name: "landscape",
   type: "object",
   fields: [
     defineField({
-      name: "title",
-      type: "string",
-    }),
-    defineField({
-      name: "description",
-      type: "string",
-    }),
-    defineField({
       name: "image",
       type: "image",
+    }),
+    defineField({
+      name: "text",
+      type: "string",
     }),
   ],
   icon: BlockContentIcon,
@@ -27,7 +23,7 @@ export const offeringsModuleType = defineType({
     prepare({ title, media }) {
       return {
         title: title,
-        subtitle: "Offerings Module",
+        subtitle: "Landscape",
         media: media ?? BlockContentIcon,
       };
     },

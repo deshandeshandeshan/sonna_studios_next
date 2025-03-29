@@ -1,13 +1,20 @@
 import { SchemaTypeDefinition } from "sanity";
-import { fullBleedType } from "./blocks/home-blocks/fullBleed";
-import { largeImageType } from "./blocks/home-blocks/largeImage";
-import { largeTextType } from "./blocks/home-blocks/largeText";
+import { fullBleedType } from "./blocks/homeBlocks/fullBleed";
+import { largeImageType } from "./blocks/homeBlocks/largeImage";
+import { largeTextType } from "./blocks/homeBlocks/largeText";
 import { pageBuilderType } from "./pageBuilder";
-import { brandModuleType } from "./blocks/home-blocks/brandModule";
-import { caseStudyType } from "./blocks/home-blocks/caseStudy";
-import { landingModuleType } from "./blocks/home-blocks/landingModule";
-import { offeringsModuleType } from "./blocks/home-blocks/offeringsModule";
+import { brandModuleType } from "./blocks/homeBlocks/brandModule";
+import { caseStudyType } from "./blocks/homeBlocks/caseStudy";
+import { landingModuleType } from "./blocks/homeBlocks/landingModule";
 import { pageType } from "./page";
+import { offeringsModuleType } from "./blocks/homeBlocks/offeringsModule";
+import { doublePortraitType } from "./blocks/photographyBlocks/doublePortrait";
+import { imageLargeLeftType } from "./blocks/photographyBlocks/imageLargeLeft";
+import { imageLargeRightType } from "./blocks/photographyBlocks/imageLargeRight";
+import { landscapeType } from "./blocks/photographyBlocks/landscape";
+import { servicesBlockType } from "./blocks/photographyBlocks/servicesBlock";
+import { singlePortraitType } from "./blocks/photographyBlocks/singlePortrait";
+import { videoCaseStudyType } from "./blocks/videographyBlocks/videoCaseStudy";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -21,5 +28,12 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     caseStudyType,
     landingModuleType,
     offeringsModuleType,
+    doublePortraitType,
+    imageLargeLeftType,
+    imageLargeRightType,
+    landscapeType,
+    servicesBlockType,
+    singlePortraitType,
+    videoCaseStudyType,
   ],
 };

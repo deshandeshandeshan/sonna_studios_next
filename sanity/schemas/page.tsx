@@ -21,6 +21,44 @@ export const pageType = defineType({
     {
       name: "content",
       type: "pageBuilder",
+      options: {
+        layout: "grid",
+        insertMenu: {
+          filter: true,
+          groups: [
+            {
+              name: "home",
+              title: "Home Page",
+              of: [
+                "brandModule",
+                "caseStudy",
+                "fullBleed",
+                "landingModule",
+                "largeImage",
+                "largeText",
+                "offeringsModule",
+              ],
+            },
+            {
+              name: "photography",
+              title: "Photography",
+              of: [
+                "doublePortrait",
+                "imageLargeLeft",
+                "imageLargeRight",
+                "landscape",
+                "servicesBlock",
+                "singlePortrait",
+              ],
+            },
+            {
+              name: "videography",
+              title: "Videography",
+              of: ["videoCaseStudy"],
+            },
+          ],
+        },
+      },
     },
     {
       name: "mainImage",
