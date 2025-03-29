@@ -48,18 +48,20 @@ export type Geopoint = {
 
 export type VideoCaseStudy = {
   _type: "videoCaseStudy";
-  image?: {
+  title?: string;
+  description?: string;
+  client?: string;
+  Industry?: string;
+  Location?: string;
+  video?: {
     asset?: {
       _ref: string;
       _type: "reference";
       _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      [internalGroqTypeReferenceTo]?: "sanity.fileAsset";
     };
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    _type: "image";
+    _type: "file";
   };
-  text?: string;
 };
 
 export type SinglePortrait = {
@@ -73,25 +75,9 @@ export type SinglePortrait = {
     };
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
+    caption?: string;
     _type: "image";
   };
-  text?: string;
-};
-
-export type Services = {
-  _type: "services";
-  image?: {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    _type: "image";
-  };
-  text?: string;
 };
 
 export type Landscape = {
@@ -105,14 +91,14 @@ export type Landscape = {
     };
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
+    caption?: string;
     _type: "image";
   };
-  text?: string;
 };
 
 export type ImageLargeRight = {
   _type: "imageLargeRight";
-  image?: {
+  leftImage?: {
     asset?: {
       _ref: string;
       _type: "reference";
@@ -121,14 +107,26 @@ export type ImageLargeRight = {
     };
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
+    caption?: string;
     _type: "image";
   };
-  text?: string;
+  rightImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    caption?: string;
+    _type: "image";
+  };
 };
 
 export type ImageLargeLeft = {
   _type: "imageLargeLeft";
-  image?: {
+  leftImage?: {
     asset?: {
       _ref: string;
       _type: "reference";
@@ -137,14 +135,26 @@ export type ImageLargeLeft = {
     };
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
+    caption?: string;
     _type: "image";
   };
-  text?: string;
+  rightImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    caption?: string;
+    _type: "image";
+  };
 };
 
 export type DoublePortrait = {
   _type: "doublePortrait";
-  image?: {
+  leftImage?: {
     asset?: {
       _ref: string;
       _type: "reference";
@@ -153,9 +163,21 @@ export type DoublePortrait = {
     };
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
+    caption?: string;
     _type: "image";
   };
-  text?: string;
+  rightImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    caption?: string;
+    _type: "image";
+  };
 };
 
 export type OfferingsModule = {
@@ -170,6 +192,7 @@ export type OfferingsModule = {
     };
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
+    caption?: string;
     _type: "image";
   };
   text?: string;
@@ -186,6 +209,7 @@ export type LandingModule = {
     };
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
+    caption?: string;
     _type: "image";
   };
   video?: {
@@ -215,6 +239,7 @@ export type CaseStudy = {
     };
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
+    caption?: string;
     _type: "image";
   };
 };
@@ -231,6 +256,7 @@ export type BrandModule = {
     };
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
+    caption?: string;
     _type: "image";
   };
   text?: string;
@@ -253,6 +279,7 @@ export type LargeImage = {
     };
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
+    caption?: string;
     _type: "image";
   };
   text?: string;
@@ -269,6 +296,7 @@ export type FullBleed = {
     };
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
+    caption?: string;
     _type: "image";
   };
   text?: string;
@@ -296,7 +324,19 @@ export type Page = {
     _key: string;
   } & LargeText | {
     _key: string;
-  } & OfferingsModule>;
+  } & OfferingsModule | {
+    _key: string;
+  } & DoublePortrait | {
+    _key: string;
+  } & ImageLargeLeft | {
+    _key: string;
+  } & ImageLargeRight | {
+    _key: string;
+  } & Landscape | {
+    _key: string;
+  } & SinglePortrait | {
+    _key: string;
+  } & VideoCaseStudy>;
   mainImage?: {
     asset?: {
       _ref: string;
@@ -330,7 +370,19 @@ export type PageBuilder = Array<{
   _key: string;
 } & LargeText | {
   _key: string;
-} & OfferingsModule>;
+} & OfferingsModule | {
+  _key: string;
+} & DoublePortrait | {
+  _key: string;
+} & ImageLargeLeft | {
+  _key: string;
+} & ImageLargeRight | {
+  _key: string;
+} & Landscape | {
+  _key: string;
+} & SinglePortrait | {
+  _key: string;
+} & VideoCaseStudy>;
 
 export type SanityFileAsset = {
   _id: string;
@@ -411,7 +463,7 @@ export type SanityImageMetadata = {
   isOpaque?: boolean;
 };
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | Geopoint | VideoCaseStudy | SinglePortrait | Services | Landscape | ImageLargeRight | ImageLargeLeft | DoublePortrait | OfferingsModule | LandingModule | CaseStudy | BrandModule | LargeText | LargeImage | FullBleed | Page | Slug | PageBuilder | SanityFileAsset | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata;
+export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | Geopoint | VideoCaseStudy | SinglePortrait | Landscape | ImageLargeRight | ImageLargeLeft | DoublePortrait | OfferingsModule | LandingModule | CaseStudy | BrandModule | LargeText | LargeImage | FullBleed | Page | Slug | PageBuilder | SanityFileAsset | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: sanity/lib/queries.tsx
 // Variable: HOME_QUERY
@@ -430,15 +482,27 @@ export type HOME_QUERYResult = Array<{
     _key: string;
   } & CaseStudy | {
     _key: string;
+  } & DoublePortrait | {
+    _key: string;
   } & FullBleed | {
     _key: string;
+  } & ImageLargeLeft | {
+    _key: string;
+  } & ImageLargeRight | {
+    _key: string;
   } & LandingModule | {
+    _key: string;
+  } & Landscape | {
     _key: string;
   } & LargeImage | {
     _key: string;
   } & LargeText | {
     _key: string;
-  } & OfferingsModule>;
+  } & OfferingsModule | {
+    _key: string;
+  } & SinglePortrait | {
+    _key: string;
+  } & VideoCaseStudy>;
   mainImage?: {
     asset?: {
       _ref: string;
