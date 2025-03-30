@@ -1,12 +1,19 @@
-import { getPages } from "@/sanity/sanity-utils";
-import styles from "./page.module.css";
+import { client } from "@/sanity/sanity-utils";
+import { PortableText } from "@portabletext/react";
+import { notFound } from "next/navigation";
 
 export default async function Home() {
-  const data = await getPages();
-  console.log(data);
+  const query = `*[_type == "page" && slug.current == "home"][0]`;
+  const page = await client.fetch(query);
+
+  if (!page) {
+    notFound();
+  }
+
   return (
-    <div className={styles.page}>
-      <main className={styles.container}></main>
+    <div>
+      <h1>{page.title}</h1>
+      <PortableText value={page.content} />
     </div>
   );
 }

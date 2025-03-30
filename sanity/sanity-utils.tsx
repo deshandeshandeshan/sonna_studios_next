@@ -9,6 +9,13 @@ export async function getPages() {
   });
 
   return client.fetch(
-    defineQuery(`*[_type == "page" && slug.current == "home-page-test"]{...}`)
+    defineQuery(`*[_type == "page" && slug.current == "/"]{...}`)
   );
 }
+
+export const client = createClient({
+  projectId: "qzoemo7f",
+  dataset: "production",
+  apiVersion: "2025-03-11",
+  useCdn: false, // Set to true for faster performance (but may show stale data)
+});
