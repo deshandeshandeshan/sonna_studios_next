@@ -3,13 +3,13 @@ import { PortableText } from "@portabletext/react";
 import { notFound } from "next/navigation";
 
 interface PageProps {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
-export default async function Page({ params }: PageProps) {
-  const { slug } = params;
+export default async function Page(props: PageProps) {
+  const params = await props.params;
   const query = `*[_type == "page" && slug.current == $slug][0]`;
-  const page = await client.fetch(query, { slug: slug });
+  const page = await client.fetch(query, { slug: params.slug });
 
   if (!page) {
     notFound(); // Returns a 404 page if no content is found
