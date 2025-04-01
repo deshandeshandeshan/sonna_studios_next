@@ -1,6 +1,6 @@
 import { HOME_QUERYResult } from "@/sanity/types";
-import { LandingModule } from "./LandingModule";
-import { FullBleed } from "./FullBleed";
+import { LandingModule } from "./homeComponents/LandingModule";
+import { FullBleed } from "./homeComponents/FullBleed";
 
 type PageBuilderProps = {
   content: NonNullable<HOME_QUERYResult>["content"];

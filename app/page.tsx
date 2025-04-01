@@ -1,6 +1,6 @@
 import { HOME_QUERY } from "@/sanity/lib/queries";
 import { client } from "@/sanity/sanity-utils";
-import { PageBuilder } from "@/utils/components/PageBuilder";
+import { PageBuilder } from "@/components/PageBuilder";
 import { notFound } from "next/navigation";
 
 export default async function Home() {

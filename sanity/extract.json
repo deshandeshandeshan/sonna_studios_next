@@ -931,7 +931,7 @@
             "value": "offeringsModule"
           }
         },
-        "title": {
+        "service": {
           "type": "objectAttribute",
           "value": {
             "type": "string"
@@ -1007,7 +1007,7 @@
           },
           "optional": true
         },
-        "text": {
+        "description": {
           "type": "objectAttribute",
           "value": {
             "type": "string"
@@ -1161,13 +1161,6 @@
             "value": "caseStudy"
           }
         },
-        "title": {
-          "type": "objectAttribute",
-          "value": {
-            "type": "string"
-          },
-          "optional": true
-        },
         "client": {
           "type": "objectAttribute",
           "value": {
@@ -1281,7 +1274,7 @@
             "value": "brandModule"
           }
         },
-        "title": {
+        "clientName": {
           "type": "objectAttribute",
           "value": {
             "type": "string"

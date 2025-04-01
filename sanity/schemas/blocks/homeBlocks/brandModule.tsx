@@ -6,7 +6,7 @@ export const brandModuleType = defineType({
   type: "object",
   fields: [
     defineField({
-      name: "title",
+      name: "clientName",
       type: "string",
     }),
     defineField({

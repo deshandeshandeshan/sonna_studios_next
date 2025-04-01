@@ -22,7 +22,6 @@ export const pageType = defineType({
       name: "content",
       type: "pageBuilder",
       options: {
-        layout: "grid",
         insertMenu: {
           filter: true,
           groups: [

@@ -6,7 +6,7 @@ export const offeringsModuleType = defineType({
   type: "object",
   fields: [
     defineField({
-      name: "title",
+      name: "service",
       type: "string",
     }),
     defineField({
@@ -23,7 +23,7 @@ export const offeringsModuleType = defineType({
       ],
     }),
     defineField({
-      name: "text",
+      name: "description",
       type: "string",
     }),
   ],

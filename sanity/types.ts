@@ -182,7 +182,7 @@ export type DoublePortrait = {
 
 export type OfferingsModule = {
   _type: "offeringsModule";
-  title?: string;
+  service?: string;
   image?: {
     asset?: {
       _ref: string;
@@ -195,7 +195,7 @@ export type OfferingsModule = {
     caption?: string;
     _type: "image";
   };
-  text?: string;
+  description?: string;
 };
 
 export type LandingModule = {
@@ -225,7 +225,6 @@ export type LandingModule = {
 
 export type CaseStudy = {
   _type: "caseStudy";
-  title?: string;
   client?: string;
   services?: string;
   industry?: string;
@@ -246,7 +245,7 @@ export type CaseStudy = {
 
 export type BrandModule = {
   _type: "brandModule";
-  title?: string;
+  clientName?: string;
   image?: {
     asset?: {
       _ref: string;
