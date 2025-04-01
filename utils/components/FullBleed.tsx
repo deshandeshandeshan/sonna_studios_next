@@ -4,21 +4,21 @@ import Image from "next/image";
 
 type landingModuleProps = Extract<
   NonNullable<NonNullable<HOME_QUERYResult>["content"]>[number],
-  { _type: "landingModule" }
+  { _type: "fullBleed" }
 >;
 
-export function LandingModule({ image }: landingModuleProps) {
+export function FullBleed({ image, text }: landingModuleProps) {
   return (
     <section>
-      <div />
       {image ? (
         <Image
-          src={urlFor(image).width(200).url()}
+          src={urlFor(image).url()}
           width={1600}
           height={800}
-          alt=""
+          alt={image.caption || ""}
         />
       ) : null}
+      <p>{text}</p>
     </section>
   );
 }
