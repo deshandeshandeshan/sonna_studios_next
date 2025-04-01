@@ -1,5 +1,4 @@
 import { client } from "@/sanity/sanity-utils";
-import { PortableText } from "@portabletext/react";
 import { notFound } from "next/navigation";
 
 interface PageProps {
@@ -15,10 +14,10 @@ export default async function Page(props: PageProps) {
     notFound(); // Returns a 404 page if no content is found
   }
   console.log(page); // Log the fetched page data for debugging
+
   return (
     <div>
       <h1>{page.title}</h1>
-      <PortableText value={page.content} />
     </div>
   );
 }

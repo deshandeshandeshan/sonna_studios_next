@@ -467,8 +467,8 @@ export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: sanity/lib/queries.tsx
 // Variable: HOME_QUERY
-// Query: *[_type == "page" && slug.current == "home-page-test"]{...}
-export type HOME_QUERYResult = Array<{
+// Query: *[_type == "page" && slug.current == "home"][0]
+export type HOME_QUERYResult = {
   _id: string;
   _type: "page";
   _createdAt: string;
@@ -514,12 +514,12 @@ export type HOME_QUERYResult = Array<{
     crop?: SanityImageCrop;
     _type: "image";
   };
-}>;
+} | null;
 
 // Query TypeMap
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    "*[_type == \"page\" && slug.current == \"home-page-test\"]\n{...}": HOME_QUERYResult;
+    "*[_type == \"page\" && slug.current == \"home\"][0]": HOME_QUERYResult;
   }
 }

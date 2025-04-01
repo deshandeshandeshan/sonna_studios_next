@@ -1,19 +1,16 @@
+import { HOME_QUERY } from "@/sanity/lib/queries";
 import { client } from "@/sanity/sanity-utils";
-import { PortableText } from "@portabletext/react";
+import { PageBuilder } from "@/utils/blocks/components/PageBuilder";
 import { notFound } from "next/navigation";
 
 export default async function Home() {
-  const query = `*[_type == "page" && slug.current == "home"][0]`;
-  const page = await client.fetch(query);
+  const page = await client.fetch(HOME_QUERY);
+
+  console.log(page);
 
   if (!page) {
     notFound();
   }
 
-  return (
-    <div>
-      <h1>{page.title}</h1>
-      <PortableText value={page.content} />
-    </div>
-  );
+  return page?.content ? <PageBuilder content={page.content} /> : null;
 }
