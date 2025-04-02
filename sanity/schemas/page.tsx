@@ -59,13 +59,6 @@ export const pageType = defineType({
         },
       },
     },
-    {
-      name: "mainImage",
-      type: "image",
-      options: {
-        hotspot: true,
-      },
-    },
   ],
   preview: {
     select: {

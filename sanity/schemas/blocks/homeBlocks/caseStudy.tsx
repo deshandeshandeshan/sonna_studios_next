@@ -10,35 +10,57 @@ export const caseStudyType = defineType({
       title: "Module Title",
       type: "string",
     }),
-    defineField({
-      name: "client",
-      type: "string",
-    }),
-    defineField({
-      name: "services",
-      type: "string",
-    }),
-    defineField({
-      name: "industry",
-      type: "string",
-    }),
-    defineField({
-      name: "location",
-      type: "string",
-    }),
-    defineField({
-      name: "image",
-      type: "image",
-      options: {
-        hotspot: true,
-      },
-      fields: [
-        defineField({
-          name: "caption",
-          type: "string",
-        }),
+    {
+      name: "caseStudies",
+      type: "array",
+      title: "Case Studies",
+      of: [
+        {
+          type: "object",
+          name: "caseStudies",
+          title: "Case Studies",
+          fields: [
+            {
+              name: "client",
+              type: "string",
+              title: "Client",
+            },
+            {
+              name: "services",
+              type: "string",
+              title: "Services",
+            },
+            {
+              name: "industry",
+              type: "string",
+              title: "Industry",
+            },
+            {
+              name: "location",
+              type: "string",
+              title: "Location",
+            },
+            {
+              name: "image",
+              type: "image",
+              title: "Service Image",
+              options: { hotspot: true },
+              fields: [
+                defineField({
+                  name: "caption",
+                  type: "string",
+                }),
+              ],
+            },
+            {
+              name: "description",
+              type: "text",
+              title: "Service Description",
+            },
+          ],
+        },
       ],
-    }),
+    },
   ],
   icon: BlockContentIcon,
   preview: {

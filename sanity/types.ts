@@ -48,6 +48,7 @@ export type Geopoint = {
 
 export type VideoCaseStudy = {
   _type: "videoCaseStudy";
+  title?: string;
   projectName?: string;
   description?: string;
   client?: string;
@@ -66,6 +67,7 @@ export type VideoCaseStudy = {
 
 export type SinglePortrait = {
   _type: "singlePortrait";
+  title?: string;
   image?: {
     asset?: {
       _ref: string;
@@ -82,6 +84,7 @@ export type SinglePortrait = {
 
 export type Landscape = {
   _type: "landscape";
+  title?: string;
   image?: {
     asset?: {
       _ref: string;
@@ -98,6 +101,7 @@ export type Landscape = {
 
 export type ImageLargeRight = {
   _type: "imageLargeRight";
+  title?: string;
   leftImage?: {
     asset?: {
       _ref: string;
@@ -126,6 +130,7 @@ export type ImageLargeRight = {
 
 export type ImageLargeLeft = {
   _type: "imageLargeLeft";
+  title?: string;
   leftImage?: {
     asset?: {
       _ref: string;
@@ -154,6 +159,7 @@ export type ImageLargeLeft = {
 
 export type DoublePortrait = {
   _type: "doublePortrait";
+  title?: string;
   leftImage?: {
     asset?: {
       _ref: string;
@@ -182,24 +188,30 @@ export type DoublePortrait = {
 
 export type OfferingsModule = {
   _type: "offeringsModule";
-  service?: string;
-  image?: {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+  title?: string;
+  services?: Array<{
+    name?: string;
+    image?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      caption?: string;
+      _type: "image";
     };
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    caption?: string;
-    _type: "image";
-  };
-  description?: string;
+    description?: string;
+    _type: "service";
+    _key: string;
+  }>;
 };
 
 export type LandingModule = {
   _type: "landingModule";
+  title?: string;
   image?: {
     asset?: {
       _ref: string;
@@ -225,26 +237,33 @@ export type LandingModule = {
 
 export type CaseStudy = {
   _type: "caseStudy";
-  client?: string;
-  services?: string;
-  industry?: string;
-  location?: string;
-  image?: {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+  title?: string;
+  caseStudies?: Array<{
+    client?: string;
+    services?: string;
+    industry?: string;
+    location?: string;
+    image?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      caption?: string;
+      _type: "image";
     };
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    caption?: string;
-    _type: "image";
-  };
+    description?: string;
+    _type: "caseStudies";
+    _key: string;
+  }>;
 };
 
 export type BrandModule = {
   _type: "brandModule";
+  title?: string;
   clientName?: string;
   image?: {
     asset?: {
@@ -269,6 +288,7 @@ export type LargeText = {
 
 export type LargeImage = {
   _type: "largeImage";
+  title?: string;
   image?: {
     asset?: {
       _ref: string;
@@ -286,6 +306,7 @@ export type LargeImage = {
 
 export type FullBleed = {
   _type: "fullBleed";
+  title?: string;
   image?: {
     asset?: {
       _ref: string;
@@ -336,17 +357,6 @@ export type Page = {
   } & SinglePortrait | {
     _key: string;
   } & VideoCaseStudy>;
-  mainImage?: {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    _type: "image";
-  };
 };
 
 export type Slug = {
@@ -466,7 +476,7 @@ export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: sanity/lib/queries.tsx
 // Variable: HOME_QUERY
-// Query: *[_type == "page" && slug.current == "home"][0]{    ...,    content[] {      _key,      _type,      ...,      video {        asset -> { url }      }    }  }
+// Query: *[_type == "page" && slug.current == "home"][0]{    ...,    content[] {      _key,      _type,      ...,      video {        asset -> { url }      },      services[] {         name,        description,        image {          asset -> { url },          caption        }      },      caseStudies[] {        client,        services,        industry,        location,        image {          asset -> { url },          caption        }      }    }  }
 export type HOME_QUERYResult = {
   _id: string;
   _type: "page";
@@ -478,6 +488,292 @@ export type HOME_QUERYResult = {
   content: Array<{
     _key: string;
     _type: "brandModule";
+    title?: string;
+    clientName?: string;
+    image?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      caption?: string;
+      _type: "image";
+    };
+    text?: string;
+    video: null;
+    services: null;
+    caseStudies: null;
+  } | {
+    _key: string;
+    _type: "caseStudy";
+    title?: string;
+    caseStudies: Array<{
+      client: string | null;
+      services: string | null;
+      industry: string | null;
+      location: string | null;
+      image: {
+        asset: {
+          url: string | null;
+        } | null;
+        caption: string | null;
+      } | null;
+    }> | null;
+    video: null;
+    services: null;
+  } | {
+    _key: string;
+    _type: "doublePortrait";
+    title?: string;
+    leftImage?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      caption?: string;
+      _type: "image";
+    };
+    rightImage?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      caption?: string;
+      _type: "image";
+    };
+    video: null;
+    services: null;
+    caseStudies: null;
+  } | {
+    _key: string;
+    _type: "fullBleed";
+    title?: string;
+    image?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      caption?: string;
+      _type: "image";
+    };
+    text?: string;
+    video: null;
+    services: null;
+    caseStudies: null;
+  } | {
+    _key: string;
+    _type: "imageLargeLeft";
+    title?: string;
+    leftImage?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      caption?: string;
+      _type: "image";
+    };
+    rightImage?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      caption?: string;
+      _type: "image";
+    };
+    video: null;
+    services: null;
+    caseStudies: null;
+  } | {
+    _key: string;
+    _type: "imageLargeRight";
+    title?: string;
+    leftImage?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      caption?: string;
+      _type: "image";
+    };
+    rightImage?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      caption?: string;
+      _type: "image";
+    };
+    video: null;
+    services: null;
+    caseStudies: null;
+  } | {
+    _key: string;
+    _type: "landingModule";
+    title?: string;
+    image?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      caption?: string;
+      _type: "image";
+    };
+    video: {
+      asset: {
+        url: string | null;
+      } | null;
+    } | null;
+    services: null;
+    caseStudies: null;
+  } | {
+    _key: string;
+    _type: "landscape";
+    title?: string;
+    image?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      caption?: string;
+      _type: "image";
+    };
+    video: null;
+    services: null;
+    caseStudies: null;
+  } | {
+    _key: string;
+    _type: "largeImage";
+    title?: string;
+    image?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      caption?: string;
+      _type: "image";
+    };
+    text?: string;
+    video: null;
+    services: null;
+    caseStudies: null;
+  } | {
+    _key: string;
+    _type: "largeText";
+    title?: string;
+    text?: string;
+    video: null;
+    services: null;
+    caseStudies: null;
+  } | {
+    _key: string;
+    _type: "offeringsModule";
+    title?: string;
+    services: Array<{
+      name: string | null;
+      description: string | null;
+      image: {
+        asset: {
+          url: string | null;
+        } | null;
+        caption: string | null;
+      } | null;
+    }> | null;
+    video: null;
+    caseStudies: null;
+  } | {
+    _key: string;
+    _type: "singlePortrait";
+    title?: string;
+    image?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      caption?: string;
+      _type: "image";
+    };
+    video: null;
+    services: null;
+    caseStudies: null;
+  } | {
+    _key: string;
+    _type: "videoCaseStudy";
+    title?: string;
+    projectName?: string;
+    description?: string;
+    client?: string;
+    industry?: string;
+    location?: string;
+    video: {
+      asset: {
+        url: string | null;
+      } | null;
+    } | null;
+    services: null;
+    caseStudies: null;
+  }> | null;
+} | null;
+// Variable: query
+// Query: *[_type == "page" && slug.current == $slug][0]{    ...,    content[] {      _key,      _type,      ...,      video {        asset -> { url }      }    },    services[] {         name,        "imageUrl": image.asset->url,        description      }  }
+export type QueryResult = {
+  _id: string;
+  _type: "page";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  slug?: Slug;
+  content: Array<{
+    _key: string;
+    _type: "brandModule";
+    title?: string;
     clientName?: string;
     image?: {
       asset?: {
@@ -496,26 +792,33 @@ export type HOME_QUERYResult = {
   } | {
     _key: string;
     _type: "caseStudy";
-    client?: string;
-    services?: string;
-    industry?: string;
-    location?: string;
-    image?: {
-      asset?: {
-        _ref: string;
-        _type: "reference";
-        _weak?: boolean;
-        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    title?: string;
+    caseStudies?: Array<{
+      client?: string;
+      services?: string;
+      industry?: string;
+      location?: string;
+      image?: {
+        asset?: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        caption?: string;
+        _type: "image";
       };
-      hotspot?: SanityImageHotspot;
-      crop?: SanityImageCrop;
-      caption?: string;
-      _type: "image";
-    };
+      description?: string;
+      _type: "caseStudies";
+      _key: string;
+    }>;
     video: null;
   } | {
     _key: string;
     _type: "doublePortrait";
+    title?: string;
     leftImage?: {
       asset?: {
         _ref: string;
@@ -544,6 +847,7 @@ export type HOME_QUERYResult = {
   } | {
     _key: string;
     _type: "fullBleed";
+    title?: string;
     image?: {
       asset?: {
         _ref: string;
@@ -561,6 +865,7 @@ export type HOME_QUERYResult = {
   } | {
     _key: string;
     _type: "imageLargeLeft";
+    title?: string;
     leftImage?: {
       asset?: {
         _ref: string;
@@ -589,6 +894,7 @@ export type HOME_QUERYResult = {
   } | {
     _key: string;
     _type: "imageLargeRight";
+    title?: string;
     leftImage?: {
       asset?: {
         _ref: string;
@@ -617,6 +923,7 @@ export type HOME_QUERYResult = {
   } | {
     _key: string;
     _type: "landingModule";
+    title?: string;
     image?: {
       asset?: {
         _ref: string;
@@ -637,6 +944,7 @@ export type HOME_QUERYResult = {
   } | {
     _key: string;
     _type: "landscape";
+    title?: string;
     image?: {
       asset?: {
         _ref: string;
@@ -653,6 +961,7 @@ export type HOME_QUERYResult = {
   } | {
     _key: string;
     _type: "largeImage";
+    title?: string;
     image?: {
       asset?: {
         _ref: string;
@@ -676,24 +985,30 @@ export type HOME_QUERYResult = {
   } | {
     _key: string;
     _type: "offeringsModule";
-    service?: string;
-    image?: {
-      asset?: {
-        _ref: string;
-        _type: "reference";
-        _weak?: boolean;
-        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    title?: string;
+    services?: Array<{
+      name?: string;
+      image?: {
+        asset?: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        caption?: string;
+        _type: "image";
       };
-      hotspot?: SanityImageHotspot;
-      crop?: SanityImageCrop;
-      caption?: string;
-      _type: "image";
-    };
-    description?: string;
+      description?: string;
+      _type: "service";
+      _key: string;
+    }>;
     video: null;
   } | {
     _key: string;
     _type: "singlePortrait";
+    title?: string;
     image?: {
       asset?: {
         _ref: string;
@@ -710,6 +1025,7 @@ export type HOME_QUERYResult = {
   } | {
     _key: string;
     _type: "videoCaseStudy";
+    title?: string;
     projectName?: string;
     description?: string;
     client?: string;
@@ -721,23 +1037,14 @@ export type HOME_QUERYResult = {
       } | null;
     } | null;
   }> | null;
-  mainImage?: {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    _type: "image";
-  };
+  services: null;
 } | null;
 
 // Query TypeMap
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    "\n  *[_type == \"page\" && slug.current == \"home\"][0]{\n    ...,\n    content[] {\n      _key,\n      _type,\n      ...,\n      video {\n        asset -> { url }\n      }\n    }\n  }\n": HOME_QUERYResult;
+    "\n    *[_type == \"page\" && slug.current == \"home\"][0]{\n    ...,\n    content[] {\n      _key,\n      _type,\n      ...,\n      video {\n        asset -> { url }\n      },\n      services[] { \n        name,\n        description,\n        image {\n          asset -> { url },\n          caption\n        }\n      },\n      caseStudies[] {\n        client,\n        services,\n        industry,\n        location,\n        image {\n          asset -> { url },\n          caption\n        }\n      }\n    }\n  }\n": HOME_QUERYResult;
+    "\n  *[_type == \"page\" && slug.current == $slug][0]{\n    ...,\n    content[] {\n      _key,\n      _type,\n      ...,\n      video {\n        asset -> { url }\n      }\n    },\n    services[] { \n        name,\n        \"imageUrl\": image.asset->url,\n        description\n      }\n  }\n  ": QueryResult;
   }
 }

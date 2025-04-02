@@ -7,41 +7,40 @@ type caseStudyProps = Extract<
   { _type: "caseStudy" }
 >;
 
-export function CaseStudy({
-  client,
-  services,
-  industry,
-  location,
-  image,
-}: caseStudyProps) {
+export function CaseStudy({ caseStudies }: caseStudyProps) {
+  if (!Array.isArray(caseStudies) || caseStudies.length === 0) return null;
   return (
     <section>
-      {image ? (
-        <Image
-          src={urlFor(image).url()}
-          width={1600}
-          height={800}
-          alt={image.caption || ""}
-        />
-      ) : null}
-      <div>
-        <div>
-          <h3>Client</h3>
-          <p>{client}</p>
+      {caseStudies.map((caseStudy) => (
+        <div key={caseStudy.client}>
+          <div>
+            <div>
+              <h2>Client</h2>
+              <p>{caseStudy.client}</p>
+            </div>
+            <div>
+              <h2>Services</h2>
+              <p>{caseStudy.services}</p>
+            </div>
+            <div>
+              <h2>industry</h2>
+              <p>{caseStudy.industry}</p>
+            </div>
+            <div>
+              <h2>location</h2>
+              <p>{caseStudy.location}</p>
+            </div>
+          </div>
+          {caseStudy.image?.asset?.url && (
+            <Image
+              src={urlFor(caseStudy.image).url()}
+              width={1600}
+              height={800}
+              alt={caseStudy.image.caption || ""}
+            />
+          )}
         </div>
-        <div>
-          <h3>Services</h3>
-          <p>{services}</p>
-        </div>
-        <div>
-          <h3>Industry</h3>
-          <p>{industry}</p>
-        </div>
-        <div>
-          <h3>Location</h3>
-          <p>{location}</p>
-        </div>
-      </div>
+      ))}
     </section>
   );
 }

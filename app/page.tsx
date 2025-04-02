@@ -10,5 +10,7 @@ export default async function Home() {
     notFound();
   }
 
+  console.log("Page data:", page); // Log the fetched page data
+
   return page?.content ? <PageBuilder content={page.content} /> : null;
 }

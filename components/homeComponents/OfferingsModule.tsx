@@ -7,30 +7,27 @@ type offeringsModuleProps = Extract<
   { _type: "offeringsModule" }
 >;
 
-export function OfferingsModule({
-  service,
-  image,
-  description,
-}: offeringsModuleProps) {
+export function OfferingsModule({ services }: offeringsModuleProps) {
+  if (!Array.isArray(services) || services.length === 0) return null;
   return (
     <section>
       <div>
-        <div>
-          <h1>Services</h1>
+        <h1>Services</h1>
+      </div>
+      {services.map((service) => (
+        <div key={service.name}>
+          <h2>{service.name}</h2>
+          <p>{service.description}</p>
+          {service.image?.asset?.url && (
+            <Image
+              src={urlFor(service.image).url()}
+              width={1600}
+              height={800}
+              alt={service.image.caption || ""}
+            />
+          )}
         </div>
-        <h2>{service}</h2>
-      </div>
-      <div>
-        <p>{description}</p>
-        {image ? (
-          <Image
-            src={urlFor(image).url()}
-            width={1600}
-            height={800}
-            alt={image.caption || ""}
-          />
-        ) : null}
-      </div>
+      ))}
     </section>
   );
 }

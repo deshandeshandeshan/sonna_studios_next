@@ -1,3 +1,4 @@
+import { PageBuilder } from "@/components/PageBuilder";
 import { client } from "@/sanity/sanity-utils";
 import { notFound } from "next/navigation";
 
@@ -13,11 +14,8 @@ export default async function Page(props: PageProps) {
   if (!page) {
     notFound(); // Returns a 404 page if no content is found
   }
-  console.log(page); // Log the fetched page data for debugging
 
-  return (
-    <div>
-      <h1>{page.title}</h1>
-    </div>
-  );
+  console.log("Page data:", page); // Log the fetched page data
+
+  return page?.content ? <PageBuilder content={page.content} /> : null;
 }
