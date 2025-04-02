@@ -6,6 +6,11 @@ export const landingModuleType = defineType({
   type: "object",
   fields: [
     defineField({
+      name: "title",
+      title: "Module Title",
+      type: "string",
+    }),
+    defineField({
       name: "image",
       type: "image",
       options: {

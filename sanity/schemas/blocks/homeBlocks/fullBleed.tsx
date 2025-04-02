@@ -6,6 +6,11 @@ export const fullBleedType = defineType({
   type: "object",
   fields: [
     defineField({
+      name: "title",
+      title: "Module Title",
+      type: "string",
+    }),
+    defineField({
       name: "image",
       type: "image",
       options: {
@@ -20,7 +25,7 @@ export const fullBleedType = defineType({
     }),
     defineField({
       name: "text",
-      type: "string",
+      type: "text",
     }),
   ],
   icon: BlockContentIcon,

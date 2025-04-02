@@ -7,7 +7,9 @@ type landingModuleProps = Extract<
   { _type: "landingModule" }
 >;
 
-export function LandingModule({ image }: landingModuleProps) {
+export function LandingModule({ image, video }: landingModuleProps) {
+  const videoUrl = video?.asset?.url ?? "";
+
   return (
     <section>
       <div>
@@ -17,14 +19,26 @@ export function LandingModule({ image }: landingModuleProps) {
           Photography & Videography
         </h1>
       </div>
-      {image ? (
-        <Image
-          src={urlFor(image).url()}
-          width={1000}
-          height={500}
-          alt={image.caption || ""}
-        />
-      ) : null}
+      <div>
+        {image ? (
+          <Image
+            src={urlFor(image).url()}
+            width={1000}
+            height={500}
+            alt={image.caption || ""}
+          />
+        ) : (
+          <p>No image available</p>
+        )}
+        {videoUrl ? (
+          <video controls width="600">
+            <source src={videoUrl} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        ) : (
+          <p>No video available</p>
+        )}
+      </div>
     </section>
   );
 }

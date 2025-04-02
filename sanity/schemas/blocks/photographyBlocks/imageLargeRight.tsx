@@ -6,6 +6,11 @@ export const imageLargeRightType = defineType({
   type: "object",
   fields: [
     defineField({
+      name: "title",
+      title: "Module Title",
+      type: "string",
+    }),
+    defineField({
       name: "leftImage",
       type: "image",
       options: {

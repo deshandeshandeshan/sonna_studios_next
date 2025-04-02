@@ -6,6 +6,11 @@ export const brandModuleType = defineType({
   type: "object",
   fields: [
     defineField({
+      name: "title",
+      title: "Module Title",
+      type: "string",
+    }),
+    defineField({
       name: "clientName",
       type: "string",
     }),
@@ -18,13 +23,13 @@ export const brandModuleType = defineType({
       fields: [
         defineField({
           name: "caption",
-          type: "string",
+          type: "text",
         }),
       ],
     }),
     defineField({
       name: "text",
-      type: "string",
+      type: "text",
     }),
   ],
   icon: BlockContentIcon,

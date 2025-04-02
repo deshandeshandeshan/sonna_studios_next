@@ -202,7 +202,7 @@
             "value": "videoCaseStudy"
           }
         },
-        "title": {
+        "projectName": {
           "type": "objectAttribute",
           "value": {
             "type": "string"
@@ -223,14 +223,14 @@
           },
           "optional": true
         },
-        "Industry": {
+        "industry": {
           "type": "objectAttribute",
           "value": {
             "type": "string"
           },
           "optional": true
         },
-        "Location": {
+        "location": {
           "type": "objectAttribute",
           "value": {
             "type": "string"

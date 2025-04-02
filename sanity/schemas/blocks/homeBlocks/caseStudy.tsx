@@ -6,6 +6,11 @@ export const caseStudyType = defineType({
   type: "object",
   fields: [
     defineField({
+      name: "title",
+      title: "Module Title",
+      type: "string",
+    }),
+    defineField({
       name: "client",
       type: "string",
     }),

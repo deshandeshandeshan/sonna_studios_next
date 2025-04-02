@@ -6,26 +6,46 @@ export const offeringsModuleType = defineType({
   type: "object",
   fields: [
     defineField({
-      name: "service",
+      name: "title",
+      title: "Module Title",
       type: "string",
     }),
-    defineField({
-      name: "image",
-      type: "image",
-      options: {
-        hotspot: true,
-      },
-      fields: [
-        defineField({
-          name: "caption",
-          type: "string",
-        }),
+    {
+      name: "services",
+      type: "array",
+      title: "Services",
+      of: [
+        {
+          type: "object",
+          name: "service",
+          title: "Service",
+          fields: [
+            {
+              name: "name",
+              type: "string",
+              title: "Service Name",
+            },
+            {
+              name: "image",
+              type: "image",
+              title: "Service Image",
+              options: { hotspot: true },
+              fields: [
+                defineField({
+                  name: "caption",
+                  type: "string",
+                }),
+              ],
+            },
+            {
+              name: "description",
+              type: "text",
+              title: "Service Description",
+            },
+          ],
+        },
       ],
-    }),
-    defineField({
-      name: "description",
-      type: "string",
-    }),
+    },
   ],
   icon: BlockContentIcon,
   preview: {

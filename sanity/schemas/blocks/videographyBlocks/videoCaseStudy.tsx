@@ -7,6 +7,11 @@ export const videoCaseStudyType = defineType({
   fields: [
     defineField({
       name: "title",
+      title: "Module Title",
+      type: "string",
+    }),
+    defineField({
+      name: "projectName",
       type: "string",
     }),
     defineField({
@@ -18,11 +23,11 @@ export const videoCaseStudyType = defineType({
       type: "string",
     }),
     defineField({
-      name: "Industry",
+      name: "industry",
       type: "string",
     }),
     defineField({
-      name: "Location",
+      name: "location",
       type: "string",
     }),
     defineField({

@@ -48,11 +48,11 @@ export type Geopoint = {
 
 export type VideoCaseStudy = {
   _type: "videoCaseStudy";
-  title?: string;
+  projectName?: string;
   description?: string;
   client?: string;
-  Industry?: string;
-  Location?: string;
+  industry?: string;
+  location?: string;
   video?: {
     asset?: {
       _ref: string;
@@ -466,7 +466,7 @@ export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: sanity/lib/queries.tsx
 // Variable: HOME_QUERY
-// Query: *[_type == "page" && slug.current == "home"][0]
+// Query: *[_type == "page" && slug.current == "home"][0]{    ...,    content[] {      _key,      _type,      ...,      video {        asset -> { url }      }    }  }
 export type HOME_QUERYResult = {
   _id: string;
   _type: "page";
@@ -475,33 +475,252 @@ export type HOME_QUERYResult = {
   _rev: string;
   title?: string;
   slug?: Slug;
-  content?: Array<{
+  content: Array<{
     _key: string;
-  } & BrandModule | {
+    _type: "brandModule";
+    clientName?: string;
+    image?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      caption?: string;
+      _type: "image";
+    };
+    text?: string;
+    video: null;
+  } | {
     _key: string;
-  } & CaseStudy | {
+    _type: "caseStudy";
+    client?: string;
+    services?: string;
+    industry?: string;
+    location?: string;
+    image?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      caption?: string;
+      _type: "image";
+    };
+    video: null;
+  } | {
     _key: string;
-  } & DoublePortrait | {
+    _type: "doublePortrait";
+    leftImage?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      caption?: string;
+      _type: "image";
+    };
+    rightImage?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      caption?: string;
+      _type: "image";
+    };
+    video: null;
+  } | {
     _key: string;
-  } & FullBleed | {
+    _type: "fullBleed";
+    image?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      caption?: string;
+      _type: "image";
+    };
+    text?: string;
+    video: null;
+  } | {
     _key: string;
-  } & ImageLargeLeft | {
+    _type: "imageLargeLeft";
+    leftImage?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      caption?: string;
+      _type: "image";
+    };
+    rightImage?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      caption?: string;
+      _type: "image";
+    };
+    video: null;
+  } | {
     _key: string;
-  } & ImageLargeRight | {
+    _type: "imageLargeRight";
+    leftImage?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      caption?: string;
+      _type: "image";
+    };
+    rightImage?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      caption?: string;
+      _type: "image";
+    };
+    video: null;
+  } | {
     _key: string;
-  } & LandingModule | {
+    _type: "landingModule";
+    image?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      caption?: string;
+      _type: "image";
+    };
+    video: {
+      asset: {
+        url: string | null;
+      } | null;
+    } | null;
+  } | {
     _key: string;
-  } & Landscape | {
+    _type: "landscape";
+    image?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      caption?: string;
+      _type: "image";
+    };
+    video: null;
+  } | {
     _key: string;
-  } & LargeImage | {
+    _type: "largeImage";
+    image?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      caption?: string;
+      _type: "image";
+    };
+    text?: string;
+    video: null;
+  } | {
     _key: string;
-  } & LargeText | {
+    _type: "largeText";
+    title?: string;
+    text?: string;
+    video: null;
+  } | {
     _key: string;
-  } & OfferingsModule | {
+    _type: "offeringsModule";
+    service?: string;
+    image?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      caption?: string;
+      _type: "image";
+    };
+    description?: string;
+    video: null;
+  } | {
     _key: string;
-  } & SinglePortrait | {
+    _type: "singlePortrait";
+    image?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      caption?: string;
+      _type: "image";
+    };
+    video: null;
+  } | {
     _key: string;
-  } & VideoCaseStudy>;
+    _type: "videoCaseStudy";
+    projectName?: string;
+    description?: string;
+    client?: string;
+    industry?: string;
+    location?: string;
+    video: {
+      asset: {
+        url: string | null;
+      } | null;
+    } | null;
+  }> | null;
   mainImage?: {
     asset?: {
       _ref: string;
@@ -519,6 +738,6 @@ export type HOME_QUERYResult = {
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    "*[_type == \"page\" && slug.current == \"home\"][0]": HOME_QUERYResult;
+    "\n  *[_type == \"page\" && slug.current == \"home\"][0]{\n    ...,\n    content[] {\n      _key,\n      _type,\n      ...,\n      video {\n        asset -> { url }\n      }\n    }\n  }\n": HOME_QUERYResult;
   }
 }

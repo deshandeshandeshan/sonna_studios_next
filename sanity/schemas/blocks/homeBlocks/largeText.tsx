@@ -7,6 +7,7 @@ export const largeTextType = defineType({
   fields: [
     defineField({
       name: "title",
+      title: "Module Title",
       type: "string",
     }),
     defineField({
