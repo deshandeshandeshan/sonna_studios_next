@@ -2,10 +2,9 @@ import type { StructureResolver } from "sanity/structure";
 
 export const structure: StructureResolver = (S) =>
   S.list()
-    .title("SONNA Studios")
+    .title("Pages")
     .items([
-      S.documentTypeListItem("page").title("Pages"),
-      ...S.documentTypeListItems().filter(
-        (item) => item.getId() && !["page"].includes(item.getId()!)
-      ),
+      S.listItem()
+        .title("Pages")
+        .child(S.documentTypeList("page").title("Pages")),
     ]);

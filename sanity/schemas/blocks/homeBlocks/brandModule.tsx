@@ -1,0 +1,64 @@
+import { BlockContentIcon } from "@sanity/icons";
+import { defineField, defineType } from "sanity";
+
+export const brandModuleType = defineType({
+  name: "brandModule",
+  type: "object",
+  fields: [
+    defineField({
+      name: "title",
+      title: "Module Title",
+      type: "string",
+    }),
+    {
+      name: "brands",
+      type: "array",
+      title: "Brands",
+      of: [
+        {
+          type: "object",
+          name: "brands",
+          title: "Brands",
+          fields: [
+            {
+              name: "name",
+              type: "string",
+              title: "Brand Name",
+            },
+            {
+              name: "image",
+              type: "image",
+              title: "Brand Image",
+              options: { hotspot: true },
+              fields: [
+                defineField({
+                  name: "caption",
+                  type: "string",
+                }),
+              ],
+            },
+            {
+              name: "description",
+              type: "text",
+              title: "Description",
+            },
+          ],
+        },
+      ],
+    },
+  ],
+  icon: BlockContentIcon,
+  preview: {
+    select: {
+      title: "title",
+      media: "image",
+    },
+    prepare({ title, media }) {
+      return {
+        title: title,
+        subtitle: "Brand Module",
+        media: media ?? BlockContentIcon,
+      };
+    },
+  },
+});
