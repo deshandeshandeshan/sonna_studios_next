@@ -27,12 +27,20 @@ export const HOME_QUERY = defineQuery(`
           asset -> { url },
           caption
         }
-      }
+      },
+      brands[] {
+        name,
+        image {
+          asset -> { url },
+          caption
+        },
+        description,
+      },
     }
   }
 `);
 
-export const query = defineQuery(`
+export const PAGE_QUERY = defineQuery(`
   *[_type == "page" && slug.current == $slug][0]{
     ...,
     content[] {
@@ -41,12 +49,25 @@ export const query = defineQuery(`
       ...,
       video {
         asset -> { url }
+      },
+      services[] { 
+        name,
+        description,
+        image {
+          asset -> { url },
+          caption
+        }
+      },
+      caseStudies[] {
+        client,
+        services,
+        industry,
+        location,
+        image {
+          asset -> { url },
+          caption
+        }
       }
     },
-    services[] { 
-        name,
-        "imageUrl": image.asset->url,
-        description
-      }
   }
   `);

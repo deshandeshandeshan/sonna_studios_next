@@ -1,4 +1,5 @@
 import { PageBuilder } from "@/components/PageBuilder";
+import { PAGE_QUERY } from "@/sanity/lib/queries";
 import { client } from "@/sanity/sanity-utils";
 import { notFound } from "next/navigation";
 
@@ -8,11 +9,10 @@ interface PageProps {
 
 export default async function Page(props: PageProps) {
   const params = await props.params;
-  const query = `*[_type == "page" && slug.current == $slug][0]`;
-  const page = await client.fetch(query, { slug: params.slug });
+  const page = await client.fetch(PAGE_QUERY, { slug: params.slug });
 
   if (!page) {
-    notFound(); // Returns a 404 page if no content is found
+    notFound();
   }
 
   console.log("Page data:", page); // Log the fetched page data

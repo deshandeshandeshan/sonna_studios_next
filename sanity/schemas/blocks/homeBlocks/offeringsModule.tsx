@@ -11,14 +11,14 @@ export const offeringsModuleType = defineType({
       type: "string",
     }),
     {
-      name: "services",
+      name: "service",
       type: "array",
       title: "Services",
       of: [
         {
           type: "object",
-          name: "service",
-          title: "Service",
+          name: "services",
+          title: "Services",
           fields: [
             {
               name: "name",

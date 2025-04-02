@@ -10,27 +10,42 @@ export const brandModuleType = defineType({
       title: "Module Title",
       type: "string",
     }),
-    defineField({
-      name: "clientName",
-      type: "string",
-    }),
-    defineField({
-      name: "image",
-      type: "image",
-      options: {
-        hotspot: true,
-      },
-      fields: [
-        defineField({
-          name: "caption",
-          type: "text",
-        }),
+    {
+      name: "brands",
+      type: "array",
+      title: "Brands",
+      of: [
+        {
+          type: "object",
+          name: "brands",
+          title: "Brands",
+          fields: [
+            {
+              name: "name",
+              type: "string",
+              title: "Brand Name",
+            },
+            {
+              name: "image",
+              type: "image",
+              title: "Brand Image",
+              options: { hotspot: true },
+              fields: [
+                defineField({
+                  name: "caption",
+                  type: "string",
+                }),
+              ],
+            },
+            {
+              name: "description",
+              type: "text",
+              title: "Description",
+            },
+          ],
+        },
       ],
-    }),
-    defineField({
-      name: "text",
-      type: "text",
-    }),
+    },
   ],
   icon: BlockContentIcon,
   preview: {
