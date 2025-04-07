@@ -55,6 +55,11 @@ export const pageType = defineType({
               title: "Videography",
               of: ["videoCaseStudy"],
             },
+            {
+              name: "offerings",
+              title: "Offerings",
+              of: ["fullScreenHeaderImage", "servicesBlock"],
+            },
           ],
         },
       },
