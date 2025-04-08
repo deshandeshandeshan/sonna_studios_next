@@ -16,11 +16,13 @@ import { singlePortraitType } from "./blocks/photographyBlocks/singlePortrait";
 import { videoCaseStudyType } from "./blocks/videographyBlocks/videoCaseStudy";
 import { fullScreenHeaderImageType } from "./blocks/capabilitiesBlocks/fullScreenHeaderImage";
 import { servicesBlockType } from "./blocks/capabilitiesBlocks/servicesBlock";
+import { siteSettingsType } from "./siteSettings";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
     pageBuilderType,
     pageType,
+    siteSettingsType,
 
     fullBleedType,
     largeImageType,

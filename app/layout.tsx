@@ -3,6 +3,7 @@ import "./globals.css";
 
 import Navbar from "@/components/Nav";
 import { getNavLinks } from "@/lib/getNavLinks";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "SONNA STUDIOS",
@@ -21,6 +22,7 @@ export default async function RootLayout({
       <body>
         <Navbar links={navLinks} />
         {children}
+        <Footer />
       </body>
     </html>
   );
