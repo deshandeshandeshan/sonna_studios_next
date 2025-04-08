@@ -33,12 +33,12 @@ export const servicesBlockType = defineType({
               ],
             },
             {
-              name: "Service",
+              name: "name",
               type: "string",
-              title: "Client",
+              title: "Service Name",
             },
             {
-              name: "serviceSpecialties",
+              name: "specialties",
               type: "text",
               title: "Service Specialties",
             },
