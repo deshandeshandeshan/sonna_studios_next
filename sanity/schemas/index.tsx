@@ -14,6 +14,8 @@ import { imageLargeRightType } from "./blocks/photographyBlocks/imageLargeRight"
 import { landscapeType } from "./blocks/photographyBlocks/landscape";
 import { singlePortraitType } from "./blocks/photographyBlocks/singlePortrait";
 import { videoCaseStudyType } from "./blocks/videographyBlocks/videoCaseStudy";
+import { fullScreenHeaderImageType } from "./blocks/capabilitiesBlocks/fullScreenHeaderImage";
+import { servicesBlockType } from "./blocks/capabilitiesBlocks/servicesBlock";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -33,5 +35,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     landscapeType,
     singlePortraitType,
     videoCaseStudyType,
+    fullScreenHeaderImageType,
+    servicesBlockType,
   ],
 };
