@@ -12,6 +12,8 @@ import { ImageLargeRight } from "./photographyComponents/ImageLargeRight";
 import { Landscape } from "./photographyComponents/Landscape";
 import { SinglePortrait } from "./photographyComponents/SinglePortrait";
 import { VideoCaseStudy } from "./videographyComponents/VideoCaseStudy";
+import { ServicesBlock } from "./capabilitiesComponents/ServicesBlock";
+import { FullScreenHeaderImage } from "./capabilitiesComponents/FullScreenHeaderImage";
 
 type PageBuilderProps = {
   content: NonNullable<HOME_QUERYResult>["content"];
@@ -52,6 +54,10 @@ export function PageBuilder({ content }: PageBuilderProps) {
             return <SinglePortrait key={block._key} {...block} />;
           case "videoCaseStudy":
             return <VideoCaseStudy key={block._key} {...block} />;
+          case "servicesBlock":
+            return <ServicesBlock key={block._key} {...block} />;
+          case "fullScreenHeaderImage":
+            return <FullScreenHeaderImage key={block._key} {...block} />;
           // Add more cases for different block types as needed
           default:
             return <div key={block._key}>Block not found: {block._type}</div>;

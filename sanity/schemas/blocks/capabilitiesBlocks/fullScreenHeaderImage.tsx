@@ -23,10 +23,6 @@ export const fullScreenHeaderImageType = defineType({
         }),
       ],
     }),
-    defineField({
-      name: "text",
-      type: "text",
-    }),
   ],
   icon: BlockContentIcon,
   preview: {

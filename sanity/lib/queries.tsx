@@ -36,6 +36,17 @@ export const HOME_QUERY = defineQuery(`
         },
         description,
       },
+        capabilities[] {
+          _type,
+          ...,
+          image {
+            asset -> { url },
+            caption
+          },
+          name,
+          specialties,
+          description,
+      }
     }
   }
 `);
@@ -67,6 +78,25 @@ export const PAGE_QUERY = defineQuery(`
           asset -> { url },
           caption
         }
+      },
+      brands[] {
+        name,
+        image {
+          asset -> { url },
+          caption
+        },
+        description,
+      },
+        capabilities[] {
+          _type,
+          ...,
+          image {
+            asset -> { url },
+            caption
+          },
+          name,
+          specialties,
+          description,
       }
     },
   }

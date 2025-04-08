@@ -11,19 +11,19 @@ export const servicesBlockType = defineType({
       type: "string",
     }),
     {
-      name: "servicesBlock",
+      name: "capabilities",
       type: "array",
-      title: "Services",
+      title: "Capabilities",
       of: [
         {
           type: "object",
-          name: "services",
-          title: "Services",
+          name: "capabilities",
+          title: "Capabilities",
           fields: [
             {
               name: "image",
               type: "image",
-              title: "Service Image",
+              title: "Image",
               options: { hotspot: true },
               fields: [
                 defineField({

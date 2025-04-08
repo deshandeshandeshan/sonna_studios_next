@@ -7,26 +7,26 @@ type servicesBlockProps = Extract<
   { _type: "servicesBlock" }
 >;
 
-export function OfferingsModule({ services }: servicesBlockProps) {
-  if (!Array.isArray(services) || services.length === 0) return null;
+export function ServicesBlock({ capabilities }: servicesBlockProps) {
+  if (!Array.isArray(capabilities) || capabilities.length === 0) return null;
   return (
     <section>
       <div>
         <h1>Services</h1>
       </div>
-      {services.map((service) => (
-        <div key={service.name}>
-          {service.image?.asset?.url && (
+      {capabilities.map((capability) => (
+        <div key={capability.name}>
+          {capability.image?.asset?.url && (
             <Image
-              src={urlFor(service.image).url()}
+              src={urlFor(capability.image).url()}
               width={1600}
               height={800}
-              alt={service.image.caption || ""}
+              alt={capability.image.caption || ""}
             />
           )}
-          <h2>{service.name}</h2>
-          <p>{service.description}</p>
-          <h3>{service.specialties}</h3>
+          <h2>{capability.name}</h2>
+          <p>{capability.description}</p>
+          <h3>{capability.specialties}</h3>
         </div>
       ))}
     </section>
