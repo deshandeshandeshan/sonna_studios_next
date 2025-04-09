@@ -101,3 +101,10 @@ export const PAGE_QUERY = defineQuery(`
     },
   }
   `);
+
+export const NAVIGATION_QUERY = defineQuery(`
+  *[_type == "page" && defined(slug.current)]{
+    "title": title,
+    "slug": slug.current
+  }
+`);

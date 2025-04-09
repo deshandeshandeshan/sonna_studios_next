@@ -86,7 +86,6 @@ export type FullScreenHeaderImage = {
     caption?: string;
     _type: "image";
   };
-  text?: string;
 };
 
 export type VideoCaseStudy = {
@@ -369,6 +368,53 @@ export type FullBleed = {
   text?: string;
 };
 
+export type FooterSettings = {
+  _id: string;
+  _type: "footerSettings";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  image?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    caption?: string;
+    _type: "image";
+  };
+  socialLinks?: Array<{
+    platform?: string;
+    url?: string;
+    _type: "socialLink";
+    _key: string;
+  }>;
+  copyright?: string;
+};
+
+export type NavSettings = {
+  _id: string;
+  _type: "navSettings";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  image?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    caption?: string;
+    _type: "image";
+  };
+};
+
 export type Page = {
   _id: string;
   _type: "page";
@@ -527,7 +573,7 @@ export type SanityImageMetadata = {
   isOpaque?: boolean;
 };
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | Geopoint | ServicesBlock | FullScreenHeaderImage | VideoCaseStudy | SinglePortrait | Landscape | ImageLargeRight | ImageLargeLeft | DoublePortrait | OfferingsModule | LandingModule | CaseStudy | BrandModule | LargeText | LargeImage | FullBleed | Page | Slug | PageBuilder | SanityFileAsset | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata;
+export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | Geopoint | ServicesBlock | FullScreenHeaderImage | VideoCaseStudy | SinglePortrait | Landscape | ImageLargeRight | ImageLargeLeft | DoublePortrait | OfferingsModule | LandingModule | CaseStudy | BrandModule | LargeText | LargeImage | FullBleed | FooterSettings | NavSettings | Page | Slug | PageBuilder | SanityFileAsset | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: sanity/lib/queries.tsx
 // Variable: HOME_QUERY
@@ -649,7 +695,6 @@ export type HOME_QUERYResult = {
       caption?: string;
       _type: "image";
     };
-    text?: string;
     video: null;
     services: null;
     caseStudies: null;
@@ -1008,7 +1053,6 @@ export type PAGE_QUERYResult = {
       caption?: string;
       _type: "image";
     };
-    text?: string;
     video: null;
     services: null;
     caseStudies: null;
@@ -1248,6 +1292,12 @@ export type PAGE_QUERYResult = {
     capabilities: null;
   }> | null;
 } | null;
+// Variable: NAVIGATION_QUERY
+// Query: *[_type == "page" && defined(slug.current)]{    "title": title,    "slug": slug.current  }
+export type NAVIGATION_QUERYResult = Array<{
+  title: string | null;
+  slug: string | null;
+}>;
 
 // Query TypeMap
 import "@sanity/client";
@@ -1255,5 +1305,6 @@ declare module "@sanity/client" {
   interface SanityQueries {
     "\n    *[_type == \"page\" && slug.current == \"home\"][0]{\n    ...,\n    content[] {\n      _key,\n      _type,\n      ...,\n      video {\n        asset -> { url }\n      },\n      services[] { \n        name,\n        description,\n        image {\n          asset -> { url },\n          caption\n        }\n      },\n      caseStudies[] {\n        client,\n        services,\n        industry,\n        location,\n        image {\n          asset -> { url },\n          caption\n        }\n      },\n      brands[] {\n        name,\n        image {\n          asset -> { url },\n          caption\n        },\n        description,\n      },\n        capabilities[] {\n          _type,\n          ...,\n          image {\n            asset -> { url },\n            caption\n          },\n          name,\n          specialties,\n          description,\n      }\n    }\n  }\n": HOME_QUERYResult;
     "\n  *[_type == \"page\" && slug.current == $slug][0]{\n    ...,\n    content[] {\n      _key,\n      _type,\n      ...,\n      video {\n        asset -> { url }\n      },\n      services[] { \n        name,\n        description,\n        image {\n          asset -> { url },\n          caption\n        }\n      },\n      caseStudies[] {\n        client,\n        services,\n        industry,\n        location,\n        image {\n          asset -> { url },\n          caption\n        }\n      },\n      brands[] {\n        name,\n        image {\n          asset -> { url },\n          caption\n        },\n        description,\n      },\n        capabilities[] {\n          _type,\n          ...,\n          image {\n            asset -> { url },\n            caption\n          },\n          name,\n          specialties,\n          description,\n      }\n    },\n  }\n  ": PAGE_QUERYResult;
+    "\n  *[_type == \"page\" && defined(slug.current)]{\n    \"title\": title,\n    \"slug\": slug.current\n  }\n": NAVIGATION_QUERYResult;
   }
 }
