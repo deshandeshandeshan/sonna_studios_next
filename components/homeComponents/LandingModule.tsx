@@ -14,7 +14,7 @@ export function LandingModule({ image, video }: landingModuleProps) {
   return (
     <section className="landing-module">
       <div className="landing-module-content">
-        <h1 className="landing-module-title">
+        <h1 className="landing-module-title desktop-type-heading">
           Sonna Studios
           <br />
           Photography & Videography

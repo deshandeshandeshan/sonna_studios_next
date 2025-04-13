@@ -1,0 +1,28 @@
+.footer-container {
+  padding: 240px 16px 0;
+}
+
+.footer-contact-heading {
+  grid-column: 1 / 1;
+  grid-row: 1 / 2;
+}
+
+.footer-contact {
+  grid-column: 2 / 6;
+  grid-row: 1 / 2;
+}
+
+.footer-timezone {
+  grid-column: 2 / 6;
+  grid-row: 2 / 3;
+}
+
+.footer-site-credits {
+  grid-column: 2 / 6;
+  grid-row: 3 / 4;
+}
+
+.footer-privacy-policy {
+  grid-column: 2 / 6;
+  grid-row: 4 / 5;
+}

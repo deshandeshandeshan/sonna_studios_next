@@ -14,6 +14,7 @@ import { SinglePortrait } from "./photographyComponents/SinglePortrait";
 import { VideoCaseStudy } from "./videographyComponents/VideoCaseStudy";
 import { ServicesBlock } from "./capabilitiesComponents/ServicesBlock";
 import { FullScreenHeaderImage } from "./capabilitiesComponents/FullScreenHeaderImage";
+import "./PageBuilder.css";
 
 type PageBuilderProps = {
   content: NonNullable<HOME_QUERYResult>["content"];
@@ -25,7 +26,7 @@ export function PageBuilder({ content }: PageBuilderProps) {
   }
 
   return (
-    <div>
+    <main className="page-builder">
       {content.map((block) => {
         switch (block._type) {
           case "landingModule":
@@ -63,6 +64,6 @@ export function PageBuilder({ content }: PageBuilderProps) {
             return <div key={block._key}>Block not found: {block._type}</div>;
         }
       })}
-    </div>
+    </main>
   );
 }
