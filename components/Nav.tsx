@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import "./Nav.css";
 
 interface NavLink {
   title: string;
@@ -22,14 +23,14 @@ export default function Navbar({ links }: { links: NavLink[] }) {
   if (!isClient || routerPath.includes("/admin")) return null;
 
   return (
-    <nav className="flex gap-6 p-4">
+    <nav className="nav">
       <Link href="/">
         <Image
           src="/NavLogo.png"
           alt="Home"
           width={100}
           height={40}
-          className=""
+          className="nav-logo"
         />
       </Link>
       {links.map((link) => (

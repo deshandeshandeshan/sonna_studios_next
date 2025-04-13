@@ -1,0 +1,12 @@
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: #f9f9f9e6;
+  padding: 16px 16px;
+}
+
+.nav-logo {
+  width: 64px;
+  height: 100%;
+}

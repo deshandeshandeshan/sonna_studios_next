@@ -15,7 +15,5 @@ export default async function Page(props: PageProps) {
     notFound();
   }
 
-  console.log("Page data:", page); // Log the fetched page data
-
   return page?.content ? <PageBuilder content={page.content} /> : null;
 }
