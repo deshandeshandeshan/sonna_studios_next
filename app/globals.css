@@ -53,6 +53,10 @@ button {
   color: #414242;
 }
 
+.small-margin-bottom {
+  margin: 0 0 8px;
+}
+
 /* Paddings Mobile */
 
 .small-padding-bottom {

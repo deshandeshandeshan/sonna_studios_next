@@ -8,8 +8,10 @@
 }
 
 .large-image-img {
+  aspect-ratio: 9 / 7;
   width: 100%;
   height: auto;
+  object-fit: cover;
 }
 
 .large-image-text {

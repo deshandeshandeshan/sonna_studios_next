@@ -4,6 +4,10 @@ import { useState } from "react";
 import { urlFor } from "@/sanity/lib/image";
 import { HOME_QUERYResult } from "@/sanity/types";
 import Image from "next/image";
+import "../grid.css";
+import "./OfferingsModule.css";
+import Link from "next/link";
+import { FaArrowRight } from "react-icons/fa";
 
 type offeringsModuleProps = Extract<
   NonNullable<NonNullable<HOME_QUERYResult>["content"]>[number],
@@ -24,39 +28,39 @@ export function OfferingsModule({ services }: offeringsModuleProps) {
   if (!selectedService) return null;
 
   return (
-    <section>
-      <div>
-        <h1>Services</h1>
-        <div className="">
-          {validServices.map((service) => (
-            <button
-              key={service.name}
-              onClick={() => setSelectedService(service)}
-              className={`px-4 py-2 border rounded ${
-                selectedService.name === service.name
-                  ? "text-black"
-                  : "text-grey"
-              }`}
-            >
-              {service.name}
-            </button>
-          ))}
-        </div>
+    <section className="offerings-container grid mobile-padding">
+      <h1 className="services-title mobile-type-body text-grey">Services</h1>
+      <div className="services-list-container small-padding-bottom">
+        {validServices.map((service) => (
+          <button
+            key={service.name}
+            onClick={() => setSelectedService(service)}
+            className={`small-padding-bottom mobile-type-body ${
+              selectedService.name === service.name ? "text-black" : "text-grey"
+            }`}
+          >
+            {service.name}
+          </button>
+        ))}
+        <Link href="/capabilities" className="mobile-type-body">
+          Learn more <FaArrowRight />
+        </Link>
       </div>
-
-      {/* Display selected service info */}
-      <div>
-        <h2>{selectedService.name}</h2>
-        <p>{selectedService.description}</p>
-        {selectedService.image?.asset?.url && (
-          <Image
-            src={urlFor(selectedService.image).url()}
-            width={1600}
-            height={800}
-            alt={selectedService.image.caption || ""}
-          />
-        )}
+      <div className="services-description-container ">
+        <hr className="solid-hr small-margin-bottom" />
+        <p className="services-description mobile-type-heading medium-padding-bottom">
+          {selectedService.description}
+        </p>
       </div>
+      {selectedService.image?.asset?.url && (
+        <Image
+          src={urlFor(selectedService.image).url()}
+          width={1600}
+          height={800}
+          alt={selectedService.image.caption || ""}
+          className="services-img"
+        />
+      )}
     </section>
   );
 }

@@ -4,6 +4,8 @@ import { urlFor } from "@/sanity/lib/image";
 import { HOME_QUERYResult } from "@/sanity/types";
 import Image from "next/image";
 import { useState } from "react";
+import "../grid.css";
+import "./BrandModule.css";
 
 type brandModuleProps = Extract<
   NonNullable<NonNullable<HOME_QUERYResult>["content"]>[number],
@@ -23,23 +25,28 @@ export function BrandModule({ brands }: brandModuleProps) {
   if (!selectedBrand) return null;
 
   return (
-    <section>
-      <div className="brand-module">
-        <h1>Selected Clients</h1>
-        {selectedBrand.image ? (
-          <Image
-            src={urlFor(selectedBrand.image).url()}
-            width={1600}
-            height={800}
-            alt={selectedBrand.image.caption || ""}
-          />
-        ) : null}
-        <p>{selectedBrand.description}</p>
+    <section className="brand-module grid mobile-padding">
+      <h1 className="brand-selected-clients mobile-type-body small-padding-bottom">
+        Selected Clients
+      </h1>
+      {selectedBrand.image ? (
+        <Image
+          src={urlFor(selectedBrand.image).url()}
+          width={1600}
+          height={800}
+          alt={selectedBrand.image.caption || ""}
+          className="brand-img small-padding-bottom"
+        />
+      ) : null}
+      <p className="brand-description mobile-type-body">
+        {selectedBrand.description}
+      </p>
+      <div className="brand-names">
         {validBrands.map((brand) => (
           <button
             key={brand.name}
             onClick={() => setSelectedBrand(brand)}
-            className={`${
+            className={`brand-name mobile-type-heading ${
               selectedBrand.name === brand.name ? "text-black" : "text-grey"
             }`}
           >

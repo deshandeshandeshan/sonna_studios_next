@@ -4,6 +4,8 @@ import { urlFor } from "@/sanity/lib/image";
 import { HOME_QUERYResult } from "@/sanity/types";
 import Image from "next/image";
 import { useState } from "react";
+import "../grid.css";
+import "./CaseStudy.css";
 
 type caseStudyProps = Extract<
   NonNullable<NonNullable<HOME_QUERYResult>["content"]>[number],
@@ -23,54 +25,63 @@ export function CaseStudy({ caseStudies }: caseStudyProps) {
   // If there's no valid service, don't render anything
   if (!selectedCaseStudy) return null;
   return (
-    <section>
-      {validCaseStudy.map((caseStudy) => (
-        <button
-          key={caseStudy.client}
-          onClick={() => setSelectedCaseStudy(caseStudy)}
-          className={`px-4 py-2 border rounded ${
-            selectedCaseStudy.client === caseStudy.client
-              ? "text-black"
-              : "text-grey"
-          }`}
-        >
-          {caseStudy.image && caseStudy.image.asset?.url && (
-            <Image
-              src={urlFor(caseStudy.image).url()}
-              width={300}
-              height={200}
-              alt={caseStudy.image.caption || ""}
-            />
-          )}
-        </button>
-      ))}
+    <section className="case-study-section grid mobile-padding">
+      <div className="case-study-images">
+        {validCaseStudy.map((caseStudy) => (
+          <button
+            key={caseStudy.client}
+            onClick={() => setSelectedCaseStudy(caseStudy)}
+            className={`case-study-image-selector ${
+              selectedCaseStudy.client === caseStudy.client
+                ? "img-opaque"
+                : "img-transparent"
+            }`}
+          >
+            {caseStudy.image && caseStudy.image.asset?.url && (
+              <Image
+                src={urlFor(caseStudy.image).url()}
+                width={300}
+                height={200}
+                alt={caseStudy.image.caption || ""}
+                className="case-study-img"
+              />
+            )}
+          </button>
+        ))}
+      </div>
       {selectedCaseStudy.image && selectedCaseStudy.image.asset?.url && (
         <Image
           src={urlFor(selectedCaseStudy.image).url()}
           width={300}
           height={200}
           alt={selectedCaseStudy.image.caption || ""}
+          className="case-study-img-large"
         />
       )}
-      <div key={selectedCaseStudy.client}>
-        <div>
-          <div>
-            <h2>Client</h2>
-            <p>{selectedCaseStudy.client}</p>
-          </div>
-          <div>
-            <h2>Services</h2>
-            <p>{selectedCaseStudy.services}</p>
-          </div>
-          <div>
-            <h2>industry</h2>
-            <p>{selectedCaseStudy.industry}</p>
-          </div>
-          <div>
-            <h2>location</h2>
-            <p>{selectedCaseStudy.location}</p>
-          </div>
-        </div>
+      <div className="case-study-description-container grid">
+        <h2 className="case-study-client mobile-type-body text-grey">Client</h2>
+        <p className="case-study-client-description mobile-type-sub">
+          {selectedCaseStudy.client}
+        </p>
+        <h2 className="case-study-services mobile-type-body text-grey">
+          Services
+        </h2>
+        <p className="case-study-services-description mobile-type-sub">
+          {selectedCaseStudy.services}
+        </p>
+        <h2 className="case-study-industry mobile-type-body text-grey">
+          industry
+        </h2>
+        <p className="case-study-industry-description mobile-type-sub">
+          {selectedCaseStudy.industry}
+        </p>
+
+        <h2 className="case-study-location mobile-type-body text-grey">
+          location
+        </h2>
+        <p className="case-study-location-description mobile-type-sub">
+          {selectedCaseStudy.location}
+        </p>
       </div>
     </section>
   );

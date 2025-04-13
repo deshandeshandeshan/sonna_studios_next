@@ -12,7 +12,7 @@ type largeImageProps = Extract<
 export function LargeImage({ image, text }: largeImageProps) {
   return (
     <section className="large-image-container grid">
-      <div className="large-image">
+      <div className="large-image small-padding-bottom">
         {image ? (
           <Image
             src={urlFor(image).url()}

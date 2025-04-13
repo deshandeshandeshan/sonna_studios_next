@@ -28,17 +28,13 @@ export function LandingModule({ image, video }: landingModuleProps) {
               alt={image.caption || ""}
               className="landing-module-image"
             />
-          ) : (
-            <p>No image available</p>
-          )}
+          ) : null}
           {videoUrl ? (
             <video controls width="600">
               <source src={videoUrl} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
-          ) : (
-            <p>No video available</p>
-          )}
+          ) : null}
         </div>
       </div>
     </section>
