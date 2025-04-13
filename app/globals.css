@@ -33,10 +33,24 @@ a {
   color: inherit;
 }
 
+button {
+  margin: 0;
+  background-color: transparent;
+  font-family: inherit;
+  border: none;
+  color: #414242;
+  padding: none;
+  cursor: pointer;
+}
+
 /* Text Colours */
 
 .text-grey {
   color: #808285;
+}
+
+.text-black {
+  color: #414242;
 }
 
 /* Paddings Mobile */

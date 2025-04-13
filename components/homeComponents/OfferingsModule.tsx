@@ -28,14 +28,14 @@ export function OfferingsModule({ services }: offeringsModuleProps) {
       <div>
         <h1>Services</h1>
         <div className="">
-          {services.map((service) => (
+          {validServices.map((service) => (
             <button
               key={service.name}
               onClick={() => setSelectedService(service)}
               className={`px-4 py-2 border rounded ${
                 selectedService.name === service.name
-                  ? "bg-black text-white"
-                  : "bg-white text-black"
+                  ? "text-black"
+                  : "text-grey"
               }`}
             >
               {service.name}
