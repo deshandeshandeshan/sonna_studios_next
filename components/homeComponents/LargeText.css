@@ -1,0 +1,7 @@
+.large-text-container {
+  padding: 0 16px;
+}
+
+.large-text {
+  grid-column: 1 / 7;
+}

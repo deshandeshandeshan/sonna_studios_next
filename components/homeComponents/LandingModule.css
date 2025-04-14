@@ -1,0 +1,20 @@
+.landing-module {
+}
+
+.landing-module-content {
+  position: relative;
+}
+
+.landing-module-title {
+  font-size: 32px;
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  color: #ffffff;
+}
+
+.landing-module-image {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}

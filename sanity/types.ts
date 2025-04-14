@@ -231,7 +231,7 @@ export type DoublePortrait = {
 export type OfferingsModule = {
   _type: "offeringsModule";
   title?: string;
-  service?: Array<{
+  services?: Array<{
     name?: string;
     image?: {
       asset?: {
@@ -848,26 +848,17 @@ export type HOME_QUERYResult = {
     _key: string;
     _type: "offeringsModule";
     title?: string;
-    service?: Array<{
-      name?: string;
-      image?: {
-        asset?: {
-          _ref: string;
-          _type: "reference";
-          _weak?: boolean;
-          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-        };
-        hotspot?: SanityImageHotspot;
-        crop?: SanityImageCrop;
-        caption?: string;
-        _type: "image";
-      };
-      description?: string;
-      _type: "services";
-      _key: string;
-    }>;
+    services: Array<{
+      name: string | null;
+      description: string | null;
+      image: {
+        asset: {
+          url: string | null;
+        } | null;
+        caption: string | null;
+      } | null;
+    }> | null;
     video: null;
-    services: null;
     caseStudies: null;
     brands: null;
     capabilities: null;
@@ -1206,26 +1197,17 @@ export type PAGE_QUERYResult = {
     _key: string;
     _type: "offeringsModule";
     title?: string;
-    service?: Array<{
-      name?: string;
-      image?: {
-        asset?: {
-          _ref: string;
-          _type: "reference";
-          _weak?: boolean;
-          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-        };
-        hotspot?: SanityImageHotspot;
-        crop?: SanityImageCrop;
-        caption?: string;
-        _type: "image";
-      };
-      description?: string;
-      _type: "services";
-      _key: string;
-    }>;
+    services: Array<{
+      name: string | null;
+      description: string | null;
+      image: {
+        asset: {
+          url: string | null;
+        } | null;
+        caption: string | null;
+      } | null;
+    }> | null;
     video: null;
-    services: null;
     caseStudies: null;
     brands: null;
     capabilities: null;

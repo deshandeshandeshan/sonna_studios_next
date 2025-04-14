@@ -1236,7 +1236,7 @@
           },
           "optional": true
         },
-        "service": {
+        "services": {
           "type": "objectAttribute",
           "value": {
             "type": "array",

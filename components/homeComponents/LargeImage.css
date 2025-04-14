@@ -1,0 +1,20 @@
+.large-image-container {
+  padding: 0 16px;
+}
+
+.large-image {
+  grid-column: 1 / 7;
+  grid-row: 1 / 2;
+}
+
+.large-image-img {
+  aspect-ratio: 9 / 7;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.large-image-text {
+  grid-column: 1 / 7;
+  grid-row: 2 / 3;
+}
