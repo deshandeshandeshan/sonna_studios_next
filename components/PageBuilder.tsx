@@ -1,4 +1,6 @@
 import { HOME_QUERYResult } from "@/sanity/types";
+
+// Import your components
 import { LandingModule } from "./homeComponents/LandingModule";
 import { FullBleed } from "./homeComponents/FullBleed";
 import { BrandModule } from "./homeComponents/BrandModule";
@@ -14,16 +16,19 @@ import { SinglePortrait } from "./photographyComponents/SinglePortrait";
 import { VideoCaseStudy } from "./videographyComponents/VideoCaseStudy";
 import { ServicesBlock } from "./capabilitiesComponents/ServicesBlock";
 import { FullScreenHeaderImage } from "./capabilitiesComponents/FullScreenHeaderImage";
+
 import "./PageBuilder.css";
 
+type PageBuilderBlock = NonNullable<
+  NonNullable<HOME_QUERYResult>["content"]
+>[number];
+
 type PageBuilderProps = {
-  content: NonNullable<HOME_QUERYResult>["content"];
+  content: PageBuilderBlock[];
 };
 
 export function PageBuilder({ content }: PageBuilderProps) {
-  if (!Array.isArray(content)) {
-    return null;
-  }
+  if (!Array.isArray(content)) return null;
 
   return (
     <main className="page-builder">
@@ -59,9 +64,14 @@ export function PageBuilder({ content }: PageBuilderProps) {
             return <ServicesBlock key={block._key} {...block} />;
           case "fullScreenHeaderImage":
             return <FullScreenHeaderImage key={block._key} {...block} />;
-          // Add more cases for different block types as needed
-          default:
-            return <div key={block._key}>Block not found: {block._type}</div>;
+          default: {
+            const fallbackKey =
+              (block as { _key?: string })._key ?? Math.random();
+            const fallbackType =
+              (block as { _type?: string })._type ?? "unknown";
+
+            return <div key={fallbackKey}>Unknown block: {fallbackType}</div>;
+          }
         }
       })}
     </main>
