@@ -19,6 +19,7 @@ export function LandingModule({ image, video }: landingModuleProps) {
           <br />
           Photography & Videography
         </h1>
+        <button className="landing-module-button">Make an Enquiry</button>
         <div>
           {image ? (
             <Image
