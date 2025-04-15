@@ -1,0 +1,11 @@
+.landscape-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  aspect-ratio: 7 / 5;
+}
+
+.landscape-image {
+  grid-column: 1 / 7;
+  grid-row: 1 / 2;
+}

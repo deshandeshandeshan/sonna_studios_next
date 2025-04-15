@@ -1,0 +1,11 @@
+.single-potrait-image {
+  aspect-ratio: 4 / 5;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.single-potrait-container {
+  grid-column: 1 / 7;
+  grid-row: 1 / 2;
+}

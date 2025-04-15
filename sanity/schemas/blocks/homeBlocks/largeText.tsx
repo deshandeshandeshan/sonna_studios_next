@@ -12,7 +12,7 @@ export const largeTextType = defineType({
     }),
     defineField({
       name: "text",
-      type: "string",
+      type: "text",
     }),
   ],
   icon: TextIcon,

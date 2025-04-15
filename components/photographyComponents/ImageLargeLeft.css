@@ -1,0 +1,25 @@
+.image-large-left-img,
+.image-large-right-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.image-large-left-img {
+  aspect-ratio: 5 / 7;
+}
+
+.image-large-right-img {
+  aspect-ratio: 6 / 7;
+}
+
+.image-large-left {
+  grid-column: 1 / 7;
+  grid-row: 2 / 3;
+}
+
+.image-large-right {
+  grid-column: 2 / 6;
+  grid-row: 1 / 2;
+  padding-bottom: 64px;
+}
