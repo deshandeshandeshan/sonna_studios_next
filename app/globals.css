@@ -43,6 +43,31 @@ button {
   cursor: pointer;
 }
 
+.link-button {
+  opacity: 30%;
+  background-color: #ffffff;
+  padding: 5px 15px;
+  border-radius: 5px;
+  display: flex;
+  transition: 0.5s;
+}
+
+.link-button:hover {
+  opacity: 100%;
+  background-color: #ffffff;
+  padding: 5px 15px;
+  border-radius: 5px;
+  display: flex;
+}
+
+/* React Icons */
+
+.arrow-right {
+  display: flex;
+  align-items: center;
+  margin-left: 3px;
+}
+
 /* Text Colours */
 
 .text-grey {
@@ -57,88 +82,132 @@ button {
   margin: 0 0 8px;
 }
 
-/* Paddings Mobile */
+/* Spacing scale */
 
-.small-padding-bottom {
-  padding: 0 0 8px;
+.spacing-12 {
+  padding-bottom: 12px;
 }
 
-.medium-padding-bottom {
-  padding: 0 0 32px;
+.spacing-16 {
+  padding-bottom: 8px;
 }
 
-.large-padding-bottom {
-  padding: 0 0 64px;
+.spacing-24 {
+  padding-bottom: 16px;
 }
 
-.small-padding-top {
-  padding: 8px 0 0;
+.spacing-32 {
+  padding-bottom: 24px;
 }
 
-.medium-padding-top {
-  padding: 32px 0 0;
+.spacing-40 {
+  padding-bottom: 32px;
 }
 
-.large-padding-top {
-  padding: 64px 0 0;
+.spacing-64 {
+  padding-bottom: 40px;
 }
 
-/* Desktop Font Sizes */
-
-.desktop-type-heading {
-  font-size: 32px;
-  line-height: 34px;
-  font-weight: 600;
+.spacing-80 {
+  padding-bottom: 64px;
 }
 
-.desktop-type-sub {
-  font-size: 32px;
-  line-height: 34px;
-}
-
-.desktop-type-body {
-  font-size: 32px;
-  line-height: 34px;
-}
-
-.desktop-type-detail-bold {
-  font-size: 32px;
-  line-height: 34px;
-}
-
-.desktop-type-detail-regular {
-  font-size: 32px;
-  line-height: 34px;
+.spacing-120 {
+  padding-bottom: 80px;
 }
 
 /* Mobile Font Sizes */
 
-.mobile-type-heading {
+.type-heading {
   font-size: 20px;
-  line-height: 24px;
+  line-height: 22px;
   font-weight: 600;
 }
 
-.mobile-type-sub {
+.type-sub {
   font-size: 14px;
   line-height: 16px;
   font-weight: 600;
 }
 
-.mobile-type-body {
+.type-body {
   font-size: 12px;
   line-height: 14px;
   font-weight: 600;
 }
 
-.mobile-type-detail-bold {
+.type-detail-bold {
   font-size: 11px;
   line-height: 13px;
   font-weight: 700;
 }
 
-.mobile-type-detail-regular {
+.type-detail-regular {
   font-size: 11px;
   line-height: 13px;
   font-weight: 500;
+}
+
+@media screen and (min-width: 480px) {
+  /* Desktop Font Sizes */
+
+  .type-heading {
+    font-size: 32px;
+    line-height: 34px;
+    font-weight: 600;
+  }
+
+  .type-sub {
+    font-size: 24px;
+    line-height: 26px;
+  }
+
+  .type-body {
+    font-size: 15px;
+    line-height: 17px;
+  }
+
+  .type-detail-bold {
+    font-size: 11px;
+    line-height: 13px;
+  }
+
+  .type-detail-regular {
+    font-size: 11px;
+    line-height: 13px;
+  }
+
+  /* Spacing scale */
+
+  .spacing-12 {
+    padding-bottom: 12px;
+  }
+
+  .spacing-16 {
+    padding-bottom: 16px;
+  }
+
+  .spacing-24 {
+    padding-bottom: 24px;
+  }
+
+  .spacing-32 {
+    padding-bottom: 32px;
+  }
+
+  .spacing-40 {
+    padding-bottom: 40px;
+  }
+
+  .spacing-64 {
+    padding-bottom: 64px;
+  }
+
+  .spacing-80 {
+    padding-bottom: 80px;
+  }
+
+  .spacing-120 {
+    padding-bottom: 120px;
+  }
 }

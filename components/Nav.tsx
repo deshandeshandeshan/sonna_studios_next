@@ -34,7 +34,7 @@ export default function Navbar({ links }: { links: NavLink[] }) {
         />
       </Link>
       {links.map((link) => (
-        <Link key={link.slug} href={`/${link.slug}`}>
+        <Link className="type-body" key={link.slug} href={`/${link.slug}`}>
           {link.title}
         </Link>
       ))}

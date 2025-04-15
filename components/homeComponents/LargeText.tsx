@@ -10,7 +10,7 @@ type largeTextProps = Extract<
 export function LargeText({ text }: largeTextProps) {
   return (
     <div className="large-text-container grid">
-      <h2 className="large-text mobile-type-heading">{text}</h2>
+      <h2 className="large-text type-heading">{text}</h2>
     </div>
   );
 }

@@ -7,22 +7,20 @@
   grid-row: 1 / 2;
 }
 
-.footer-contact {
+.footer-details {
   grid-column: 2 / 6;
   grid-row: 1 / 2;
 }
 
-.footer-timezone {
-  grid-column: 2 / 6;
-  grid-row: 2 / 3;
-}
+@media screen and (min-width: 480px) {
+  .footer-contact-heading {
+    grid-column: 15 / 17;
+    grid-row: 1 / 2;
+    text-align: right;
+  }
 
-.footer-site-credits {
-  grid-column: 2 / 6;
-  grid-row: 3 / 4;
-}
-
-.footer-privacy-policy {
-  grid-column: 2 / 6;
-  grid-row: 4 / 5;
+  .footer-details {
+    grid-column: 17 / 21;
+    grid-row: 1 / 2;
+  }
 }

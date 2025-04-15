@@ -58,30 +58,39 @@ export function CaseStudy({ caseStudies }: caseStudyProps) {
           className="case-study-img-large"
         />
       )}
-      <div className="case-study-description-container grid">
-        <h2 className="case-study-client mobile-type-body text-grey">Client</h2>
-        <p className="case-study-client-description mobile-type-sub">
-          {selectedCaseStudy.client}
-        </p>
-        <h2 className="case-study-services mobile-type-body text-grey">
-          Services
-        </h2>
-        <p className="case-study-services-description mobile-type-sub">
-          {selectedCaseStudy.services}
-        </p>
-        <h2 className="case-study-industry mobile-type-body text-grey">
-          industry
-        </h2>
-        <p className="case-study-industry-description mobile-type-sub">
-          {selectedCaseStudy.industry}
-        </p>
-
-        <h2 className="case-study-location mobile-type-body text-grey">
-          location
-        </h2>
-        <p className="case-study-location-description mobile-type-sub">
-          {selectedCaseStudy.location}
-        </p>
+      <div className="case-study-description-container">
+        <div className="case-study-cient flex-row">
+          <h2 className="case-study-client-heading type-detail-regular text-grey">
+            Client
+          </h2>
+          <p className="case-study-client-description type-body">
+            {selectedCaseStudy.client}
+          </p>
+        </div>
+        <div className="case-study-services flex-row">
+          <h2 className="case-study-services-heading type-detail-regular text-grey">
+            Services
+          </h2>
+          <p className="case-study-services-description type-body">
+            {selectedCaseStudy.services}
+          </p>
+        </div>
+        <div className="case-study-industry flex-row">
+          <h2 className="case-study-industry-heading type-detail-regular text-grey">
+            industry
+          </h2>
+          <p className="case-study-industry-description type-body">
+            {selectedCaseStudy.industry}
+          </p>
+        </div>
+        <div className="case-study-location flex-row">
+          <h2 className="case-study-location-heading type-detail-regular text-grey">
+            location
+          </h2>
+          <p className="case-study-location-description type-body">
+            {selectedCaseStudy.location}
+          </p>
+        </div>
       </div>
     </section>
   );

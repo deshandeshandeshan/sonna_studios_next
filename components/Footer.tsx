@@ -32,59 +32,57 @@ export default function Footer() {
           className="footer-logo-img"
         />
       </div> */}
-      <h2 className="footer-contact-heading mobile-type-detail-regular">
-        Contact
-      </h2>
-      <div className="footer-contact">
-        <div className="footer-contact-description medium-padding-bottom">
-          <p className="mobile-type-body small-padding-bottom">
-            Tell us about your project. For all enquiries, collaborations and
-            commissions get in touch.
-          </p>
-          <Link href="/book" className="mobile-type-sub">
-            Book Now <FaArrowRight />
-          </Link>
+      <h2 className="footer-contact-heading type-detail-regular">Contact</h2>
+      <div className="footer-details">
+        <div className="footer-contact spacing-64">
+          <div className="footer-contact-description spacing-40">
+            <p className="type-body spacing-16">
+              Tell us about your project. For all enquiries, collaborations and
+              commissions get in touch.
+            </p>
+            <Link href="/book" className="type-body">
+              Book Now <FaArrowRight />
+            </Link>
+          </div>
+          <ul className="spacing-40 type-body text-grey">
+            <li>hello@sonnastudios.com</li>
+            <li>(+64) 27 376 9490</li>
+          </ul>
+          <ul className="type-body text-grey">
+            <li>
+              <Link href="/">Instagram</Link>
+            </li>
+            <li>
+              <Link href="/">Facebook</Link>
+            </li>
+            <li>
+              <Link href="/">LinkedIn</Link>
+            </li>
+          </ul>
         </div>
-        <ul className="medium-padding-bottom mobile-type-sub text-grey">
-          <li>hello@sonnastudios.com</li>
-          <li>(+64) 27 376 9490</li>
-        </ul>
-        <ul className="mobile-type-sub text-grey">
-          <li>
-            <Link href="/">Instagram</Link>
-          </li>
-          <li>
-            <Link href="/">Facebook</Link>
-          </li>
-          <li>
-            <Link href="/">LinkedIn</Link>
-          </li>
-        </ul>
-      </div>
-      <div className="footer-timezone large-padding-top">
-        <ul className="mobile-type-detail-regular">
-          <li className="small-padding-bottom">
-            <p>Auckland, New Zealand</p>
-            <p>12:49:03</p>
-            <p className="text-grey">Friday, 10 Janruary 2025</p>
-          </li>
-          <li>
-            <p>Sydney, Australia</p>
-            <p>8:49:03</p>
-            <p className="text-grey">Friday, 10 Janruary 2025</p>
-          </li>
-        </ul>
-      </div>
-      <div className="footer-site-credits large-padding-top mobile-type-detail-regular">
-        <p>Site Credits</p>
-        <p>Design by Aitken Hawkins</p>
-        <p>Build by Deshan McLachlan</p>
-      </div>
-      <div className="footer-privacy-policy mobile-type-detail-regular large-padding-top">
-        <p>Privacy Policy</p>
-        <p className="text-grey medium-padding-bottom">
-          2024 © All Rights Reserved
-        </p>
+        <div className="footer-timezone spacing-120">
+          <ul className="type-detail-regular">
+            <li className="spacing-16">
+              <p>Auckland, New Zealand</p>
+              <p>12:49:03</p>
+              <p className="text-grey">Friday, 10 Janruary 2025</p>
+            </li>
+            <li>
+              <p>Sydney, Australia</p>
+              <p>8:49:03</p>
+              <p className="text-grey">Friday, 10 Janruary 2025</p>
+            </li>
+          </ul>
+        </div>
+        <div className="footer-site-credits type-detail-regular spacing-64">
+          <p>Site Credits</p>
+          <p>Design by Aitken Hawkins</p>
+          <p>Build by Deshan McLachlan</p>
+        </div>
+        <div className="footer-privacy-policy type-detail-regular">
+          <p>Privacy Policy</p>
+          <p className="text-grey spacing-80">2024 © All Rights Reserved</p>
+        </div>
       </div>
     </footer>
   );
