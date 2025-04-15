@@ -26,7 +26,7 @@ export function BrandModule({ brands }: brandModuleProps) {
 
   return (
     <section className="brand-module grid mobile-padding">
-      <h1 className="brand-selected-clients mobile-type-body small-padding-bottom">
+      <h1 className="brand-selected-clients type-body spacing-16">
         Selected Clients
       </h1>
       {selectedBrand.image ? (
@@ -35,18 +35,16 @@ export function BrandModule({ brands }: brandModuleProps) {
           width={1600}
           height={800}
           alt={selectedBrand.image.caption || ""}
-          className="brand-img small-padding-bottom"
+          className="brand-img spacing-16"
         />
       ) : null}
-      <p className="brand-description mobile-type-body">
-        {selectedBrand.description}
-      </p>
+      <p className="brand-description type-body">{selectedBrand.description}</p>
       <div className="brand-names">
         {validBrands.map((brand) => (
           <button
             key={brand.name}
             onClick={() => setSelectedBrand(brand)}
-            className={`brand-name mobile-type-heading ${
+            className={`brand-name type-heading ${
               selectedBrand.name === brand.name ? "text-black" : "text-grey"
             }`}
           >

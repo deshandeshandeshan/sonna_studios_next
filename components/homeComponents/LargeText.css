@@ -5,3 +5,9 @@
 .large-text {
   grid-column: 1 / 7;
 }
+
+@media screen and (min-width: 480px) {
+  .large-text {
+    grid-column: 1 / 23;
+  }
+}

@@ -29,26 +29,26 @@ export function OfferingsModule({ services }: offeringsModuleProps) {
 
   return (
     <section className="offerings-container grid mobile-padding">
-      <h1 className="services-title mobile-type-body text-grey">Services</h1>
-      <div className="services-list-container small-padding-bottom">
+      <h1 className="services-title type-body text-grey">Services</h1>
+      <div className="services-list-container spacing-16">
         {validServices.map((service) => (
           <button
             key={service.name}
             onClick={() => setSelectedService(service)}
-            className={`small-padding-bottom mobile-type-body ${
+            className={`spacing-16 type-body ${
               selectedService.name === service.name ? "text-black" : "text-grey"
             }`}
           >
             {service.name}
           </button>
         ))}
-        <Link href="/capabilities" className="mobile-type-body">
+        <Link href="/capabilities" className="offerings-learn-more type-body">
           Learn more <FaArrowRight />
         </Link>
       </div>
+      <hr className="solid-hr small-margin-bottom" />
       <div className="services-description-container ">
-        <hr className="solid-hr small-margin-bottom" />
-        <p className="services-description mobile-type-heading medium-padding-bottom">
+        <p className="services-description type-heading spacing-120">
           {selectedService.description}
         </p>
       </div>

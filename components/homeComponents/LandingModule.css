@@ -6,7 +6,6 @@
 }
 
 .landing-module-title {
-  font-size: 32px;
   position: absolute;
   top: 50%;
   left: 16px;
@@ -17,4 +16,13 @@
   width: 100vw;
   height: 100vh;
   object-fit: cover;
+}
+
+.landing-module-button {
+  position: absolute;
+  top: 70%;
+  left: 16px;
+}
+
+@media screen and (min-width: 480px) {
 }

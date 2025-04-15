@@ -24,7 +24,7 @@ export function FullBleed({ image, text }: fullBlledProps) {
         ) : null}
       </div>
       <div className="full-bleed-text mobile-padding">
-        <p className="mobile-type-body">{text}</p>
+        <p className="type-body">{text}</p>
       </div>
     </section>
   );
