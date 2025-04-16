@@ -52,21 +52,15 @@ export default function Navbar({ links }: { links: NavLink[] }) {
           </div>
           <button
             className="menu-button type-body"
-            onClick={() => setMenuOpen(true)}
+            onClick={() => setMenuOpen(!menuOpen)}
           >
-            Menu
+            {menuOpen ? "Close" : "Menu"}
           </button>
         </div>
       </nav>
 
       {menuOpen && (
         <div className="menu-overlay">
-          <button
-            className="close-button type-body"
-            onClick={() => setMenuOpen(false)}
-          >
-            Close
-          </button>
           <div className="overlay-links">
             {links.map((link) => (
               <Link
