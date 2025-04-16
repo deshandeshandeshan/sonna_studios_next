@@ -3,10 +3,86 @@
   top: 0;
   z-index: 50;
   background-color: #f9f9f9e6;
-  padding: 16px 16px;
+  padding: 16px;
+  height: 64px;
 }
 
+/* Logo */
 .nav-logo {
   width: 64px;
-  height: 100%;
+  height: auto;
+}
+
+/* Mobile: default hidden nav-links and show menu button */
+.nav-links {
+  display: none;
+}
+
+.menu-button {
+  display: flex;
+  align-items: center;
+}
+
+/* Overlay */
+.menu-overlay {
+  position: fixed;
+  top: 64px;
+  inset: 0;
+  background: white;
+  z-index: 9999;
+  display: flex;
+  justify-content: flex start;
+  align-items: center;
+  padding-right: 2rem;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.close-button {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.overlay-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+  padding-left: 16px;
+}
+
+.overlay-links a {
+  color: black;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Desktop view (from 480px up) */
+@media screen and (min-width: 480px) {
+  .nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 1rem;
+    margin-left: auto;
+  }
+
+  .menu-button {
+    display: none;
+  }
 }
