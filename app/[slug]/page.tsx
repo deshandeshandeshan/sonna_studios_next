@@ -3,13 +3,14 @@ import { PAGE_QUERY } from "@/sanity/lib/queries";
 import { client } from "@/sanity/sanity-utils";
 import { notFound } from "next/navigation";
 
-export const revalidate = 10;
+export const revalidate = 60;
 interface PageProps {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 export default async function Page(props: PageProps) {
-  const page = await client.fetch(PAGE_QUERY, { slug: props.params.slug });
+  const params = await props.params;
+  const page = await client.fetch(PAGE_QUERY, { slug: params.slug });
 
   if (!page) {
     notFound();
