@@ -3,7 +3,7 @@ import { PAGE_QUERY } from "@/sanity/lib/queries";
 import { client } from "@/sanity/sanity-utils";
 import { notFound } from "next/navigation";
 
-export const revalidate = 60;
+export const revalidate = 5;
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
