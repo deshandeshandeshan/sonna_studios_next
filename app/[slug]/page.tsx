@@ -9,8 +9,7 @@ interface PageProps {
 }
 
 export default async function Page(props: PageProps) {
-  const params = await props.params;
-  const page = await client.fetch(PAGE_QUERY, { slug: params.slug });
+  const page = await client.fetch(PAGE_QUERY, { slug: props.params.slug });
 
   if (!page) {
     notFound();
