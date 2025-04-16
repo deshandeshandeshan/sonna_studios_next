@@ -3,10 +3,90 @@
   top: 0;
   z-index: 50;
   background-color: #f9f9f9e6;
-  padding: 16px 16px;
+  padding: 16px;
 }
 
 .nav-logo {
   width: 64px;
-  height: 100%;
+  height: auto;
+}
+
+.nav-links {
+  display: none;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menu-button {
+  align-items: flex-end;
+  transition: opacity 0.5s ease;
+  display: flex;
+  margin-left: auto;
+}
+
+.menu-button span {
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.menu-button.fade {
+  opacity: 0;
+}
+
+/* Overlay */
+.menu-overlay {
+  position: fixed;
+  top: 0px;
+  inset: 0;
+  background: #f9f9f9;
+  z-index: 40;
+  display: flex;
+  justify-content: flex start;
+  align-items: flex-start;
+  padding-top: 80px;
+  transition: all 2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.close-button {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.overlay-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+  padding-left: 16px;
+}
+
+.overlay-links a {
+  color: black;
+}
+
+/* Desktop view (from 480px up) */
+@media screen and (min-width: 480px) {
+  .nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 30px;
+    margin-left: auto;
+  }
+
+  .menu-button {
+    display: none;
+  }
 }
