@@ -2,7 +2,6 @@ import { urlFor } from "@/sanity/lib/image";
 import { HOME_QUERYResult } from "@/sanity/types";
 import Image from "next/image";
 import "./LandingModule.css";
-import { FaArrowRight } from "react-icons/fa";
 
 type landingModuleProps = Extract<
   NonNullable<NonNullable<HOME_QUERYResult>["content"]>[number],
@@ -21,10 +20,7 @@ export function LandingModule({ image, video }: landingModuleProps) {
           Photography & Videography
         </h1>
         <button className="landing-module-button link-button type-body">
-          Make an Enquiry
-          <div className="arrow-right">
-            <FaArrowRight />
-          </div>
+          Make an Enquiry →
         </button>
         <div>
           {image ? (
@@ -32,7 +28,7 @@ export function LandingModule({ image, video }: landingModuleProps) {
               src={urlFor(image).url()}
               width={1000}
               height={500}
-              alt={image.caption || ""}
+              alt={image.alt || ""}
               className="landing-module-image"
             />
           ) : null}

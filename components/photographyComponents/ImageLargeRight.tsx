@@ -1,8 +1,12 @@
+"use client";
+
 import { urlFor } from "@/sanity/lib/image";
 import { HOME_QUERYResult } from "@/sanity/types";
 import Image from "next/image";
 import "./ImageLargeRight.css";
 import "../grid.css";
+import { useState } from "react";
+import { Lightbox } from "../LightBox";
 
 type imageLargeRightProps = Extract<
   NonNullable<NonNullable<HOME_QUERYResult>["content"]>[number],
@@ -13,16 +17,27 @@ export function ImageLargeRight({
   leftImage,
   rightImage,
 }: imageLargeRightProps) {
+  const [activeImage, setActiveImage] = useState<{
+    src: string;
+    alt?: string;
+  } | null>(null);
+
   return (
     <section className="image-large-right grid mobile-padding">
       <div className="image-large-right-left">
         {leftImage ? (
           <Image
+            onClick={() =>
+              setActiveImage({
+                src: urlFor(leftImage).url(),
+                alt: leftImage.alt,
+              })
+            }
             src={urlFor(leftImage).url()}
             width={1600}
             height={800}
-            alt={leftImage.caption || ""}
-            className="image-large-right-left-img"
+            alt={leftImage.alt || ""}
+            className="image-large-right-left-img pointer"
           />
         ) : null}
         {leftImage?.caption && (
@@ -34,11 +49,17 @@ export function ImageLargeRight({
       <div className="image-large-right-right">
         {rightImage ? (
           <Image
+            onClick={() =>
+              setActiveImage({
+                src: urlFor(rightImage).url(),
+                alt: rightImage.alt,
+              })
+            }
             src={urlFor(rightImage).url()}
             width={1600}
             height={800}
-            alt={rightImage.caption || ""}
-            className="image-large-right-right-img"
+            alt={rightImage.alt || ""}
+            className="image-large-right-right-img pointer"
           />
         ) : null}
         {rightImage?.caption && (
@@ -47,6 +68,14 @@ export function ImageLargeRight({
           </div>
         )}
       </div>
+
+      {activeImage && (
+        <Lightbox
+          src={activeImage.src}
+          alt={activeImage.alt || ""}
+          onClose={() => setActiveImage(null)}
+        />
+      )}
     </section>
   );
 }

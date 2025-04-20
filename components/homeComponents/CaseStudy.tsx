@@ -39,9 +39,9 @@ export function CaseStudy({ caseStudies }: caseStudyProps) {
           >
             {caseStudy.image && caseStudy.image.asset?.url && (
               <Image
-                src={urlFor(caseStudy.image).url()}
+                src={urlFor(caseStudy.image).width(300).height(300).url()}
                 width={300}
-                height={200}
+                height={300}
                 alt={caseStudy.image.caption || ""}
                 className="case-study-img"
               />
@@ -51,10 +51,10 @@ export function CaseStudy({ caseStudies }: caseStudyProps) {
       </div>
       {selectedCaseStudy.image && selectedCaseStudy.image.asset?.url && (
         <Image
-          src={urlFor(selectedCaseStudy.image).url()}
-          width={300}
-          height={200}
-          alt={selectedCaseStudy.image.caption || ""}
+          src={urlFor(selectedCaseStudy.image).width(1200).height(1200).url()}
+          width={1200}
+          height={1200}
+          alt={selectedCaseStudy.image.alt || ""}
           className="case-study-img-large"
         />
       )}

@@ -15,7 +15,8 @@ export const HOME_QUERY = defineQuery(`
         description,
         image {
           asset -> { url },
-          caption
+          caption,
+          alt
         }
       },
       caseStudies[] {
@@ -25,14 +26,16 @@ export const HOME_QUERY = defineQuery(`
         location,
         image {
           asset -> { url },
-          caption
+          caption,
+          alt
         }
       },
       brands[] {
         name,
         image {
           asset -> { url },
-          caption
+          caption,
+          alt
         },
         description,
       },
@@ -41,7 +44,8 @@ export const HOME_QUERY = defineQuery(`
           ...,
           image {
             asset -> { url },
-            caption
+            caption,
+            alt
           },
           name,
           specialties,
@@ -66,7 +70,8 @@ export const PAGE_QUERY = defineQuery(`
         description,
         image {
           asset -> { url },
-          caption
+          caption,
+          alt
         }
       },
       caseStudies[] {
@@ -76,14 +81,16 @@ export const PAGE_QUERY = defineQuery(`
         location,
         image {
           asset -> { url },
-          caption
+          caption,
+          alt
         }
       },
       brands[] {
         name,
         image {
           asset -> { url },
-          caption
+          caption,
+          alt
         },
         description,
       },
@@ -92,7 +99,8 @@ export const PAGE_QUERY = defineQuery(`
           ...,
           image {
             asset -> { url },
-            caption
+            caption,
+            alt
           },
           name,
           specialties,

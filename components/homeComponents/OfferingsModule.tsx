@@ -7,7 +7,6 @@ import Image from "next/image";
 import "../grid.css";
 import "./OfferingsModule.css";
 import Link from "next/link";
-import { FaArrowRight } from "react-icons/fa";
 
 type offeringsModuleProps = Extract<
   NonNullable<NonNullable<HOME_QUERYResult>["content"]>[number],
@@ -43,7 +42,7 @@ export function OfferingsModule({ services }: offeringsModuleProps) {
           </button>
         ))}
         <Link href="/capabilities" className="offerings-learn-more type-body">
-          Learn more <FaArrowRight />
+          Learn more →
         </Link>
       </div>
       <hr className="solid-hr small-margin-bottom" />
@@ -57,7 +56,7 @@ export function OfferingsModule({ services }: offeringsModuleProps) {
           src={urlFor(selectedService.image).url()}
           width={1600}
           height={800}
-          alt={selectedService.image.caption || ""}
+          alt={selectedService.image.alt || ""}
           className="services-img"
         />
       )}

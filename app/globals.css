@@ -11,6 +11,11 @@
 body {
   font-family: var(--font-inter);
   color: #414242;
+  background-color: #f9f9f9;
+}
+
+.pointer {
+  cursor: pointer;
 }
 
 h1,
@@ -58,14 +63,6 @@ button {
   padding: 5px 15px;
   border-radius: 5px;
   display: flex;
-}
-
-/* React Icons */
-
-.arrow-right {
-  display: flex;
-  align-items: center;
-  margin-left: 3px;
 }
 
 /* Text Colours */

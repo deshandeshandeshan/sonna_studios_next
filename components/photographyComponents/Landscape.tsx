@@ -1,8 +1,12 @@
+"use client";
+
 import { urlFor } from "@/sanity/lib/image";
 import { HOME_QUERYResult } from "@/sanity/types";
 import Image from "next/image";
+import { Lightbox } from "../LightBox";
 import "./Landscape.css";
 import "../grid.css";
+import { useState } from "react";
 
 type landscapeProps = Extract<
   NonNullable<NonNullable<HOME_QUERYResult>["content"]>[number],
@@ -10,16 +14,21 @@ type landscapeProps = Extract<
 >;
 
 export function Landscape({ image }: landscapeProps) {
+  const [lightBoxOpen, setLightBoxOpen] = useState(false);
+
+  const imageUrl = image ? urlFor(image).url() : "";
+
   return (
     <section className="landscape grid mobile-padding">
       <div className="landscape-image">
         {image ? (
           <Image
-            src={urlFor(image).url()}
+            onClick={() => setLightBoxOpen(!lightBoxOpen)}
+            src={imageUrl}
             width={1600}
             height={800}
-            alt={image.caption || ""}
-            className="landscape-img"
+            alt={image.alt || ""}
+            className="landscape-img pointer"
           />
         ) : null}
         {image?.caption && (
@@ -28,6 +37,14 @@ export function Landscape({ image }: landscapeProps) {
           </div>
         )}
       </div>
+
+      {lightBoxOpen && (
+        <Lightbox
+          src={imageUrl}
+          alt={image?.alt || ""}
+          onClose={() => setLightBoxOpen(false)}
+        />
+      )}
     </section>
   );
 }
