@@ -18,7 +18,7 @@ export function ImageLargeLeft({ leftImage, rightImage }: imageLargeLeftProps) {
             src={urlFor(leftImage).url()}
             width={1600}
             height={800}
-            alt={leftImage.caption || ""}
+            alt={leftImage.alt || ""}
             className="image-large-left-img"
           />
         ) : null}
@@ -34,7 +34,7 @@ export function ImageLargeLeft({ leftImage, rightImage }: imageLargeLeftProps) {
             src={urlFor(rightImage).url()}
             width={1600}
             height={800}
-            alt={rightImage.caption || ""}
+            alt={rightImage.alt || ""}
             className="image-large-right-img"
           />
         ) : null}

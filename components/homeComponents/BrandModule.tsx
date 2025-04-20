@@ -34,7 +34,7 @@ export function BrandModule({ brands }: brandModuleProps) {
           src={urlFor(selectedBrand.image).url()}
           width={1600}
           height={800}
-          alt={selectedBrand.image.caption || ""}
+          alt={selectedBrand.image.alt || ""}
           className="brand-img spacing-16"
         />
       ) : null}

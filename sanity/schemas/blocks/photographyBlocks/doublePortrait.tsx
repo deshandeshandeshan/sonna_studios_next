@@ -21,6 +21,12 @@ export const doublePortraitType = defineType({
           name: "caption",
           type: "string",
         }),
+        defineField({
+          name: "alt",
+          type: "string",
+          title: "Alternative text",
+          description: "Important for SEO and accessibility.",
+        }),
       ],
     }),
     defineField({
@@ -33,6 +39,12 @@ export const doublePortraitType = defineType({
         defineField({
           name: "caption",
           type: "string",
+        }),
+        defineField({
+          name: "alt",
+          type: "string",
+          title: "Alternative text",
+          description: "Important for SEO and accessibility.",
         }),
       ],
     }),

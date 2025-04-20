@@ -18,7 +18,7 @@ export function LargeImage({ image, text }: largeImageProps) {
             src={urlFor(image).url()}
             width={1600}
             height={800}
-            alt={image.caption || ""}
+            alt={image.alt || ""}
             className="large-image-img"
           />
         ) : null}

@@ -1,8 +1,12 @@
+"use client";
+
 import { urlFor } from "@/sanity/lib/image";
 import { HOME_QUERYResult } from "@/sanity/types";
 import Image from "next/image";
 import "./SinglePortrait.css";
 import "../grid.css";
+import { useState } from "react";
+import { Lightbox } from "../LightBox";
 
 type singlePortraitProps = Extract<
   NonNullable<NonNullable<HOME_QUERYResult>["content"]>[number],
@@ -10,15 +14,20 @@ type singlePortraitProps = Extract<
 >;
 
 export function SinglePortrait({ image }: singlePortraitProps) {
+  const [lightBoxOpen, setLightBoxOpen] = useState(false);
+
+  const imageUrl = image ? urlFor(image).url() : "";
+
   return (
     <section className="single-potrait grid mobile-padding">
       <div className="single-potrait-container">
         {image ? (
           <Image
-            src={urlFor(image).url()}
+            onClick={() => setLightBoxOpen(!lightBoxOpen)}
+            src={imageUrl}
             width={1600}
             height={800}
-            alt={image.caption || ""}
+            alt={image.alt || ""}
             className="single-potrait-image spacing-16"
           />
         ) : null}
@@ -28,6 +37,15 @@ export function SinglePortrait({ image }: singlePortraitProps) {
           </div>
         )}
       </div>
+
+      {lightBoxOpen && (
+        <Lightbox
+          src={imageUrl}
+          alt={image?.alt || ""}
+          caption={image?.caption}
+          onClose={() => setLightBoxOpen(false)}
+        />
+      )}
     </section>
   );
 }

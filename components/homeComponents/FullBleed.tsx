@@ -18,7 +18,7 @@ export function FullBleed({ image, text }: fullBlledProps) {
             src={urlFor(image).url()}
             width={1600}
             height={800}
-            alt={image.caption || ""}
+            alt={image.alt || ""}
             className="full-bleed-image-img"
           />
         ) : null}

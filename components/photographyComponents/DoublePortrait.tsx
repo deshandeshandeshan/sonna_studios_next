@@ -18,7 +18,7 @@ export function DoublePortrait({ leftImage, rightImage }: doublePortraitProps) {
             src={urlFor(leftImage).url()}
             width={1600}
             height={800}
-            alt={leftImage.caption || ""}
+            alt={leftImage.alt || ""}
             className="potrait-left-img"
           />
         ) : null}
@@ -34,7 +34,7 @@ export function DoublePortrait({ leftImage, rightImage }: doublePortraitProps) {
             src={urlFor(rightImage).url()}
             width={1600}
             height={800}
-            alt={rightImage.caption || ""}
+            alt={rightImage.alt || ""}
             className="potrait-right-img"
           />
         ) : null}

@@ -32,7 +32,7 @@ export function LandingModule({ image, video }: landingModuleProps) {
               src={urlFor(image).url()}
               width={1000}
               height={500}
-              alt={image.caption || ""}
+              alt={image.alt || ""}
               className="landing-module-image"
             />
           ) : null}

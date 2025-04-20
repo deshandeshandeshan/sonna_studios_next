@@ -120,6 +120,7 @@ export type SinglePortrait = {
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
     caption?: string;
+    alt?: string;
     _type: "image";
   };
 };
@@ -137,6 +138,7 @@ export type Landscape = {
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
     caption?: string;
+    alt?: string;
     _type: "image";
   };
 };
@@ -154,6 +156,7 @@ export type ImageLargeRight = {
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
     caption?: string;
+    alt?: string;
     _type: "image";
   };
   rightImage?: {
@@ -166,6 +169,7 @@ export type ImageLargeRight = {
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
     caption?: string;
+    alt?: string;
     _type: "image";
   };
 };
@@ -183,6 +187,7 @@ export type ImageLargeLeft = {
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
     caption?: string;
+    alt?: string;
     _type: "image";
   };
   rightImage?: {
@@ -195,6 +200,7 @@ export type ImageLargeLeft = {
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
     caption?: string;
+    alt?: string;
     _type: "image";
   };
 };
@@ -212,6 +218,7 @@ export type DoublePortrait = {
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
     caption?: string;
+    alt?: string;
     _type: "image";
   };
   rightImage?: {
@@ -224,6 +231,7 @@ export type DoublePortrait = {
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
     caption?: string;
+    alt?: string;
     _type: "image";
   };
 };
@@ -243,6 +251,7 @@ export type OfferingsModule = {
       hotspot?: SanityImageHotspot;
       crop?: SanityImageCrop;
       caption?: string;
+      alt?: string;
       _type: "image";
     };
     description?: string;
@@ -264,6 +273,7 @@ export type LandingModule = {
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
     caption?: string;
+    alt?: string;
     _type: "image";
   };
   video?: {
@@ -295,6 +305,7 @@ export type CaseStudy = {
       hotspot?: SanityImageHotspot;
       crop?: SanityImageCrop;
       caption?: string;
+      alt?: string;
       _type: "image";
     };
     description?: string;
@@ -318,6 +329,7 @@ export type BrandModule = {
       hotspot?: SanityImageHotspot;
       crop?: SanityImageCrop;
       caption?: string;
+      alt?: string;
       _type: "image";
     };
     description?: string;
@@ -345,6 +357,7 @@ export type LargeImage = {
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
     caption?: string;
+    alt?: string;
     _type: "image";
   };
   text?: string;
@@ -363,6 +376,7 @@ export type FullBleed = {
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
     caption?: string;
+    alt?: string;
     _type: "image";
   };
   text?: string;
@@ -577,7 +591,7 @@ export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: sanity/lib/queries.tsx
 // Variable: HOME_QUERY
-// Query: *[_type == "page" && slug.current == "home"][0]{    ...,    content[] {      _key,      _type,      ...,      video {        asset -> { url }      },      services[] {         name,        description,        image {          asset -> { url },          caption        }      },      caseStudies[] {        client,        services,        industry,        location,        image {          asset -> { url },          caption        }      },      brands[] {        name,        image {          asset -> { url },          caption        },        description,      },        capabilities[] {          _type,          ...,          image {            asset -> { url },            caption          },          name,          specialties,          description,      }    }  }
+// Query: *[_type == "page" && slug.current == "home"][0]{    ...,    content[] {      _key,      _type,      ...,      video {        asset -> { url }      },      services[] {         name,        description,        image {          asset -> { url },          caption,          alt        }      },      caseStudies[] {        client,        services,        industry,        location,        image {          asset -> { url },          caption,          alt        }      },      brands[] {        name,        image {          asset -> { url },          caption,          alt        },        description,      },        capabilities[] {          _type,          ...,          image {            asset -> { url },            caption,            alt          },          name,          specialties,          description,      }    }  }
 export type HOME_QUERYResult = {
   _id: string;
   _type: "page";
@@ -597,6 +611,7 @@ export type HOME_QUERYResult = {
           url: string | null;
         } | null;
         caption: string | null;
+        alt: string | null;
       } | null;
       description: string | null;
     }> | null;
@@ -618,6 +633,7 @@ export type HOME_QUERYResult = {
           url: string | null;
         } | null;
         caption: string | null;
+        alt: string | null;
       } | null;
     }> | null;
     video: null;
@@ -638,6 +654,7 @@ export type HOME_QUERYResult = {
       hotspot?: SanityImageHotspot;
       crop?: SanityImageCrop;
       caption?: string;
+      alt?: string;
       _type: "image";
     };
     rightImage?: {
@@ -650,6 +667,7 @@ export type HOME_QUERYResult = {
       hotspot?: SanityImageHotspot;
       crop?: SanityImageCrop;
       caption?: string;
+      alt?: string;
       _type: "image";
     };
     video: null;
@@ -671,6 +689,7 @@ export type HOME_QUERYResult = {
       hotspot?: SanityImageHotspot;
       crop?: SanityImageCrop;
       caption?: string;
+      alt?: string;
       _type: "image";
     };
     text?: string;
@@ -714,6 +733,7 @@ export type HOME_QUERYResult = {
       hotspot?: SanityImageHotspot;
       crop?: SanityImageCrop;
       caption?: string;
+      alt?: string;
       _type: "image";
     };
     rightImage?: {
@@ -726,6 +746,7 @@ export type HOME_QUERYResult = {
       hotspot?: SanityImageHotspot;
       crop?: SanityImageCrop;
       caption?: string;
+      alt?: string;
       _type: "image";
     };
     video: null;
@@ -747,6 +768,7 @@ export type HOME_QUERYResult = {
       hotspot?: SanityImageHotspot;
       crop?: SanityImageCrop;
       caption?: string;
+      alt?: string;
       _type: "image";
     };
     rightImage?: {
@@ -759,6 +781,7 @@ export type HOME_QUERYResult = {
       hotspot?: SanityImageHotspot;
       crop?: SanityImageCrop;
       caption?: string;
+      alt?: string;
       _type: "image";
     };
     video: null;
@@ -780,6 +803,7 @@ export type HOME_QUERYResult = {
       hotspot?: SanityImageHotspot;
       crop?: SanityImageCrop;
       caption?: string;
+      alt?: string;
       _type: "image";
     };
     video: {
@@ -805,6 +829,7 @@ export type HOME_QUERYResult = {
       hotspot?: SanityImageHotspot;
       crop?: SanityImageCrop;
       caption?: string;
+      alt?: string;
       _type: "image";
     };
     video: null;
@@ -826,6 +851,7 @@ export type HOME_QUERYResult = {
       hotspot?: SanityImageHotspot;
       crop?: SanityImageCrop;
       caption?: string;
+      alt?: string;
       _type: "image";
     };
     text?: string;
@@ -856,6 +882,7 @@ export type HOME_QUERYResult = {
           url: string | null;
         } | null;
         caption: string | null;
+        alt: string | null;
       } | null;
     }> | null;
     video: null;
@@ -873,6 +900,7 @@ export type HOME_QUERYResult = {
           url: string | null;
         } | null;
         caption: string | null;
+        alt: null;
       } | null;
       name: string | null;
       specialties: string | null;
@@ -898,6 +926,7 @@ export type HOME_QUERYResult = {
       hotspot?: SanityImageHotspot;
       crop?: SanityImageCrop;
       caption?: string;
+      alt?: string;
       _type: "image";
     };
     video: null;
@@ -926,7 +955,7 @@ export type HOME_QUERYResult = {
   }> | null;
 } | null;
 // Variable: PAGE_QUERY
-// Query: *[_type == "page" && slug.current == $slug][0]{    ...,    content[] {      _key,      _type,      ...,      video {        asset -> { url }      },      services[] {         name,        description,        image {          asset -> { url },          caption        }      },      caseStudies[] {        client,        services,        industry,        location,        image {          asset -> { url },          caption        }      },      brands[] {        name,        image {          asset -> { url },          caption        },        description,      },        capabilities[] {          _type,          ...,          image {            asset -> { url },            caption          },          name,          specialties,          description,      }    },  }
+// Query: *[_type == "page" && slug.current == $slug][0]{    ...,    content[] {      _key,      _type,      ...,      video {        asset -> { url }      },      services[] {         name,        description,        image {          asset -> { url },          caption,          alt        }      },      caseStudies[] {        client,        services,        industry,        location,        image {          asset -> { url },          caption,          alt        }      },      brands[] {        name,        image {          asset -> { url },          caption,          alt        },        description,      },        capabilities[] {          _type,          ...,          image {            asset -> { url },            caption,            alt          },          name,          specialties,          description,      }    },  }
 export type PAGE_QUERYResult = {
   _id: string;
   _type: "page";
@@ -946,6 +975,7 @@ export type PAGE_QUERYResult = {
           url: string | null;
         } | null;
         caption: string | null;
+        alt: string | null;
       } | null;
       description: string | null;
     }> | null;
@@ -967,6 +997,7 @@ export type PAGE_QUERYResult = {
           url: string | null;
         } | null;
         caption: string | null;
+        alt: string | null;
       } | null;
     }> | null;
     video: null;
@@ -987,6 +1018,7 @@ export type PAGE_QUERYResult = {
       hotspot?: SanityImageHotspot;
       crop?: SanityImageCrop;
       caption?: string;
+      alt?: string;
       _type: "image";
     };
     rightImage?: {
@@ -999,6 +1031,7 @@ export type PAGE_QUERYResult = {
       hotspot?: SanityImageHotspot;
       crop?: SanityImageCrop;
       caption?: string;
+      alt?: string;
       _type: "image";
     };
     video: null;
@@ -1020,6 +1053,7 @@ export type PAGE_QUERYResult = {
       hotspot?: SanityImageHotspot;
       crop?: SanityImageCrop;
       caption?: string;
+      alt?: string;
       _type: "image";
     };
     text?: string;
@@ -1063,6 +1097,7 @@ export type PAGE_QUERYResult = {
       hotspot?: SanityImageHotspot;
       crop?: SanityImageCrop;
       caption?: string;
+      alt?: string;
       _type: "image";
     };
     rightImage?: {
@@ -1075,6 +1110,7 @@ export type PAGE_QUERYResult = {
       hotspot?: SanityImageHotspot;
       crop?: SanityImageCrop;
       caption?: string;
+      alt?: string;
       _type: "image";
     };
     video: null;
@@ -1096,6 +1132,7 @@ export type PAGE_QUERYResult = {
       hotspot?: SanityImageHotspot;
       crop?: SanityImageCrop;
       caption?: string;
+      alt?: string;
       _type: "image";
     };
     rightImage?: {
@@ -1108,6 +1145,7 @@ export type PAGE_QUERYResult = {
       hotspot?: SanityImageHotspot;
       crop?: SanityImageCrop;
       caption?: string;
+      alt?: string;
       _type: "image";
     };
     video: null;
@@ -1129,6 +1167,7 @@ export type PAGE_QUERYResult = {
       hotspot?: SanityImageHotspot;
       crop?: SanityImageCrop;
       caption?: string;
+      alt?: string;
       _type: "image";
     };
     video: {
@@ -1154,6 +1193,7 @@ export type PAGE_QUERYResult = {
       hotspot?: SanityImageHotspot;
       crop?: SanityImageCrop;
       caption?: string;
+      alt?: string;
       _type: "image";
     };
     video: null;
@@ -1175,6 +1215,7 @@ export type PAGE_QUERYResult = {
       hotspot?: SanityImageHotspot;
       crop?: SanityImageCrop;
       caption?: string;
+      alt?: string;
       _type: "image";
     };
     text?: string;
@@ -1205,6 +1246,7 @@ export type PAGE_QUERYResult = {
           url: string | null;
         } | null;
         caption: string | null;
+        alt: string | null;
       } | null;
     }> | null;
     video: null;
@@ -1222,6 +1264,7 @@ export type PAGE_QUERYResult = {
           url: string | null;
         } | null;
         caption: string | null;
+        alt: null;
       } | null;
       name: string | null;
       specialties: string | null;
@@ -1247,6 +1290,7 @@ export type PAGE_QUERYResult = {
       hotspot?: SanityImageHotspot;
       crop?: SanityImageCrop;
       caption?: string;
+      alt?: string;
       _type: "image";
     };
     video: null;
@@ -1285,8 +1329,8 @@ export type NAVIGATION_QUERYResult = Array<{
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    "\n    *[_type == \"page\" && slug.current == \"home\"][0]{\n    ...,\n    content[] {\n      _key,\n      _type,\n      ...,\n      video {\n        asset -> { url }\n      },\n      services[] { \n        name,\n        description,\n        image {\n          asset -> { url },\n          caption\n        }\n      },\n      caseStudies[] {\n        client,\n        services,\n        industry,\n        location,\n        image {\n          asset -> { url },\n          caption\n        }\n      },\n      brands[] {\n        name,\n        image {\n          asset -> { url },\n          caption\n        },\n        description,\n      },\n        capabilities[] {\n          _type,\n          ...,\n          image {\n            asset -> { url },\n            caption\n          },\n          name,\n          specialties,\n          description,\n      }\n    }\n  }\n": HOME_QUERYResult;
-    "\n  *[_type == \"page\" && slug.current == $slug][0]{\n    ...,\n    content[] {\n      _key,\n      _type,\n      ...,\n      video {\n        asset -> { url }\n      },\n      services[] { \n        name,\n        description,\n        image {\n          asset -> { url },\n          caption\n        }\n      },\n      caseStudies[] {\n        client,\n        services,\n        industry,\n        location,\n        image {\n          asset -> { url },\n          caption\n        }\n      },\n      brands[] {\n        name,\n        image {\n          asset -> { url },\n          caption\n        },\n        description,\n      },\n        capabilities[] {\n          _type,\n          ...,\n          image {\n            asset -> { url },\n            caption\n          },\n          name,\n          specialties,\n          description,\n      }\n    },\n  }\n  ": PAGE_QUERYResult;
+    "\n    *[_type == \"page\" && slug.current == \"home\"][0]{\n    ...,\n    content[] {\n      _key,\n      _type,\n      ...,\n      video {\n        asset -> { url }\n      },\n      services[] { \n        name,\n        description,\n        image {\n          asset -> { url },\n          caption,\n          alt\n        }\n      },\n      caseStudies[] {\n        client,\n        services,\n        industry,\n        location,\n        image {\n          asset -> { url },\n          caption,\n          alt\n        }\n      },\n      brands[] {\n        name,\n        image {\n          asset -> { url },\n          caption,\n          alt\n        },\n        description,\n      },\n        capabilities[] {\n          _type,\n          ...,\n          image {\n            asset -> { url },\n            caption,\n            alt\n          },\n          name,\n          specialties,\n          description,\n      }\n    }\n  }\n": HOME_QUERYResult;
+    "\n  *[_type == \"page\" && slug.current == $slug][0]{\n    ...,\n    content[] {\n      _key,\n      _type,\n      ...,\n      video {\n        asset -> { url }\n      },\n      services[] { \n        name,\n        description,\n        image {\n          asset -> { url },\n          caption,\n          alt\n        }\n      },\n      caseStudies[] {\n        client,\n        services,\n        industry,\n        location,\n        image {\n          asset -> { url },\n          caption,\n          alt\n        }\n      },\n      brands[] {\n        name,\n        image {\n          asset -> { url },\n          caption,\n          alt\n        },\n        description,\n      },\n        capabilities[] {\n          _type,\n          ...,\n          image {\n            asset -> { url },\n            caption,\n            alt\n          },\n          name,\n          specialties,\n          description,\n      }\n    },\n  }\n  ": PAGE_QUERYResult;
     "\n  *[_type == \"page\" && defined(slug.current)]{\n    \"title\": title,\n    \"slug\": slug.current\n  }\n": NAVIGATION_QUERYResult;
   }
 }

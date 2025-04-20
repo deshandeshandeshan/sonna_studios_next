@@ -21,7 +21,7 @@ export function ImageLargeRight({
             src={urlFor(leftImage).url()}
             width={1600}
             height={800}
-            alt={leftImage.caption || ""}
+            alt={leftImage.alt || ""}
             className="image-large-right-left-img"
           />
         ) : null}
@@ -37,7 +37,7 @@ export function ImageLargeRight({
             src={urlFor(rightImage).url()}
             width={1600}
             height={800}
-            alt={rightImage.caption || ""}
+            alt={rightImage.alt || ""}
             className="image-large-right-right-img"
           />
         ) : null}

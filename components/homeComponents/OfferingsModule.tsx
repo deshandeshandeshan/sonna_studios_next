@@ -57,7 +57,7 @@ export function OfferingsModule({ services }: offeringsModuleProps) {
           src={urlFor(selectedService.image).url()}
           width={1600}
           height={800}
-          alt={selectedService.image.caption || ""}
+          alt={selectedService.image.alt || ""}
           className="services-img"
         />
       )}

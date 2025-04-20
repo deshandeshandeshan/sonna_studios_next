@@ -54,7 +54,7 @@ export function CaseStudy({ caseStudies }: caseStudyProps) {
           src={urlFor(selectedCaseStudy.image).url()}
           width={300}
           height={200}
-          alt={selectedCaseStudy.image.caption || ""}
+          alt={selectedCaseStudy.image.alt || ""}
           className="case-study-img-large"
         />
       )}
