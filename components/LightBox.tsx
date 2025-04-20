@@ -1,4 +1,3 @@
-// components/Lightbox.tsx
 "use client";
 
 import { useEffect } from "react";
@@ -8,11 +7,10 @@ import "./LightBox.css";
 type LightboxProps = {
   src: string;
   alt?: string;
-  caption?: string;
   onClose: () => void;
 };
 
-export function Lightbox({ src, caption, alt, onClose }: LightboxProps) {
+export function Lightbox({ src, alt, onClose }: LightboxProps) {
   useEffect(() => {
     document.body.style.overflow = "hidden";
     return () => {

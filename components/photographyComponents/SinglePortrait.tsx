@@ -28,7 +28,7 @@ export function SinglePortrait({ image }: singlePortraitProps) {
             width={1600}
             height={800}
             alt={image.alt || ""}
-            className="single-potrait-image spacing-16"
+            className="single-potrait-image spacing-16 pointer"
           />
         ) : null}
         {image?.caption && (
@@ -42,7 +42,6 @@ export function SinglePortrait({ image }: singlePortraitProps) {
         <Lightbox
           src={imageUrl}
           alt={image?.alt || ""}
-          caption={image?.caption}
           onClose={() => setLightBoxOpen(false)}
         />
       )}
