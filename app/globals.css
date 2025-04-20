@@ -65,14 +65,6 @@ button {
   display: flex;
 }
 
-/* React Icons */
-
-.arrow-right {
-  display: flex;
-  align-items: center;
-  margin-left: 3px;
-}
-
 /* Text Colours */
 
 .text-grey {

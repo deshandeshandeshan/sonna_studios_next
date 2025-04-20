@@ -5,7 +5,6 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import "./Footer.css";
 import "./grid.css";
-import { FaArrowRight } from "react-icons/fa";
 
 export default function Footer() {
   const [isClient, setIsClient] = useState(false);
@@ -41,7 +40,7 @@ export default function Footer() {
               commissions get in touch.
             </p>
             <Link href="/book" className="type-body">
-              Book Now <FaArrowRight />
+              Book Now →
             </Link>
           </div>
           <ul className="spacing-40 type-body text-grey">
