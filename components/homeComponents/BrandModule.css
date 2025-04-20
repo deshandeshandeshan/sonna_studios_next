@@ -15,6 +15,7 @@
 .brand-description {
   grid-column: 1 / 4;
   grid-row: 3 / 4;
+  min-height: 100px;
 }
 
 .brand-names {
@@ -25,6 +26,7 @@
 .brand-name {
   display: flex;
   flex-direction: column;
+  text-align: left;
 }
 
 @media screen and (min-width: 480px) {
@@ -44,7 +46,7 @@
   }
 
   .brand-names {
-    grid-column: 11 / 17;
+    grid-column: 11 / 25;
     grid-row: 2 / 3;
   }
 }

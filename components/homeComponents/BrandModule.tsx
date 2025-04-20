@@ -43,6 +43,7 @@ export function BrandModule({ brands }: brandModuleProps) {
         {validBrands.map((brand) => (
           <button
             key={brand.name}
+            onMouseEnter={() => setSelectedBrand(brand)}
             onClick={() => setSelectedBrand(brand)}
             className={`brand-name type-heading ${
               selectedBrand.name === brand.name ? "text-black" : "text-grey"
