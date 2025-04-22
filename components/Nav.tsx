@@ -73,6 +73,26 @@ export default function Navbar({ links }: { links: NavLink[] }) {
               </Link>
             ))}
           </div>
+          <div className="overlay-time-zone">
+            <ul className="type-detail-regular">
+              <li className="spacing-16">
+                <p>Auckland, New Zealand</p>
+                <p>12:49:03</p>
+                <p className="text-grey">Friday, 10 Janruary 2025</p>
+              </li>
+              <li>
+                <p>Sydney, Australia</p>
+                <p>8:49:03</p>
+                <p className="text-grey">Friday, 10 Janruary 2025</p>
+              </li>
+            </ul>
+          </div>
+          <div className="overlay-contact">
+            <ul className="type-detail-regular text-grey">
+              <li>hello@sonnastudios.com</li>
+              <li>(+64) 27 376 9490</li>
+            </ul>
+          </div>
         </div>
       )}
     </>
