@@ -3,12 +3,16 @@
   top: 0;
   z-index: 50;
   background-color: #f9f9f9e6;
-  padding: 16px;
+  padding: 0 16px;
+  height: 40px;
+  display: flex;
+  align-items: center;
 }
 
 .nav-logo {
-  width: 64px;
+  width: 70px;
   height: auto;
+  display: block;
 }
 
 .nav-links {
@@ -19,13 +23,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .menu-button {
   align-items: flex-end;
   transition: opacity 0.5s ease;
   display: flex;
-  margin-left: auto;
 }
 
 .menu-button span {
@@ -82,6 +87,12 @@
 
 /* Desktop view (from 480px up) */
 @media screen and (min-width: 480px) {
+  .nav-logo {
+    width: 80px;
+    height: auto;
+    display: block;
+  }
+
   .nav-container {
     display: flex;
     align-items: center;
@@ -91,7 +102,6 @@
   .nav-links {
     display: flex;
     gap: 30px;
-    margin-left: auto;
   }
 
   .menu-button {

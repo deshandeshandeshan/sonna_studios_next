@@ -1,9 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import "./Nav.css";
+import BlackLogo from "@/public/Black-Logo.svg";
 
 interface NavLink {
   title: string;
@@ -31,13 +31,7 @@ export default function Navbar({ links }: { links: NavLink[] }) {
       <nav className="nav">
         <div className="nav-container">
           <Link href="/">
-            <Image
-              src="/NavLogo.png"
-              alt="Home"
-              width={100}
-              height={40}
-              className="nav-logo"
-            />
+            <BlackLogo className="nav-logo" aria-label="Company Logo" />
           </Link>
           <div className="nav-links">
             {links.map((link) => (
