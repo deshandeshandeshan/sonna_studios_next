@@ -14,14 +14,17 @@ export function LandingModule({ image, video }: landingModuleProps) {
   return (
     <section className="landing-module">
       <div className="landing-module-content">
-        <h1 className="landing-module-title type-heading">
-          Sonna Studios
-          <br />
-          Photography & Videography
-        </h1>
-        <button className="landing-module-button link-button type-body">
-          Make an Enquiry →
-        </button>
+        <div className="landing-module-text">
+          <h1 className="landing-module-title type-heading">
+            Sonna Studios
+            <br />
+            Photography & Videography
+          </h1>
+
+          <button className="landing-module-button link-button type-body">
+            Make an Enquiry →
+          </button>
+        </div>
         <div>
           {image ? (
             <Image
