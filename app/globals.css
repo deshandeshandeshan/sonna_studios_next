@@ -113,6 +113,10 @@ button {
   padding-bottom: 80px;
 }
 
+.caption-spacing {
+  padding-bottom: 4px;
+}
+
 /* Mobile Font Sizes */
 
 .type-heading {

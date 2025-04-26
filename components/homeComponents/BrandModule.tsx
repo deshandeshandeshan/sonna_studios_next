@@ -35,7 +35,7 @@ export function BrandModule({ brands }: brandModuleProps) {
           width={1600}
           height={800}
           alt={selectedBrand.image.alt || ""}
-          className="brand-img spacing-16"
+          className="brand-img caption-spacing"
         />
       ) : null}
       <p className="brand-description type-body">{selectedBrand.description}</p>
