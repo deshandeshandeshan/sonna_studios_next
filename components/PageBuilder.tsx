@@ -67,12 +67,12 @@ export function PageBuilder({ content }: PageBuilderProps) {
             return <ServicesBlock key={block._key} {...block} />;
           case "fullScreenHeaderImage":
             return <FullScreenHeaderImage key={block._key} {...block} />;
-          case "bookingBlock":
-            return <BookingBlock key={block._key} {...block} />;
           case "brandsBlock":
             return <BrandsBlock key={block._key} {...block} />;
           case "locationBlock":
             return <LocationBlock key={block._key} {...block} />;
+          case "bookingBlock":
+            return <BookingBlock key={block._key} {...block} />;
           default: {
             const fallbackKey =
               (block as { _key?: string })._key ?? Math.random();
