@@ -34,7 +34,7 @@ export function DoublePortrait({ leftImage, rightImage }: doublePortraitProps) {
             width={1600}
             height={800}
             alt={leftImage.alt || ""}
-            className="potrait-left-img pointer"
+            className="potrait-left-img pointer caption-spacing"
           />
         ) : null}
         {leftImage?.caption && (
@@ -56,7 +56,7 @@ export function DoublePortrait({ leftImage, rightImage }: doublePortraitProps) {
             width={1600}
             height={800}
             alt={rightImage.alt || ""}
-            className="potrait-right-img pointer"
+            className="potrait-right-img pointer caption-spacing"
           />
         ) : null}
         {rightImage?.caption && (

@@ -34,7 +34,7 @@ export function ImageLargeLeft({ leftImage, rightImage }: imageLargeLeftProps) {
             width={1600}
             height={800}
             alt={leftImage.alt || ""}
-            className="image-large-left-img pointer"
+            className="image-large-left-img pointer caption-spacing"
           />
         ) : null}
         {leftImage?.caption && (
@@ -56,7 +56,7 @@ export function ImageLargeLeft({ leftImage, rightImage }: imageLargeLeftProps) {
             width={1600}
             height={800}
             alt={rightImage.alt || ""}
-            className="image-large-right-img pointer"
+            className="image-large-right-img pointer caption-spacing"
           />
         ) : null}
         {rightImage?.caption && (

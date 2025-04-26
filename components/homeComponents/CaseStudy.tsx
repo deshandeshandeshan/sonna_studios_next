@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useState } from "react";
 import "../grid.css";
 import "./CaseStudy.css";
+import Link from "next/link";
 
 type caseStudyProps = Extract<
   NonNullable<NonNullable<HOME_QUERYResult>["content"]>[number],
@@ -58,6 +59,12 @@ export function CaseStudy({ caseStudies }: caseStudyProps) {
           className="case-study-img-large"
         />
       )}
+      <Link
+        href={"/photography"}
+        className="case-study-button link-button type-body"
+      >
+        View Photography →
+      </Link>
       <div className="case-study-description-container">
         <div className="case-study-cient flex-row">
           <h2 className="case-study-client-heading type-detail-regular text-grey">

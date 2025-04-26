@@ -76,7 +76,7 @@ button {
 }
 
 .small-margin-bottom {
-  margin: 0 0 8px;
+  margin: 0 0 12px;
 }
 
 /* Spacing scale */
@@ -111,6 +111,14 @@ button {
 
 .spacing-120 {
   padding-bottom: 80px;
+}
+
+.caption-spacing {
+  padding-bottom: 4px;
+}
+
+.landing-content-spacing {
+  padding-top: 80px;
 }
 
 /* Mobile Font Sizes */
@@ -206,5 +214,9 @@ button {
 
   .spacing-120 {
     padding-bottom: 120px;
+  }
+
+  .landing-content-spacing {
+    padding-top: 120px;
   }
 }

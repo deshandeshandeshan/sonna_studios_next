@@ -80,7 +80,7 @@ export default function Footer() {
         </div>
         <div className="footer-privacy-policy type-detail-regular">
           <p>Privacy Policy</p>
-          <p className="text-grey spacing-80">2024 © All Rights Reserved</p>
+          <p className="text-grey">2024 © All Rights Reserved</p>
         </div>
       </div>
     </footer>

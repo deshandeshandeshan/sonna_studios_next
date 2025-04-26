@@ -28,7 +28,7 @@ export function Landscape({ image }: landscapeProps) {
             width={1600}
             height={800}
             alt={image.alt || ""}
-            className="landscape-img pointer"
+            className="landscape-img pointer caption-spacing"
           />
         ) : null}
         {image?.caption && (

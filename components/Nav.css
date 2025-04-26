@@ -3,12 +3,16 @@
   top: 0;
   z-index: 50;
   background-color: #f9f9f9e6;
-  padding: 16px;
+  padding: 0 16px;
+  height: 40px;
+  display: flex;
+  align-items: center;
 }
 
 .nav-logo {
-  width: 64px;
+  width: 70px;
   height: auto;
+  display: block;
 }
 
 .nav-links {
@@ -19,13 +23,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .menu-button {
   align-items: flex-end;
   transition: opacity 0.5s ease;
   display: flex;
-  margin-left: auto;
 }
 
 .menu-button span {
@@ -44,28 +49,36 @@
   inset: 0;
   background: #f9f9f9;
   z-index: 40;
-  display: flex;
-  justify-content: flex start;
-  align-items: flex-start;
-  padding-top: 80px;
-  transition: all 2s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.close-button {
-  position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
-  background: none;
-  border: none;
-  cursor: pointer;
+  display: grid;
+  column-gap: 16px;
+  grid-template-columns: repeat(6, 1fr);
+  padding: 80px 16px 16px;
 }
 
 .overlay-links {
+  grid-column: 1 / 4;
+  grid-row: 1 / 2;
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  text-align: left;
-  padding-left: 16px;
+  gap: 6px;
+}
+
+.overlay-time-zone {
+  grid-column: 1 / 4;
+  grid-row: 2 / 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.overlay-contact {
+  grid-column: 4 / 7;
+  grid-row: 2 / 3;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  gap: 6px;
 }
 
 .overlay-links a {
@@ -74,6 +87,12 @@
 
 /* Desktop view (from 480px up) */
 @media screen and (min-width: 480px) {
+  .nav-logo {
+    width: 80px;
+    height: auto;
+    display: block;
+  }
+
   .nav-container {
     display: flex;
     align-items: center;
@@ -83,7 +102,6 @@
   .nav-links {
     display: flex;
     gap: 30px;
-    margin-left: auto;
   }
 
   .menu-button {
