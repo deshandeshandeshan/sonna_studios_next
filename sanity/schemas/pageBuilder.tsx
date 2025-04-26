@@ -19,5 +19,8 @@ export const pageBuilderType = defineType({
     defineArrayMember({ type: "videoCaseStudy" }),
     defineArrayMember({ type: "fullScreenHeaderImage" }),
     defineArrayMember({ type: "servicesBlock" }),
+    defineArrayMember({ type: "bookingBlock" }),
+    defineArrayMember({ type: "brandsBlock" }),
+    defineArrayMember({ type: "locationBlock" }),
   ],
 });

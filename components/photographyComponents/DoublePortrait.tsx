@@ -1,7 +1,7 @@
 "use client";
 
 import { urlFor } from "@/sanity/lib/image";
-import { HOME_QUERYResult } from "@/sanity/types";
+import { PAGE_QUERYResult } from "@/sanity/types";
 import Image from "next/image";
 import "./DoublePortrait.css";
 import "../grid.css";
@@ -9,7 +9,7 @@ import { Lightbox } from "../LightBox";
 import { useState } from "react";
 
 type doublePortraitProps = Extract<
-  NonNullable<NonNullable<HOME_QUERYResult>["content"]>[number],
+  NonNullable<NonNullable<PAGE_QUERYResult>["content"]>[number],
   { _type: "doublePortrait" }
 >;
 

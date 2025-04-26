@@ -1,8 +1,8 @@
-import { defineField, defineType } from "sanity";
 import { BlockContentIcon } from "@sanity/icons";
+import { defineField, defineType } from "sanity";
 
-export const servicesBlockType = defineType({
-  name: "servicesBlock",
+export const brandsBlockType = defineType({
+  name: "brandsBlock",
   type: "object",
   fields: [
     defineField({
@@ -10,15 +10,20 @@ export const servicesBlockType = defineType({
       title: "Module Title",
       type: "string",
     }),
-    {
-      name: "capabilities",
+    defineField({
+      name: "description",
+      title: "Description",
+      type: "text",
+    }),
+    defineField({
+      name: "brandLabel",
       type: "array",
-      title: "Capabilities",
+      title: "Brand Labels",
       of: [
         {
           type: "object",
-          name: "capabilities",
-          title: "Capabilities",
+          name: "brandLabel",
+          title: "Brand Label",
           fields: [
             {
               name: "image",
@@ -41,22 +46,12 @@ export const servicesBlockType = defineType({
             {
               name: "name",
               type: "string",
-              title: "Service Name",
-            },
-            {
-              name: "specialties",
-              type: "text",
-              title: "Service Specialties",
-            },
-            {
-              name: "description",
-              type: "text",
-              title: "Service Description",
+              title: "Brand Name",
             },
           ],
         },
       ],
-    },
+    }),
   ],
   icon: BlockContentIcon,
   preview: {
@@ -67,7 +62,7 @@ export const servicesBlockType = defineType({
     prepare({ title, media }) {
       return {
         title: title,
-        subtitle: "Services Block",
+        subtitle: "Brands Block",
         media: media ?? BlockContentIcon,
       };
     },

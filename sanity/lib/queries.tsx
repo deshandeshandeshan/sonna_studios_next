@@ -39,18 +39,18 @@ export const HOME_QUERY = defineQuery(`
         },
         description,
       },
-        capabilities[] {
-          _type,
-          ...,
-          image {
-            asset -> { url },
-            caption,
-            alt
-          },
-          name,
-          specialties,
-          description,
-      }
+      capabilities[] {
+        _type,
+        ...,
+        image {
+          asset -> { url },
+          caption,
+          alt
+        },
+        name,
+        specialties,
+        description,
+      },
     }
   }
 `);
@@ -94,18 +94,18 @@ export const PAGE_QUERY = defineQuery(`
         },
         description,
       },
-        capabilities[] {
-          _type,
-          ...,
-          image {
-            asset -> { url },
-            caption,
-            alt
-          },
-          name,
-          specialties,
-          description,
-      }
+      capabilities[] {
+        _type,
+        ...,
+        image {
+          asset -> { url },
+          caption,
+          alt
+        },
+        name,
+        specialties,
+        description,
+      },
     },
   }
   `);
