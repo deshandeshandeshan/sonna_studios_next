@@ -16,5 +16,9 @@ export default async function Page(props: PageProps) {
     notFound();
   }
 
-  return page?.content ? <PageBuilder content={page.content} /> : null;
+  return page?.content ? (
+    <div className="landing-content-spacing">
+      <PageBuilder content={page.content} />
+    </div>
+  ) : null;
 }

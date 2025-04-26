@@ -29,12 +29,12 @@ export function OfferingsModule({ services }: offeringsModuleProps) {
   return (
     <section className="offerings-container grid mobile-padding">
       <h1 className="services-title type-body text-grey">Services</h1>
-      <div className="services-list-container spacing-16">
+      <div className="services-list-container spacing-12">
         {validServices.map((service) => (
           <button
             key={service.name}
             onClick={() => setSelectedService(service)}
-            className={`spacing-16 type-body ${
+            className={`type-body ${
               selectedService.name === service.name ? "text-black" : "text-grey"
             }`}
           >
