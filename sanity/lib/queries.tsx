@@ -39,18 +39,18 @@ export const HOME_QUERY = defineQuery(`
         },
         description,
       },
-        capabilities[] {
-          _type,
-          ...,
-          image {
-            asset -> { url },
-            caption,
-            alt
-          },
-          name,
-          specialties,
-          description,
-      }
+      capabilities[] {
+        _type,
+        ...,
+        image {
+          asset -> { url },
+          caption,
+          alt
+        },
+        name,
+        specialties,
+        description,
+      },
     }
   }
 `);
@@ -105,6 +105,23 @@ export const PAGE_QUERY = defineQuery(`
           name,
           specialties,
           description,
+      },
+      _type == "bookingBlock" => {
+        _type,
+        _key,
+        title,
+        enquiryDescription,
+        contactDescription,
+        pricingDescription,
+        generalEnquiries {
+          email,
+          phone
+        },
+        socialLinks {
+          instagram,
+          tiktok,
+          linkedin
+        }
       }
     },
   }

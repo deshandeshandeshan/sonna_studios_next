@@ -12,11 +12,13 @@ export const videoCaseStudyType = defineType({
     }),
     defineField({
       name: "projectName",
+      title: "Project Name",
       type: "string",
     }),
     defineField({
       name: "description",
-      type: "string",
+      title: "Video Description",
+      type: "text",
     }),
     defineField({
       name: "client",

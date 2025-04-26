@@ -190,6 +190,103 @@
     }
   },
   {
+    "name": "bookingBlock",
+    "type": "type",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "bookingBlock"
+          }
+        },
+        "title": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        },
+        "enquiryDescription": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        },
+        "contactDescription": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        },
+        "pricingDescription": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        },
+        "generalEnquiries": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "object",
+            "attributes": {
+              "email": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "string"
+                },
+                "optional": true
+              },
+              "phone": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "string"
+                },
+                "optional": true
+              }
+            }
+          },
+          "optional": true
+        },
+        "socialLinks": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "object",
+            "attributes": {
+              "instagram": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "string"
+                },
+                "optional": true
+              },
+              "tiktok": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "string"
+                },
+                "optional": true
+              },
+              "linkedin": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "string"
+                },
+                "optional": true
+              }
+            }
+          },
+          "optional": true
+        }
+      }
+    }
+  },
+  {
     "name": "servicesBlock",
     "type": "type",
     "value": {
@@ -306,27 +403,6 @@
                   },
                   "optional": true
                 },
-                "typeOfService": {
-                  "type": "objectAttribute",
-                  "value": {
-                    "type": "union",
-                    "of": [
-                      {
-                        "type": "string",
-                        "value": "photography"
-                      },
-                      {
-                        "type": "string",
-                        "value": "videography"
-                      },
-                      {
-                        "type": "string",
-                        "value": "postProduction"
-                      }
-                    ]
-                  },
-                  "optional": true
-                },
                 "_type": {
                   "type": "objectAttribute",
                   "value": {
@@ -439,6 +515,13 @@
                 }
               }
             }
+          },
+          "optional": true
+        },
+        "description": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
           },
           "optional": true
         }

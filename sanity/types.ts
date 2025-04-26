@@ -46,6 +46,23 @@ export type Geopoint = {
   alt?: number;
 };
 
+export type BookingBlock = {
+  _type: "bookingBlock";
+  title?: string;
+  enquiryDescription?: string;
+  contactDescription?: string;
+  pricingDescription?: string;
+  generalEnquiries?: {
+    email?: string;
+    phone?: string;
+  };
+  socialLinks?: {
+    instagram?: string;
+    tiktok?: string;
+    linkedin?: string;
+  };
+};
+
 export type ServicesBlock = {
   _type: "servicesBlock";
   title?: string;
@@ -65,7 +82,6 @@ export type ServicesBlock = {
     name?: string;
     specialties?: string;
     description?: string;
-    typeOfService?: "photography" | "videography" | "postProduction";
     _type: "capabilities";
     _key: string;
   }>;
@@ -86,6 +102,7 @@ export type FullScreenHeaderImage = {
     caption?: string;
     _type: "image";
   };
+  description?: string;
 };
 
 export type VideoCaseStudy = {
@@ -587,11 +604,11 @@ export type SanityImageMetadata = {
   isOpaque?: boolean;
 };
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | Geopoint | ServicesBlock | FullScreenHeaderImage | VideoCaseStudy | SinglePortrait | Landscape | ImageLargeRight | ImageLargeLeft | DoublePortrait | OfferingsModule | LandingModule | CaseStudy | BrandModule | LargeText | LargeImage | FullBleed | FooterSettings | NavSettings | Page | Slug | PageBuilder | SanityFileAsset | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata;
+export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | Geopoint | BookingBlock | ServicesBlock | FullScreenHeaderImage | VideoCaseStudy | SinglePortrait | Landscape | ImageLargeRight | ImageLargeLeft | DoublePortrait | OfferingsModule | LandingModule | CaseStudy | BrandModule | LargeText | LargeImage | FullBleed | FooterSettings | NavSettings | Page | Slug | PageBuilder | SanityFileAsset | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: sanity/lib/queries.tsx
 // Variable: HOME_QUERY
-// Query: *[_type == "page" && slug.current == "home"][0]{    ...,    content[] {      _key,      _type,      ...,      video {        asset -> { url }      },      services[] {         name,        description,        image {          asset -> { url },          caption,          alt        }      },      caseStudies[] {        client,        services,        industry,        location,        image {          asset -> { url },          caption,          alt        }      },      brands[] {        name,        image {          asset -> { url },          caption,          alt        },        description,      },        capabilities[] {          _type,          ...,          image {            asset -> { url },            caption,            alt          },          name,          specialties,          description,      }    }  }
+// Query: *[_type == "page" && slug.current == "home"][0]{    ...,    content[] {      _key,      _type,      ...,      video {        asset -> { url }      },      services[] {         name,        description,        image {          asset -> { url },          caption,          alt        }      },      caseStudies[] {        client,        services,        industry,        location,        image {          asset -> { url },          caption,          alt        }      },      brands[] {        name,        image {          asset -> { url },          caption,          alt        },        description,      },      capabilities[] {        _type,        ...,        image {          asset -> { url },          caption,          alt        },        name,        specialties,        description,      },      _type == "bookingBlock" => {        _type,        _key,        title,        enquiryDescription,        contactDescription,        pricingDescription,        generalEnquiries {          email,          phone        },        socialLinks {          instagram,          tiktok,          linkedin        }      }    }  }
 export type HOME_QUERYResult = {
   _id: string;
   _type: "page";
@@ -714,6 +731,7 @@ export type HOME_QUERYResult = {
       caption?: string;
       _type: "image";
     };
+    description?: string;
     video: null;
     services: null;
     caseStudies: null;
@@ -905,7 +923,6 @@ export type HOME_QUERYResult = {
       name: string | null;
       specialties: string | null;
       description: string | null;
-      typeOfService?: "photography" | "postProduction" | "videography";
       _key: string;
     }> | null;
     video: null;
@@ -955,7 +972,7 @@ export type HOME_QUERYResult = {
   }> | null;
 } | null;
 // Variable: PAGE_QUERY
-// Query: *[_type == "page" && slug.current == $slug][0]{    ...,    content[] {      _key,      _type,      ...,      video {        asset -> { url }      },      services[] {         name,        description,        image {          asset -> { url },          caption,          alt        }      },      caseStudies[] {        client,        services,        industry,        location,        image {          asset -> { url },          caption,          alt        }      },      brands[] {        name,        image {          asset -> { url },          caption,          alt        },        description,      },        capabilities[] {          _type,          ...,          image {            asset -> { url },            caption,            alt          },          name,          specialties,          description,      }    },  }
+// Query: *[_type == "page" && slug.current == $slug][0]{    ...,    content[] {      _key,      _type,      ...,      video {        asset -> { url }      },      services[] {         name,        description,        image {          asset -> { url },          caption,          alt        }      },      caseStudies[] {        client,        services,        industry,        location,        image {          asset -> { url },          caption,          alt        }      },      brands[] {        name,        image {          asset -> { url },          caption,          alt        },        description,      },        capabilities[] {          _type,          ...,          image {            asset -> { url },            caption,            alt          },          name,          specialties,          description,      },      _type == "bookingBlock" => {        _type,        _key,        title,        enquiryDescription,        contactDescription,        pricingDescription,        generalEnquiries {          email,          phone        },        socialLinks {          instagram,          tiktok,          linkedin        }      }    },  }
 export type PAGE_QUERYResult = {
   _id: string;
   _type: "page";
@@ -1078,6 +1095,7 @@ export type PAGE_QUERYResult = {
       caption?: string;
       _type: "image";
     };
+    description?: string;
     video: null;
     services: null;
     caseStudies: null;
@@ -1269,7 +1287,6 @@ export type PAGE_QUERYResult = {
       name: string | null;
       specialties: string | null;
       description: string | null;
-      typeOfService?: "photography" | "postProduction" | "videography";
       _key: string;
     }> | null;
     video: null;
@@ -1329,8 +1346,8 @@ export type NAVIGATION_QUERYResult = Array<{
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    "\n    *[_type == \"page\" && slug.current == \"home\"][0]{\n    ...,\n    content[] {\n      _key,\n      _type,\n      ...,\n      video {\n        asset -> { url }\n      },\n      services[] { \n        name,\n        description,\n        image {\n          asset -> { url },\n          caption,\n          alt\n        }\n      },\n      caseStudies[] {\n        client,\n        services,\n        industry,\n        location,\n        image {\n          asset -> { url },\n          caption,\n          alt\n        }\n      },\n      brands[] {\n        name,\n        image {\n          asset -> { url },\n          caption,\n          alt\n        },\n        description,\n      },\n        capabilities[] {\n          _type,\n          ...,\n          image {\n            asset -> { url },\n            caption,\n            alt\n          },\n          name,\n          specialties,\n          description,\n      }\n    }\n  }\n": HOME_QUERYResult;
-    "\n  *[_type == \"page\" && slug.current == $slug][0]{\n    ...,\n    content[] {\n      _key,\n      _type,\n      ...,\n      video {\n        asset -> { url }\n      },\n      services[] { \n        name,\n        description,\n        image {\n          asset -> { url },\n          caption,\n          alt\n        }\n      },\n      caseStudies[] {\n        client,\n        services,\n        industry,\n        location,\n        image {\n          asset -> { url },\n          caption,\n          alt\n        }\n      },\n      brands[] {\n        name,\n        image {\n          asset -> { url },\n          caption,\n          alt\n        },\n        description,\n      },\n        capabilities[] {\n          _type,\n          ...,\n          image {\n            asset -> { url },\n            caption,\n            alt\n          },\n          name,\n          specialties,\n          description,\n      }\n    },\n  }\n  ": PAGE_QUERYResult;
+    "\n    *[_type == \"page\" && slug.current == \"home\"][0]{\n    ...,\n    content[] {\n      _key,\n      _type,\n      ...,\n      video {\n        asset -> { url }\n      },\n      services[] { \n        name,\n        description,\n        image {\n          asset -> { url },\n          caption,\n          alt\n        }\n      },\n      caseStudies[] {\n        client,\n        services,\n        industry,\n        location,\n        image {\n          asset -> { url },\n          caption,\n          alt\n        }\n      },\n      brands[] {\n        name,\n        image {\n          asset -> { url },\n          caption,\n          alt\n        },\n        description,\n      },\n      capabilities[] {\n        _type,\n        ...,\n        image {\n          asset -> { url },\n          caption,\n          alt\n        },\n        name,\n        specialties,\n        description,\n      },\n      _type == \"bookingBlock\" => {\n        _type,\n        _key,\n        title,\n        enquiryDescription,\n        contactDescription,\n        pricingDescription,\n        generalEnquiries {\n          email,\n          phone\n        },\n        socialLinks {\n          instagram,\n          tiktok,\n          linkedin\n        }\n      }\n    }\n  }\n": HOME_QUERYResult;
+    "\n  *[_type == \"page\" && slug.current == $slug][0]{\n    ...,\n    content[] {\n      _key,\n      _type,\n      ...,\n      video {\n        asset -> { url }\n      },\n      services[] { \n        name,\n        description,\n        image {\n          asset -> { url },\n          caption,\n          alt\n        }\n      },\n      caseStudies[] {\n        client,\n        services,\n        industry,\n        location,\n        image {\n          asset -> { url },\n          caption,\n          alt\n        }\n      },\n      brands[] {\n        name,\n        image {\n          asset -> { url },\n          caption,\n          alt\n        },\n        description,\n      },\n        capabilities[] {\n          _type,\n          ...,\n          image {\n            asset -> { url },\n            caption,\n            alt\n          },\n          name,\n          specialties,\n          description,\n      },\n      _type == \"bookingBlock\" => {\n        _type,\n        _key,\n        title,\n        enquiryDescription,\n        contactDescription,\n        pricingDescription,\n        generalEnquiries {\n          email,\n          phone\n        },\n        socialLinks {\n          instagram,\n          tiktok,\n          linkedin\n        }\n      }\n    },\n  }\n  ": PAGE_QUERYResult;
     "\n  *[_type == \"page\" && defined(slug.current)]{\n    \"title\": title,\n    \"slug\": slug.current\n  }\n": NAVIGATION_QUERYResult;
   }
 }

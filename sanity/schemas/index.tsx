@@ -18,6 +18,9 @@ import { fullScreenHeaderImageType } from "./blocks/capabilitiesBlocks/fullScree
 import { servicesBlockType } from "./blocks/capabilitiesBlocks/servicesBlock";
 import { navSettingsType } from "./navSettings";
 import { footerSettingsType } from "./footerSettings";
+import { bookingBlockType } from "./blocks/bookBlocks/bookingBlock";
+import { brandsBlockType } from "./blocks/capabilitiesBlocks/brandsBlock";
+import { locationBlockType } from "./blocks/homeBlocks/locationBlock";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -41,5 +44,8 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     videoCaseStudyType,
     fullScreenHeaderImageType,
     servicesBlockType,
+    bookingBlockType,
+    brandsBlockType,
+    locationBlockType,
   ],
 };

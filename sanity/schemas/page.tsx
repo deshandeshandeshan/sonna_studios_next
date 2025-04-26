@@ -36,6 +36,7 @@ export const pageType = defineType({
                 "largeImage",
                 "largeText",
                 "offeringsModule",
+                "locationBlock",
               ],
             },
             {
@@ -58,7 +59,12 @@ export const pageType = defineType({
             {
               name: "capabilities",
               title: "Capabilities",
-              of: ["fullScreenHeaderImage", "servicesBlock"],
+              of: ["fullScreenHeaderImage", "servicesBlock", "brandsBlock"],
+            },
+            {
+              name: "book",
+              title: "Book",
+              of: ["bookingBlock"],
             },
           ],
         },
