@@ -1,9 +1,9 @@
 import { urlFor } from "@/sanity/lib/image";
-import { HOME_QUERYResult } from "@/sanity/types";
+import { PAGE_QUERYResult } from "@/sanity/types";
 import Image from "next/image";
 
 type servicesBlockProps = Extract<
-  NonNullable<NonNullable<HOME_QUERYResult>["content"]>[number],
+  NonNullable<NonNullable<PAGE_QUERYResult>["content"]>[number],
   { _type: "servicesBlock" }
 >;
 
