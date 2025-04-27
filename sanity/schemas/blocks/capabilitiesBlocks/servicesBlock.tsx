@@ -45,8 +45,9 @@ export const servicesBlockType = defineType({
             },
             {
               name: "specialties",
-              type: "text",
+              type: "array",
               title: "Service Specialties",
+              of: [{ type: "string" }],
             },
             {
               name: "description",

@@ -16,8 +16,11 @@ export default async function Page(props: PageProps) {
     notFound();
   }
 
+  const firstModule = page?.content?.[0]?._type;
+  const hasLandingSpacing = firstModule !== "fullScreenHeaderImage";
+
   return page?.content ? (
-    <div className="landing-content-spacing">
+    <div className={hasLandingSpacing ? "landing-content-spacing" : ""}>
       <PageBuilder content={page.content} />
     </div>
   ) : null;
