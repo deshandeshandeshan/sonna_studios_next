@@ -111,7 +111,7 @@ export type ServicesBlock = {
       _type: "image";
     };
     name?: string;
-    specialties?: string;
+    specialties?: Array<string>;
     description?: string;
     _type: "capabilities";
     _key: string;
@@ -1025,7 +1025,7 @@ export type HOME_QUERYResult = {
         alt: string | null;
       } | null;
       name: string | null;
-      specialties: string | null;
+      specialties: Array<string> | null;
       description: string | null;
       _key: string;
     }> | null;
@@ -1449,7 +1449,7 @@ export type PAGE_QUERYResult = {
         alt: string | null;
       } | null;
       name: string | null;
-      specialties: string | null;
+      specialties: Array<string> | null;
       description: string | null;
       _key: string;
     }> | null;
