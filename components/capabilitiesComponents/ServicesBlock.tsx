@@ -43,7 +43,7 @@ export function ServicesBlock({ capabilities }: servicesBlockProps) {
               ))}
             </ul>
             <Link
-              href={"/photography"}
+              href={"/book"}
               className="capabilities-book-button link-button type-body"
             >
               Book a Shoot →
