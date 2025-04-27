@@ -1076,7 +1076,7 @@ export type HOME_QUERYResult = {
   }> | null;
 } | null;
 // Variable: PAGE_QUERY
-// Query: *[_type == "page" && slug.current == $slug][0]{    ...,    content[] {      _key,      _type,      ...,      video {        asset -> { url }      },      services[] {         name,        description,        image {          asset -> { url },          caption,          alt        }      },      caseStudies[] {        client,        services,        industry,        location,        image {          asset -> { url },          caption,          alt        }      },      brands[] {        name,        image {          asset -> { url },          caption,          alt        },        description,      },        capabilities[] {          _type,          ...,          image {            asset -> { url },            caption,            alt          },          name,          specialties,          description,      },      _type == "bookingBlock" => {        _type,        _key,        title,        enquiryDescription,        contactDescription,        pricingDescription,        generalEnquiries {          email,          phone        },        socialLinks {          instagram,          tiktok,          linkedin        }      }    },  }
+// Query: *[_type == "page" && slug.current == $slug][0]{    ...,    content[] {      _key,      _type,      ...,      video {        asset -> { url }      },      services[] {         name,        description,        image {          asset -> { url },          caption,          alt        }      },      caseStudies[] {        client,        services,        industry,        location,        image {          asset -> { url },          caption,          alt        }      },      brands[] {        name,        image {          asset -> { url },          caption,          alt        },        description,      },      capabilities[] {        _type,        ...,        image {          asset -> { url },          caption,          alt        },        name,        specialties,        description,      },    },  }
 export type PAGE_QUERYResult = {
   _id: string;
   _type: "page";
@@ -1088,19 +1088,19 @@ export type PAGE_QUERYResult = {
   content: Array<{
     _key: string;
     _type: "bookingBlock";
-    title: string | null;
-    enquiryDescription: string | null;
-    contactDescription: string | null;
-    pricingDescription: string | null;
-    generalEnquiries: {
-      email: string | null;
-      phone: string | null;
-    } | null;
-    socialLinks: {
-      instagram: string | null;
-      tiktok: string | null;
-      linkedin: string | null;
-    } | null;
+    title?: string;
+    enquiryDescription?: string;
+    contactDescription?: string;
+    pricingDescription?: string;
+    generalEnquiries?: {
+      email?: string;
+      phone?: string;
+    };
+    socialLinks?: {
+      instagram?: string;
+      tiktok?: string;
+      linkedin?: string;
+    };
     video: null;
     services: null;
     caseStudies: null;
@@ -1511,7 +1511,7 @@ import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
     "\n    *[_type == \"page\" && slug.current == \"home\"][0]{\n    ...,\n    content[] {\n      _key,\n      _type,\n      ...,\n      video {\n        asset -> { url }\n      },\n      services[] { \n        name,\n        description,\n        image {\n          asset -> { url },\n          caption,\n          alt\n        }\n      },\n      caseStudies[] {\n        client,\n        services,\n        industry,\n        location,\n        image {\n          asset -> { url },\n          caption,\n          alt\n        }\n      },\n      brands[] {\n        name,\n        image {\n          asset -> { url },\n          caption,\n          alt\n        },\n        description,\n      },\n      capabilities[] {\n        _type,\n        ...,\n        image {\n          asset -> { url },\n          caption,\n          alt\n        },\n        name,\n        specialties,\n        description,\n      },\n    }\n  }\n": HOME_QUERYResult;
-    "\n  *[_type == \"page\" && slug.current == $slug][0]{\n    ...,\n    content[] {\n      _key,\n      _type,\n      ...,\n      video {\n        asset -> { url }\n      },\n      services[] { \n        name,\n        description,\n        image {\n          asset -> { url },\n          caption,\n          alt\n        }\n      },\n      caseStudies[] {\n        client,\n        services,\n        industry,\n        location,\n        image {\n          asset -> { url },\n          caption,\n          alt\n        }\n      },\n      brands[] {\n        name,\n        image {\n          asset -> { url },\n          caption,\n          alt\n        },\n        description,\n      },\n        capabilities[] {\n          _type,\n          ...,\n          image {\n            asset -> { url },\n            caption,\n            alt\n          },\n          name,\n          specialties,\n          description,\n      },\n      _type == \"bookingBlock\" => {\n        _type,\n        _key,\n        title,\n        enquiryDescription,\n        contactDescription,\n        pricingDescription,\n        generalEnquiries {\n          email,\n          phone\n        },\n        socialLinks {\n          instagram,\n          tiktok,\n          linkedin\n        }\n      }\n    },\n  }\n  ": PAGE_QUERYResult;
+    "\n  *[_type == \"page\" && slug.current == $slug][0]{\n    ...,\n    content[] {\n      _key,\n      _type,\n      ...,\n      video {\n        asset -> { url }\n      },\n      services[] { \n        name,\n        description,\n        image {\n          asset -> { url },\n          caption,\n          alt\n        }\n      },\n      caseStudies[] {\n        client,\n        services,\n        industry,\n        location,\n        image {\n          asset -> { url },\n          caption,\n          alt\n        }\n      },\n      brands[] {\n        name,\n        image {\n          asset -> { url },\n          caption,\n          alt\n        },\n        description,\n      },\n      capabilities[] {\n        _type,\n        ...,\n        image {\n          asset -> { url },\n          caption,\n          alt\n        },\n        name,\n        specialties,\n        description,\n      },\n    },\n  }\n  ": PAGE_QUERYResult;
     "\n  *[_type == \"page\" && defined(slug.current)]{\n    \"title\": title,\n    \"slug\": slug.current\n  }\n": NAVIGATION_QUERYResult;
   }
 }
