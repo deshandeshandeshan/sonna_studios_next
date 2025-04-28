@@ -1,8 +1,9 @@
 "use client";
 
-// import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import WhiteLogo from "@/public/White-Logo.svg";
+
 import "./Footer.css";
 import "./grid.css";
 
@@ -22,15 +23,9 @@ export default function Footer() {
 
   return (
     <footer className="footer-container grid section-padding-top">
-      {/* <div className="footer-logo">
-        <Image
-          src="/FooterNav.png"
-          alt="Footer Logo"
-          width={600}
-          height={100}
-          className="footer-logo-img"
-        />
-      </div> */}
+      <div className="footer-logo">
+        <WhiteLogo className="footer-logo-svg" aria-label="Company Logo" />
+      </div>
       <h2 className="footer-contact-heading type-detail-regular">Contact</h2>
       <div className="footer-details">
         <div className="footer-contact spacing-64">

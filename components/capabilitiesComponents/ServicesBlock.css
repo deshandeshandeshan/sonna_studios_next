@@ -37,6 +37,8 @@
   grid-column: 3 / 7;
   grid-row: 4 / 5;
   max-width: fit-content;
+  display: inline-block; /* Ensures the button sizes to fit its content */
+  align-self: start;
 }
 
 .capabilities-book-button:hover {

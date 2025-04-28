@@ -65,6 +65,10 @@ button {
   display: flex;
 }
 
+mux-player {
+  --controls: none;
+}
+
 /* Text Colours */
 
 .text-grey {

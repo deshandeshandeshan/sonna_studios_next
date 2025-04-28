@@ -312,6 +312,7 @@ export type OfferingsModule = {
 export type LandingModule = {
   _type: "landingModule";
   title?: string;
+  video?: MuxVideo;
   image?: {
     asset?: {
       _ref: string;
@@ -324,15 +325,6 @@ export type LandingModule = {
     caption?: string;
     alt?: string;
     _type: "image";
-  };
-  video?: {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.fileAsset";
-    };
-    _type: "file";
   };
 };
 
@@ -648,11 +640,94 @@ export type SanityImageMetadata = {
   isOpaque?: boolean;
 };
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | Geopoint | LocationBlock | BrandsBlock | BookingBlock | ServicesBlock | FullScreenHeaderImage | VideoCaseStudy | SinglePortrait | Landscape | ImageLargeRight | ImageLargeLeft | DoublePortrait | OfferingsModule | LandingModule | CaseStudy | BrandModule | LargeText | LargeImage | FullBleed | FooterSettings | NavSettings | Page | Slug | PageBuilder | SanityFileAsset | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata;
+export type MuxVideo = {
+  _type: "mux.video";
+  asset?: {
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    [internalGroqTypeReferenceTo]?: "mux.videoAsset";
+  };
+};
+
+export type MuxVideoAsset = {
+  _id: string;
+  _type: "mux.videoAsset";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  status?: string;
+  assetId?: string;
+  playbackId?: string;
+  filename?: string;
+  thumbTime?: number;
+  data?: MuxAssetData;
+};
+
+export type MuxAssetData = {
+  _type: "mux.assetData";
+  resolution_tier?: string;
+  upload_id?: string;
+  created_at?: string;
+  id?: string;
+  status?: string;
+  max_stored_resolution?: string;
+  passthrough?: string;
+  encoding_tier?: string;
+  master_access?: string;
+  aspect_ratio?: string;
+  duration?: number;
+  max_stored_frame_rate?: number;
+  mp4_support?: string;
+  max_resolution_tier?: string;
+  tracks?: Array<{
+    _key: string;
+  } & MuxTrack>;
+  playback_ids?: Array<{
+    _key: string;
+  } & MuxPlaybackId>;
+  static_renditions?: MuxStaticRenditions;
+};
+
+export type MuxStaticRenditions = {
+  _type: "mux.staticRenditions";
+  status?: string;
+  files?: Array<{
+    _key: string;
+  } & MuxStaticRenditionFile>;
+};
+
+export type MuxStaticRenditionFile = {
+  _type: "mux.staticRenditionFile";
+  ext?: string;
+  name?: string;
+  width?: number;
+  bitrate?: number;
+  filesize?: number;
+  height?: number;
+};
+
+export type MuxPlaybackId = {
+  _type: "mux.playbackId";
+  id?: string;
+  policy?: string;
+};
+
+export type MuxTrack = {
+  _type: "mux.track";
+  id?: string;
+  type?: string;
+  max_width?: number;
+  max_frame_rate?: number;
+  duration?: number;
+  max_height?: number;
+};
+
+export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | Geopoint | LocationBlock | BrandsBlock | BookingBlock | ServicesBlock | FullScreenHeaderImage | VideoCaseStudy | SinglePortrait | Landscape | ImageLargeRight | ImageLargeLeft | DoublePortrait | OfferingsModule | LandingModule | CaseStudy | BrandModule | LargeText | LargeImage | FullBleed | FooterSettings | NavSettings | Page | Slug | PageBuilder | SanityFileAsset | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | MuxVideo | MuxVideoAsset | MuxAssetData | MuxStaticRenditions | MuxStaticRenditionFile | MuxPlaybackId | MuxTrack;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: sanity/lib/queries.tsx
 // Variable: HOME_QUERY
-// Query: *[_type == "page" && slug.current == "home"][0]{    ...,    content[] {      _key,      _type,      ...,      video {        asset -> { url }      },      services[] {         name,        description,        image {          asset -> { url },          caption,          alt        }      },      caseStudies[] {        client,        services,        industry,        location,        image {          asset -> { url },          caption,          alt        }      },      brands[] {        name,        image {          asset -> { url },          caption,          alt        },        description,      },      capabilities[] {        _type,        ...,        image {          asset -> { url },          caption,          alt        },        name,        specialties,        description,      },    }  }
+// Query: *[_type == "page" && slug.current == "home"][0]{    ...,    content[] {      _key,      _type,      ...,      video {        asset-> { playbackId }      },      services[] {         name,        description,        image {          asset-> { url },          caption,          alt        }      },      caseStudies[] {        client,        services,        industry,        location,        image {          asset-> { url },          caption,          alt        }      },      brands[] {        name,        image {          asset-> { url },          caption,          alt        },        description      },      capabilities[] {        _type,        ...,        image {          asset-> { url },          caption,          alt        },        name,        specialties,        description      }    }  }
 export type HOME_QUERYResult = {
   _id: string;
   _type: "page";
@@ -905,6 +980,11 @@ export type HOME_QUERYResult = {
     _key: string;
     _type: "landingModule";
     title?: string;
+    video: {
+      asset: {
+        playbackId: string | null;
+      } | null;
+    } | null;
     image?: {
       asset?: {
         _ref: string;
@@ -918,11 +998,6 @@ export type HOME_QUERYResult = {
       alt?: string;
       _type: "image";
     };
-    video: {
-      asset: {
-        url: string | null;
-      } | null;
-    } | null;
     services: null;
     caseStudies: null;
     brands: null;
@@ -1066,7 +1141,7 @@ export type HOME_QUERYResult = {
     location?: string;
     video: {
       asset: {
-        url: string | null;
+        playbackId: null;
       } | null;
     } | null;
     services: null;
@@ -1329,6 +1404,11 @@ export type PAGE_QUERYResult = {
     _key: string;
     _type: "landingModule";
     title?: string;
+    video: {
+      asset: {
+        url: null;
+      } | null;
+    } | null;
     image?: {
       asset?: {
         _ref: string;
@@ -1342,11 +1422,6 @@ export type PAGE_QUERYResult = {
       alt?: string;
       _type: "image";
     };
-    video: {
-      asset: {
-        url: string | null;
-      } | null;
-    } | null;
     services: null;
     caseStudies: null;
     brands: null;
@@ -1510,7 +1585,7 @@ export type NAVIGATION_QUERYResult = Array<{
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    "\n    *[_type == \"page\" && slug.current == \"home\"][0]{\n    ...,\n    content[] {\n      _key,\n      _type,\n      ...,\n      video {\n        asset -> { url }\n      },\n      services[] { \n        name,\n        description,\n        image {\n          asset -> { url },\n          caption,\n          alt\n        }\n      },\n      caseStudies[] {\n        client,\n        services,\n        industry,\n        location,\n        image {\n          asset -> { url },\n          caption,\n          alt\n        }\n      },\n      brands[] {\n        name,\n        image {\n          asset -> { url },\n          caption,\n          alt\n        },\n        description,\n      },\n      capabilities[] {\n        _type,\n        ...,\n        image {\n          asset -> { url },\n          caption,\n          alt\n        },\n        name,\n        specialties,\n        description,\n      },\n    }\n  }\n": HOME_QUERYResult;
+    "\n  *[_type == \"page\" && slug.current == \"home\"][0]{\n    ...,\n    content[] {\n      _key,\n      _type,\n      ...,\n      video {\n        asset-> { playbackId }\n      },\n      services[] { \n        name,\n        description,\n        image {\n          asset-> { url },\n          caption,\n          alt\n        }\n      },\n      caseStudies[] {\n        client,\n        services,\n        industry,\n        location,\n        image {\n          asset-> { url },\n          caption,\n          alt\n        }\n      },\n      brands[] {\n        name,\n        image {\n          asset-> { url },\n          caption,\n          alt\n        },\n        description\n      },\n      capabilities[] {\n        _type,\n        ...,\n        image {\n          asset-> { url },\n          caption,\n          alt\n        },\n        name,\n        specialties,\n        description\n      }\n    }\n  }\n": HOME_QUERYResult;
     "\n  *[_type == \"page\" && slug.current == $slug][0]{\n    ...,\n    content[] {\n      _key,\n      _type,\n      ...,\n      video {\n        asset -> { url }\n      },\n      services[] { \n        name,\n        description,\n        image {\n          asset -> { url },\n          caption,\n          alt\n        }\n      },\n      caseStudies[] {\n        client,\n        services,\n        industry,\n        location,\n        image {\n          asset -> { url },\n          caption,\n          alt\n        }\n      },\n      brands[] {\n        name,\n        image {\n          asset -> { url },\n          caption,\n          alt\n        },\n        description,\n      },\n      capabilities[] {\n        _type,\n        ...,\n        image {\n          asset -> { url },\n          caption,\n          alt\n        },\n        name,\n        specialties,\n        description,\n      },\n    },\n  }\n  ": PAGE_QUERYResult;
     "\n  *[_type == \"page\" && defined(slug.current)]{\n    \"title\": title,\n    \"slug\": slug.current\n  }\n": NAVIGATION_QUERYResult;
   }

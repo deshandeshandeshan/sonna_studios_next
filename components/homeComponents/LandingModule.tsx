@@ -1,15 +1,18 @@
 import { urlFor } from "@/sanity/lib/image";
 import { HOME_QUERYResult } from "@/sanity/types";
+import MuxPlayer from "@mux/mux-player-react";
 import Image from "next/image";
 import "./LandingModule.css";
 
-type landingModuleProps = Extract<
+type LandingModuleProps = Extract<
   NonNullable<NonNullable<HOME_QUERYResult>["content"]>[number],
   { _type: "landingModule" }
 >;
 
-export function LandingModule({ image, video }: landingModuleProps) {
-  const videoUrl = video?.asset?.url ?? "";
+export function LandingModule({ image, video }: LandingModuleProps) {
+  const playbackId = video?.asset?.playbackId ?? "";
+
+  console.log(video);
 
   return (
     <section className="landing-module">
@@ -35,11 +38,18 @@ export function LandingModule({ image, video }: landingModuleProps) {
               className="landing-module-image"
             />
           ) : null}
-          {videoUrl ? (
-            <video controls width="600">
-              <source src={videoUrl} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+          {playbackId ? (
+            // If playbackId exists, render Mux video
+            <div className="mux-video-container">
+              <MuxPlayer
+                src={`https://stream.mux.com/${playbackId}.m3u8`} // Use playbackId for Mux video URL
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="mux-video-player"
+              />
+            </div>
           ) : null}
         </div>
       </div>

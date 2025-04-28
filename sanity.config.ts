@@ -4,6 +4,7 @@ import { structure } from "@/sanity/structure";
 import { schema } from "./sanity/schemas";
 import { visionTool } from "@sanity/vision";
 import { unsplashImageAsset } from "sanity-plugin-asset-source-unsplash";
+import { muxInput } from "sanity-plugin-mux-input";
 
 const config = defineConfig({
   projectId: "qzoemo7f",
@@ -14,7 +15,12 @@ const config = defineConfig({
   useCdn: process.env.NODE_ENV === "production",
   token: process.env.SANITY_API_TOKEN,
   schema,
-  plugins: [structureTool({ structure }), visionTool(), unsplashImageAsset()],
+  plugins: [
+    structureTool({ structure }),
+    visionTool(),
+    unsplashImageAsset(),
+    muxInput(),
+  ],
 });
 
 export default config;
