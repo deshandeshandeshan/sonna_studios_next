@@ -111,20 +111,30 @@ export function BookingBlock({
         </div>
         <div className="spacing-32">
           <h3 className="type-detail-regular">General Enquiries</h3>
-          <p className="type-body text-grey">{generalEnquiries?.email}</p>
-          <p className="type-body text-grey">{generalEnquiries?.phone}</p>
+          <ul>
+            <li className="type-body text-grey">{generalEnquiries?.email}</li>
+            <li className="type-body text-grey">{generalEnquiries?.phone}</li>
+          </ul>
         </div>
         <div className="spacing-32">
           <h3 className="type-detail-regular">Social Links</h3>
-          <a className="type-body text-grey" href={socialLinks?.instagram}>
-            Instagram
-          </a>
-          <a className="type-body text-grey" href={socialLinks?.tiktok}>
-            TikTok
-          </a>
-          <a className="type-body text-grey" href={socialLinks?.linkedin}>
-            LinkedIn
-          </a>
+          <ul className="social-links-list">
+            <li>
+              <a className="type-body text-grey" href={socialLinks?.instagram}>
+                Instagram
+              </a>
+            </li>
+            <li>
+              <a className="type-body text-grey" href={socialLinks?.tiktok}>
+                TikTok
+              </a>
+            </li>
+            <li>
+              <a className="type-body text-grey" href={socialLinks?.linkedin}>
+                LinkedIn
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
 
@@ -143,7 +153,7 @@ export function BookingBlock({
 
       <div className="booking-form">
         <form onSubmit={handleFormSubmit} className="space-y-4" noValidate>
-          <fieldset className="spacing-80 fieldset">
+          <fieldset className="fieldset fieldset-margin">
             <legend className="form-legend spacing-40 type-body">
               <div className="type-detail-regular text-grey">1.0</div>Please
               provide us with some details
@@ -210,7 +220,7 @@ export function BookingBlock({
             </div>
           </fieldset>
 
-          <fieldset className="spacing-80 fieldset">
+          <fieldset className="fieldset fieldset-margin">
             <legend className="form-legend spacing-40 type-body">
               <div className="type-detail-regular text-grey">2.0</div>Tell us
               about your business
@@ -276,7 +286,7 @@ export function BookingBlock({
                 id="service"
                 value={formData.service}
                 onChange={handleChange}
-                className="type-body"
+                className="type-body form-select"
               >
                 <option value="">Choose a service</option>
                 <option value="photography">Photography</option>
@@ -285,7 +295,10 @@ export function BookingBlock({
               </select>
             </div>
             <div className="spacing-24">
-              <label htmlFor="projectDescription" className="type-body">
+              <label
+                htmlFor="projectDescription"
+                className="type-body text-area-label"
+              >
                 Please tell us about your project
               </label>
               <textarea
@@ -301,7 +314,7 @@ export function BookingBlock({
               ></textarea>
             </div>
             <div className="spacing-24">
-              <label htmlFor="budget" className="sr-only">
+              <label htmlFor="budget" className="sr-only ">
                 What is your budget for this project?
               </label>
               <select
@@ -309,7 +322,7 @@ export function BookingBlock({
                 id="budget"
                 value={formData.budget}
                 onChange={handleChange}
-                className="type-body"
+                className="type-body form-select"
               >
                 <option value="">What is your budget for this project?</option>
                 <option value="1000">$1000</option>
@@ -329,7 +342,7 @@ export function BookingBlock({
             </div>
             <button
               type="submit"
-              className="type-body"
+              className="type-body booking-button"
               aria-label="Submit the form"
               disabled={isSubmitting}
             >
