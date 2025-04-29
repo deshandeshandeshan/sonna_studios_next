@@ -1,4 +1,7 @@
+"use client";
+
 import { urlFor } from "@/sanity/lib/image";
+import { useState } from "react";
 import { HOME_QUERYResult } from "@/sanity/types";
 import MuxPlayer from "@mux/mux-player-react";
 import Image from "next/image";
@@ -12,6 +15,8 @@ type LandingModuleProps = Extract<
 export function LandingModule({ image, video }: LandingModuleProps) {
   const playbackId = video?.asset?.playbackId ?? "";
 
+  const [activeMedia, setActiveMedia] = useState<"image" | "video">("image");
+
   console.log(video);
 
   return (
@@ -21,28 +26,49 @@ export function LandingModule({ image, video }: LandingModuleProps) {
           <h1 className="landing-module-title type-heading">
             Sonna Studios
             <br />
-            Photography & Videography
+            <span
+              onMouseEnter={() => setActiveMedia("image")}
+              className={`hover-target text-grey ${
+                activeMedia === "image" ? "active-text" : ""
+              }`}
+            >
+              Photography
+            </span>
+            &nbsp;&&nbsp;
+            <span
+              onMouseEnter={() => setActiveMedia("video")}
+              className={`hover-target text-grey ${
+                activeMedia === "video" ? "active-text" : ""
+              }`}
+            >
+              Videography
+            </span>
           </h1>
 
           <button className="landing-module-button link-button type-body">
             Make an Enquiry →
           </button>
         </div>
-        <div>
+        <div className="media-wrapper">
           {image ? (
             <Image
               src={urlFor(image).url()}
               width={1000}
               height={500}
               alt={image.alt || ""}
-              className="landing-module-image"
+              className={`landing-media landing-module-image ${
+                activeMedia === "image" ? "visible" : ""
+              }`}
             />
           ) : null}
           {playbackId ? (
-            // If playbackId exists, render Mux video
-            <div className="mux-video-container">
+            <div
+              className={`landing-media mux-video-container ${
+                activeMedia === "video" ? "visible" : ""
+              }`}
+            >
               <MuxPlayer
-                src={`https://stream.mux.com/${playbackId}.m3u8`} // Use playbackId for Mux video URL
+                src={`https://stream.mux.com/${playbackId}.m3u8`}
                 autoPlay
                 muted
                 loop
