@@ -257,7 +257,7 @@ export function BookingBlock({
             </div>
             <div className="">
               <label htmlFor="operationLength" className="sr-only">
-                How long have you been opperating?
+                How long have you been operating?
               </label>
               <input
                 id="operationLength"
@@ -265,7 +265,7 @@ export function BookingBlock({
                 type="text"
                 required
                 className="input type-body"
-                placeholder="How long have you been opperating?"
+                placeholder="How long have you been operating?"
                 value={formData.operationLength}
                 onChange={handleChange}
               />
