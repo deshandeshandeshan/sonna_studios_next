@@ -1,7 +1,7 @@
 "use client";
 
 import { urlFor } from "@/sanity/lib/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { HOME_QUERYResult } from "@/sanity/types";
 import MuxPlayer from "@mux/mux-player-react";
 import Image from "next/image";
@@ -16,6 +16,12 @@ export function LandingModule({ image, video }: LandingModuleProps) {
   const playbackId = video?.asset?.playbackId ?? "";
 
   const [activeMedia, setActiveMedia] = useState<"image" | "video">("image");
+
+  useEffect(() => {
+    if (playbackId) {
+      setActiveMedia("video");
+    }
+  }, [playbackId]);
 
   console.log(video);
 
@@ -36,10 +42,10 @@ export function LandingModule({ image, video }: LandingModuleProps) {
             </span>
             &nbsp;&&nbsp;
             <span
-              onMouseEnter={() => setActiveMedia("video")}
+              onMouseEnter={() => playbackId && setActiveMedia("video")}
               className={`hover-target text-grey ${
                 activeMedia === "video" ? "active-text" : ""
-              }`}
+              } ${!playbackId ? "disabled" : ""}`}
             >
               Videography
             </span>

@@ -71,6 +71,11 @@
   --media-object-fit: cover;
 }
 
+.hover-target.disabled {
+  pointer-events: none;
+  opacity: 0.4;
+}
+
 @media screen and (min-width: 480px) {
   .landing-module-text {
     flex-direction: row;

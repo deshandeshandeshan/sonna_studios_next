@@ -36,6 +36,11 @@
 
 .offerings-learn-more {
   margin-left: 0;
+  transition: 0.5s;
+}
+
+.offerings-learn-more:hover {
+  color: #414242;
 }
 
 @media screen and (min-width: 480px) {
