@@ -1,5 +1,13 @@
 import { defineQuery } from "next-sanity";
 
+export const FOOTER_SETTINGS = defineQuery(`
+  *[_type == "footerSettings"][0] {
+    email,
+    phoneNumber,
+    socialLinks,
+    copyright
+  }
+`);
 export const HOME_QUERY = defineQuery(`
   *[_type == "page" && slug.current == "home"][0]{
     ...,

@@ -139,8 +139,8 @@ export function BookingBlock({
         <div className="spacing-32">
           <h3 className="type-detail-regular">Social Links</h3>
           <ul className="social-links-list">
-            {validSocialLinks.map((socialLink) => (
-              <li key={socialLink.platform}>
+            {validSocialLinks.map((socialLink, index) => (
+              <li key={index}>
                 <a className="type-body text-grey" href={socialLink.url}>
                   {socialLink.platform}
                 </a>
