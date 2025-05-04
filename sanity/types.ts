@@ -469,6 +469,41 @@ export type FullBleed = {
   text?: string;
 };
 
+export type SiteSettings = {
+  _id: string;
+  _type: "siteSettings";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  siteTitle?: string;
+  defaultDescription?: string;
+  defaultImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  favicon?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  metaKeywords?: Array<string>;
+};
+
 export type FooterSettings = {
   _id: string;
   _type: "footerSettings";
@@ -717,11 +752,11 @@ export type MuxTrack = {
   max_height?: number;
 };
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | LocationBlock | BrandsBlock | BookingBlock | ServicesBlock | FullScreenHeaderImage | VideoCaseStudy | SinglePortrait | Landscape | ImageLargeRight | ImageLargeLeft | DoublePortrait | OfferingsModule | LandingModule | CaseStudy | BrandModule | LargeText | LargeImage | FullBleed | FooterSettings | Page | Slug | PageBuilder | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | MuxVideo | MuxVideoAsset | MuxAssetData | MuxStaticRenditions | MuxStaticRenditionFile | MuxPlaybackId | MuxTrack;
+export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | LocationBlock | BrandsBlock | BookingBlock | ServicesBlock | FullScreenHeaderImage | VideoCaseStudy | SinglePortrait | Landscape | ImageLargeRight | ImageLargeLeft | DoublePortrait | OfferingsModule | LandingModule | CaseStudy | BrandModule | LargeText | LargeImage | FullBleed | SiteSettings | FooterSettings | Page | Slug | PageBuilder | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | MuxVideo | MuxVideoAsset | MuxAssetData | MuxStaticRenditions | MuxStaticRenditionFile | MuxPlaybackId | MuxTrack;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: sanity/lib/queries.tsx
 // Variable: HOME_QUERY
-// Query: *[_type == "page" && slug.current == "home"][0]{    ...,    content[] {      _key,      _type,      ...,      video {        asset-> {          playbackId,          assetId,          filename,        }      },      services[] {         name,        description,        image {          asset-> { url },          caption,          alt        }      },      caseStudies[] {        client,        services,        industry,        location,        image {          asset-> { url },          caption,          alt        }      },      brands[] {        name,        image {          asset-> { url },          caption,          alt        },        description      },      capabilities[] {        _type,        ...,        image {          asset-> { url },          caption,          alt        },        name,        specialties,        description      }    }  }
+// Query: *[_type == "page" && slug.current == "home"][0]{    ...,    content[] {      _key,      _type,      ...,      video {        asset-> {          playbackId,          assetId,          filename        }      },      services[] {         name,        description,        image {          asset-> { url },          caption,          alt        }      },      caseStudies[] {        client,        services,        industry,        location,        image {          asset-> { url },          caption,          alt        }      },      brands[] {        name,        image {          asset-> { url },          caption,          alt        },        description      },      capabilities[] {        _type,        ...,        image {          asset-> { url },          caption,          alt        },        name,        specialties,        description      }    }  }
 export type HOME_QUERYResult = {
   _id: string;
   _type: "page";
@@ -1177,7 +1212,7 @@ export type HOME_QUERYResult = {
   }> | null;
 } | null;
 // Variable: PAGE_QUERY
-// Query: *[_type == "page" && slug.current == $slug][0]{    ...,    content[] {      _key,      _type,      ...,      video {        asset-> {          playbackId,          assetId,          filename,        }      },      services[] {         name,        description,        image {          asset-> { url },          caption,          alt        }      },      caseStudies[] {        client,        services,        industry,        location,        image {          asset-> { url },          caption,          alt        }      },      brands[] {        name,        image {          asset-> { url },          caption,          alt        },        description      },      capabilities[] {        _type,        ...,        image {          asset-> { url },          caption,          alt        },        name,        specialties,        description      }    }  }
+// Query: *[_type == "page" && slug.current == $slug][0]{    ...,    content[] {      _key,      _type,      ...,      video {        asset-> {          playbackId,          assetId,          filename        }      },      services[] {         name,        description,        image {          asset-> { url },          caption,          alt        }      },      caseStudies[] {        client,        services,        industry,        location,        image {          asset-> { url },          caption,          alt        }      },      brands[] {        name,        image {          asset-> { url },          caption,          alt        },        description      },      capabilities[] {        _type,        ...,        image {          asset-> { url },          caption,          alt        },        name,        specialties,        description      }    }  }
 export type PAGE_QUERYResult = {
   _id: string;
   _type: "page";
@@ -1638,13 +1673,45 @@ export type NAVIGATION_QUERYResult = Array<{
   title: string | null;
   slug: string | null;
 }>;
+// Variable: FOOTER_SETTINGS
+// Query: *[_type == "footerSettings"][0]{    email,    phoneNumber,    socialLinks,    copyright  }
+export type FOOTER_SETTINGSResult = {
+  email: string | null;
+  phoneNumber: string | null;
+  socialLinks: Array<{
+    platform?: string;
+    url?: string;
+    _type: "socialLink";
+    _key: string;
+  }> | null;
+  copyright: string | null;
+} | null;
+// Variable: SITE_SETTINGS
+// Query: *[_type == "siteSettings"][0]{    siteTitle,    defaultDescription,    metaKeywords,    favicon {      asset->{        url      }    },    defaultImage {      asset->{        url      }    }  }
+export type SITE_SETTINGSResult = {
+  siteTitle: string | null;
+  defaultDescription: string | null;
+  metaKeywords: Array<string> | null;
+  favicon: {
+    asset: {
+      url: string | null;
+    } | null;
+  } | null;
+  defaultImage: {
+    asset: {
+      url: string | null;
+    } | null;
+  } | null;
+} | null;
 
 // Query TypeMap
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    "\n  *[_type == \"page\" && slug.current == \"home\"][0]{\n    ...,\n    content[] {\n      _key,\n      _type,\n      ...,\n      video {\n        asset-> {\n          playbackId,\n          assetId,\n          filename,\n        }\n      },\n      services[] { \n        name,\n        description,\n        image {\n          asset-> { url },\n          caption,\n          alt\n        }\n      },\n      caseStudies[] {\n        client,\n        services,\n        industry,\n        location,\n        image {\n          asset-> { url },\n          caption,\n          alt\n        }\n      },\n      brands[] {\n        name,\n        image {\n          asset-> { url },\n          caption,\n          alt\n        },\n        description\n      },\n      capabilities[] {\n        _type,\n        ...,\n        image {\n          asset-> { url },\n          caption,\n          alt\n        },\n        name,\n        specialties,\n        description\n      }\n    }\n  }\n": HOME_QUERYResult;
-    "\n  *[_type == \"page\" && slug.current == $slug][0]{\n    ...,\n    content[] {\n      _key,\n      _type,\n      ...,\n      video {\n        asset-> {\n          playbackId,\n          assetId,\n          filename,\n        }\n      },\n      services[] { \n        name,\n        description,\n        image {\n          asset-> { url },\n          caption,\n          alt\n        }\n      },\n      caseStudies[] {\n        client,\n        services,\n        industry,\n        location,\n        image {\n          asset-> { url },\n          caption,\n          alt\n        }\n      },\n      brands[] {\n        name,\n        image {\n          asset-> { url },\n          caption,\n          alt\n        },\n        description\n      },\n      capabilities[] {\n        _type,\n        ...,\n        image {\n          asset-> { url },\n          caption,\n          alt\n        },\n        name,\n        specialties,\n        description\n      }\n    }\n  }\n  ": PAGE_QUERYResult;
+    "\n  *[_type == \"page\" && slug.current == \"home\"][0]{\n    ...,\n    content[] {\n      _key,\n      _type,\n      ...,\n      video {\n        asset-> {\n          playbackId,\n          assetId,\n          filename\n        }\n      },\n      services[] { \n        name,\n        description,\n        image {\n          asset-> { url },\n          caption,\n          alt\n        }\n      },\n      caseStudies[] {\n        client,\n        services,\n        industry,\n        location,\n        image {\n          asset-> { url },\n          caption,\n          alt\n        }\n      },\n      brands[] {\n        name,\n        image {\n          asset-> { url },\n          caption,\n          alt\n        },\n        description\n      },\n      capabilities[] {\n        _type,\n        ...,\n        image {\n          asset-> { url },\n          caption,\n          alt\n        },\n        name,\n        specialties,\n        description\n      }\n    }\n  }\n": HOME_QUERYResult;
+    "\n  *[_type == \"page\" && slug.current == $slug][0]{\n    ...,\n    content[] {\n      _key,\n      _type,\n      ...,\n      video {\n        asset-> {\n          playbackId,\n          assetId,\n          filename\n        }\n      },\n      services[] { \n        name,\n        description,\n        image {\n          asset-> { url },\n          caption,\n          alt\n        }\n      },\n      caseStudies[] {\n        client,\n        services,\n        industry,\n        location,\n        image {\n          asset-> { url },\n          caption,\n          alt\n        }\n      },\n      brands[] {\n        name,\n        image {\n          asset-> { url },\n          caption,\n          alt\n        },\n        description\n      },\n      capabilities[] {\n        _type,\n        ...,\n        image {\n          asset-> { url },\n          caption,\n          alt\n        },\n        name,\n        specialties,\n        description\n      }\n    }\n  }\n": PAGE_QUERYResult;
     "\n  *[_type == \"page\" && defined(slug.current)]{\n    \"title\": title,\n    \"slug\": slug.current\n  }\n": NAVIGATION_QUERYResult;
+    "\n  *[_type == \"footerSettings\"][0]{\n    email,\n    phoneNumber,\n    socialLinks,\n    copyright\n  }\n": FOOTER_SETTINGSResult;
+    "\n  *[_type == \"siteSettings\"][0]{\n    siteTitle,\n    defaultDescription,\n    metaKeywords,\n    favicon {\n      asset->{\n        url\n      }\n    },\n    defaultImage {\n      asset->{\n        url\n      }\n    }\n  }\n": SITE_SETTINGSResult;
   }
 }
