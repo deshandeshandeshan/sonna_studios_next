@@ -15,7 +15,7 @@ export const offeringsModuleType = defineType({
       type: "array",
       title: "Services",
       validation: (rule) =>
-        rule.max(3).error("You can only add up to 3 services."),
+        rule.min(1).max(3).error("You can only add up to 3 services."),
       of: [
         defineField({
           type: "object",

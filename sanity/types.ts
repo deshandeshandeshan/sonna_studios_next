@@ -123,11 +123,12 @@ export type BookingBlock = {
     email?: string;
     phone?: string;
   };
-  socialLinks?: {
-    instagram?: string;
-    tiktok?: string;
-    linkedin?: string;
-  };
+  socialLinks?: Array<{
+    platform?: string;
+    url?: string;
+    _type: "socialLink";
+    _key: string;
+  }>;
 };
 
 export type ServicesBlock = {
@@ -474,19 +475,8 @@ export type FooterSettings = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  image?: {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
-    media?: unknown;
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    caption?: string;
-    _type: "image";
-  };
+  email?: string;
+  phoneNumber?: string;
   socialLinks?: Array<{
     platform?: string;
     url?: string;
@@ -751,11 +741,12 @@ export type HOME_QUERYResult = {
       email?: string;
       phone?: string;
     };
-    socialLinks?: {
-      instagram?: string;
-      tiktok?: string;
-      linkedin?: string;
-    };
+    socialLinks?: Array<{
+      platform?: string;
+      url?: string;
+      _type: "socialLink";
+      _key: string;
+    }>;
     video: null;
     services: null;
     caseStudies: null;
@@ -1206,11 +1197,12 @@ export type PAGE_QUERYResult = {
       email?: string;
       phone?: string;
     };
-    socialLinks?: {
-      instagram?: string;
-      tiktok?: string;
-      linkedin?: string;
-    };
+    socialLinks?: Array<{
+      platform?: string;
+      url?: string;
+      _type: "socialLink";
+      _key: string;
+    }>;
     video: null;
     services: null;
     caseStudies: null;
