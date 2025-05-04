@@ -2,6 +2,37 @@
   position: relative;
 }
 
+.media-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.landing-media {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+}
+
+.landing-media.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.hover-target {
+  cursor: pointer;
+}
+
+.active-text {
+  color: #f9f9f9;
+}
+
 .landing-module-text {
   position: absolute;
   top: 50%;
@@ -25,6 +56,24 @@
 
 .landing-module-button {
   max-width: fit-content;
+}
+
+.mux-video-container {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.mux-video-player {
+  width: 100%;
+  height: 100%;
+  --media-object-fit: cover;
+}
+
+.hover-target.disabled {
+  pointer-events: none;
+  opacity: 0.4;
 }
 
 @media screen and (min-width: 480px) {

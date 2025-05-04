@@ -1,0 +1,124 @@
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  overflow: hidden;
+}
+
+.booking-enquiries {
+  grid-column: 1 / 7;
+  grid-row: 1 / 2;
+}
+
+.booking-details {
+  grid-column: 1 / 7;
+  grid-row: 2 / 3;
+}
+
+.booking-form {
+  grid-column: 1 / 7;
+  grid-row: 3 / 4;
+}
+
+.fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.fieldset-margin {
+  margin-bottom: 64px;
+}
+
+.booking-form .input,
+.booking-form select {
+  width: 100%;
+  padding: 8px 0px;
+  border: 0px;
+  border-bottom: 1px solid #808285;
+  background-color: #f9f9f9;
+  color: #808285;
+}
+
+.text-area {
+  width: 100%;
+  padding: 8px 0px 8px 8px;
+  border: 0px;
+  border: 1px solid #808285;
+  background-color: #f9f9f9;
+  margin-top: 8px;
+}
+
+.text-area-label {
+  color: #808285;
+}
+
+.booking-form .input:focus,
+.booking-form select:focus,
+.booking-form textarea:focus {
+  outline: 0px; /* Focus color */
+  border-color: none;
+}
+
+.success-message,
+.error-message {
+  padding-top: 64px;
+  width: 100%;
+  grid-column: 1 / 7;
+  grid-row: 4 / 5;
+}
+
+.success-message {
+  color: #155724;
+}
+
+.error-message {
+  color: #721c24;
+}
+
+.booking-button {
+  border: 0px;
+  padding: 5px 15px;
+  transition: 0.5s;
+  border-radius: 5px;
+}
+
+.booking-button:hover {
+  color: #f9f9f9;
+  background-color: #414242;
+}
+
+.form-select {
+  cursor: pointer;
+}
+
+@media screen and (min-width: 480px) {
+  .booking-enquiries {
+    grid-column: 9 / 25;
+    grid-row: 1 / 2;
+  }
+
+  .booking-details {
+    grid-column: 9 / 17;
+    grid-row: 2 / 3;
+  }
+
+  .booking-form {
+    grid-column: 17 / 25;
+    grid-row: 2 / 3;
+  }
+
+  .success-message,
+  .error-message {
+    grid-column: 17 / 25;
+    grid-row: 3 / 4;
+  }
+
+  .fieldset-margin {
+    margin-bottom: 80px;
+  }
+}

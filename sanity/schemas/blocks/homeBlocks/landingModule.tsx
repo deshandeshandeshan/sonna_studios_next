@@ -11,6 +11,11 @@ export const landingModuleType = defineType({
       type: "string",
     }),
     defineField({
+      title: "Video file",
+      name: "video",
+      type: "mux.video",
+    }),
+    defineField({
       name: "image",
       type: "image",
       options: {
@@ -28,10 +33,6 @@ export const landingModuleType = defineType({
           description: "Important for SEO and accessibility.",
         }),
       ],
-    }),
-    defineField({
-      name: "video",
-      type: "file",
     }),
   ],
   icon: BlockContentIcon,

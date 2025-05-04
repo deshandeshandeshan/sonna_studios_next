@@ -16,7 +16,6 @@ import { singlePortraitType } from "./blocks/photographyBlocks/singlePortrait";
 import { videoCaseStudyType } from "./blocks/videographyBlocks/videoCaseStudy";
 import { fullScreenHeaderImageType } from "./blocks/capabilitiesBlocks/fullScreenHeaderImage";
 import { servicesBlockType } from "./blocks/capabilitiesBlocks/servicesBlock";
-import { navSettingsType } from "./navSettings";
 import { footerSettingsType } from "./footerSettings";
 import { bookingBlockType } from "./blocks/bookBlocks/bookingBlock";
 import { brandsBlockType } from "./blocks/capabilitiesBlocks/brandsBlock";
@@ -26,7 +25,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
     pageBuilderType,
     pageType,
-    navSettingsType,
     footerSettingsType,
 
     fullBleedType,

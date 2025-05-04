@@ -41,7 +41,10 @@ export function OfferingsModule({ services }: offeringsModuleProps) {
             {service.name}
           </button>
         ))}
-        <Link href="/capabilities" className="offerings-learn-more type-body">
+        <Link
+          href="/capabilities"
+          className="offerings-learn-more type-body text-grey"
+        >
           Learn more →
         </Link>
       </div>

@@ -33,8 +33,9 @@ export const videoCaseStudyType = defineType({
       type: "string",
     }),
     defineField({
+      title: "Video file",
       name: "video",
-      type: "file",
+      type: "mux.video",
     }),
   ],
   icon: BlockContentIcon,

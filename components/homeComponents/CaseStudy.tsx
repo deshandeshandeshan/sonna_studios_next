@@ -14,17 +14,15 @@ type caseStudyProps = Extract<
 >;
 
 export function CaseStudy({ caseStudies }: caseStudyProps) {
-  // Fallback in case services is invalid
   const validCaseStudy =
     Array.isArray(caseStudies) && caseStudies.length > 0 ? caseStudies : [];
 
-  // Set initial state only if services are valid, fallback to null
   const [selectedCaseStudy, setSelectedCaseStudy] = useState(
     validCaseStudy.length > 0 ? validCaseStudy[0] : null
   );
 
-  // If there's no valid service, don't render anything
   if (!selectedCaseStudy) return null;
+
   return (
     <section className="case-study-section grid mobile-padding">
       <div className="case-study-images">
@@ -43,7 +41,7 @@ export function CaseStudy({ caseStudies }: caseStudyProps) {
                 src={urlFor(caseStudy.image).width(300).height(300).url()}
                 width={300}
                 height={300}
-                alt={caseStudy.image.caption || ""}
+                alt={caseStudy.image.alt || ""}
                 className="case-study-img"
               />
             )}

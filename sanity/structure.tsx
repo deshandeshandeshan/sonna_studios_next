@@ -8,16 +8,6 @@ export const structure: StructureResolver = (S) =>
         .title("Pages")
         .child(S.documentTypeList("page").title("Pages")),
       S.listItem()
-        .id("navSettings")
-        .schemaType("navSettings")
-        .title("Navigation Settings")
-        .child(
-          S.editor()
-            .id("navSettings")
-            .schemaType("navSettings")
-            .documentId("navSettings")
-        ),
-      S.listItem()
         .id("footerSettings")
         .schemaType("footerSettings")
         .title("Footer Settings")

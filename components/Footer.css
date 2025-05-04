@@ -12,6 +12,10 @@
   grid-row: 1 / 2;
 }
 
+.footer-logo {
+  display: none;
+}
+
 @media screen and (min-width: 480px) {
   .footer-contact-heading {
     grid-column: 15 / 17;
@@ -22,5 +26,20 @@
   .footer-details {
     grid-column: 17 / 21;
     grid-row: 1 / 2;
+  }
+
+  .footer-logo {
+    grid-column: 1 / 11;
+    grid-row: 1 / 2;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+  }
+
+  .footer-logo-svg {
+    width: 100%;
+    height: auto;
+    display: block;
   }
 }

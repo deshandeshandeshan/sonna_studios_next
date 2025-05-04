@@ -1,20 +1,24 @@
 import { defineQuery } from "next-sanity";
 
 export const HOME_QUERY = defineQuery(`
-    *[_type == "page" && slug.current == "home"][0]{
+  *[_type == "page" && slug.current == "home"][0]{
     ...,
     content[] {
       _key,
       _type,
       ...,
       video {
-        asset -> { url }
+        asset-> {
+          playbackId,
+          assetId,
+          filename,
+        }
       },
       services[] { 
         name,
         description,
         image {
-          asset -> { url },
+          asset-> { url },
           caption,
           alt
         }
@@ -25,7 +29,7 @@ export const HOME_QUERY = defineQuery(`
         industry,
         location,
         image {
-          asset -> { url },
+          asset-> { url },
           caption,
           alt
         }
@@ -33,24 +37,24 @@ export const HOME_QUERY = defineQuery(`
       brands[] {
         name,
         image {
-          asset -> { url },
+          asset-> { url },
           caption,
           alt
         },
-        description,
+        description
       },
       capabilities[] {
         _type,
         ...,
         image {
-          asset -> { url },
+          asset-> { url },
           caption,
           alt
         },
         name,
         specialties,
-        description,
-      },
+        description
+      }
     }
   }
 `);
@@ -63,13 +67,17 @@ export const PAGE_QUERY = defineQuery(`
       _type,
       ...,
       video {
-        asset -> { url }
+        asset-> {
+          playbackId,
+          assetId,
+          filename,
+        }
       },
       services[] { 
         name,
         description,
         image {
-          asset -> { url },
+          asset-> { url },
           caption,
           alt
         }
@@ -80,7 +88,7 @@ export const PAGE_QUERY = defineQuery(`
         industry,
         location,
         image {
-          asset -> { url },
+          asset-> { url },
           caption,
           alt
         }
@@ -88,25 +96,25 @@ export const PAGE_QUERY = defineQuery(`
       brands[] {
         name,
         image {
-          asset -> { url },
+          asset-> { url },
           caption,
           alt
         },
-        description,
+        description
       },
       capabilities[] {
         _type,
         ...,
         image {
-          asset -> { url },
+          asset-> { url },
           caption,
           alt
         },
         name,
         specialties,
-        description,
-      },
-    },
+        description
+      }
+    }
   }
   `);
 
