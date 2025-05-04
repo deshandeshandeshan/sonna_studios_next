@@ -1840,7 +1840,7 @@
                   "type": "objectAttribute",
                   "value": {
                     "type": "string",
-                    "value": "services"
+                    "value": "service"
                   }
                 }
               },

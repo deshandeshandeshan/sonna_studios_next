@@ -331,7 +331,7 @@ export type OfferingsModule = {
       _type: "image";
     };
     description?: string;
-    _type: "services";
+    _type: "service";
     _key: string;
   }>;
 };
