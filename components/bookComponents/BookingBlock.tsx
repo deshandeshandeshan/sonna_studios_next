@@ -56,12 +56,28 @@ export function BookingBlock({
     setError(null);
     setSuccess(false);
 
+    const form = e.currentTarget as HTMLFormElement;
+    const isBot = (form.elements.namedItem("company") as HTMLInputElement)
+      ?.value;
+
+    if (isBot) {
+      setIsSubmitting(false);
+      setError("Bot submission detected.");
+      return;
+    }
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      setIsSubmitting(false);
+      return;
+    }
+
     try {
       const result = await emailjs.send(
-        "YOUR_SERVICE_ID", // replace with your service ID
-        "YOUR_TEMPLATE_ID", // replace with your template ID
+        "service_fo7k588", // replace with your service ID
+        "template_o4whk57", // replace with your template ID
         formData, // form data
-        "YOUR_USER_ID" // replace with your user ID
+        "BhXOBMaWwXZHw1PW6" // replace with your user ID
       );
 
       if (result.status === 200) {
@@ -79,7 +95,7 @@ export function BookingBlock({
           budget: "",
         }); // Reset the form after successful submission
       } else {
-        setError("Something went wrong. Please try again later.");
+        setError("Please check all fields have been filled");
       }
     } catch (error: unknown) {
       if (error instanceof Error) {
@@ -141,13 +157,15 @@ export function BookingBlock({
       {/* Success and Error Messages */}
       {success && (
         <div className="success-message">
-          <p>Thank you! Your form has been successfully submitted.</p>
+          <p className="type-body">
+            Thank you! Your form has been successfully submitted.
+          </p>
         </div>
       )}
 
       {error && (
         <div className="error-message">
-          <p>{error}</p>
+          <p className="type-body">{error}</p>
         </div>
       )}
 
@@ -213,7 +231,7 @@ export function BookingBlock({
                 type="text"
                 required
                 className="input type-body"
-                placeholder="Email Address"
+                placeholder="Location"
                 value={formData.location}
                 onChange={handleChange}
               />
