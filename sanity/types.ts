@@ -78,6 +78,19 @@ export type BrandsBlock = {
   _type: "brandsBlock";
   title?: string;
   description?: string;
+  image?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    caption?: string;
+    alt?: string;
+    _type: "image";
+  };
   brandLabel?: Array<{
     image?: {
       asset?: {
@@ -773,6 +786,19 @@ export type HOME_QUERYResult = {
     _type: "brandsBlock";
     title?: string;
     description?: string;
+    image?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      caption?: string;
+      alt?: string;
+      _type: "image";
+    };
     brandLabel?: Array<{
       image?: {
         asset?: {
@@ -1201,6 +1227,19 @@ export type PAGE_QUERYResult = {
     _type: "brandsBlock";
     title?: string;
     description?: string;
+    image?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      caption?: string;
+      alt?: string;
+      _type: "image";
+    };
     brandLabel?: Array<{
       image?: {
         asset?: {

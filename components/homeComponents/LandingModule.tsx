@@ -19,7 +19,7 @@ export function LandingModule({ image, video }: LandingModuleProps) {
 
   useEffect(() => {
     if (playbackId) {
-      setActiveMedia("video");
+      setActiveMedia("image");
     }
   }, [playbackId]);
 

@@ -14,6 +14,7 @@ export function BrandsBlock({
   title,
   description,
   brandLabel,
+  image,
 }: brandBlockProps) {
   const validBrandLabel =
     Array.isArray(brandLabel) && brandLabel.length > 0 ? brandLabel : [];
@@ -24,6 +25,17 @@ export function BrandsBlock({
       <p className="type-sub brand-labels-description spacing-64">
         {description}
       </p>
+      <div className="brands-block-image">
+        {image ? (
+          <Image
+            src={urlFor(image).url()}
+            width={1600}
+            height={1600}
+            alt={image.alt || ""}
+            className="brands-block-img"
+          />
+        ) : null}
+      </div>
 
       <h3 className="selected-clients type-detail-regular spacing-12">
         Selected Clients
