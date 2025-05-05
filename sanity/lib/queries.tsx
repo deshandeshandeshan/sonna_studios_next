@@ -11,7 +11,7 @@ export const HOME_QUERY = defineQuery(`
         asset-> {
           playbackId,
           assetId,
-          filename,
+          filename
         }
       },
       services[] { 
@@ -70,7 +70,7 @@ export const PAGE_QUERY = defineQuery(`
         asset-> {
           playbackId,
           assetId,
-          filename,
+          filename
         }
       },
       services[] { 
@@ -116,11 +116,38 @@ export const PAGE_QUERY = defineQuery(`
       }
     }
   }
-  `);
+`);
 
 export const NAVIGATION_QUERY = defineQuery(`
   *[_type == "page" && defined(slug.current)]{
     "title": title,
     "slug": slug.current
+  }
+`);
+
+export const FOOTER_SETTINGS = defineQuery(`
+  *[_type == "footerSettings"][0]{
+    email,
+    phoneNumber,
+    socialLinks,
+    copyright
+  }
+`);
+
+export const SITE_SETTINGS = defineQuery(`
+  *[_type == "siteSettings"][0]{
+    siteTitle,
+    defaultDescription,
+    metaKeywords,
+    favicon {
+      asset->{
+        url
+      }
+    },
+    defaultImage {
+      asset->{
+        url
+      }
+    }
   }
 `);

@@ -23,8 +23,6 @@ export function LandingModule({ image, video }: LandingModuleProps) {
     }
   }, [playbackId]);
 
-  console.log(video);
-
   return (
     <section className="landing-module">
       <div className="landing-module-content">

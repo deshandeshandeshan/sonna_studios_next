@@ -33,7 +33,7 @@ export const bookingBlockType = defineType({
         defineField({
           name: "email",
           title: "Email",
-          type: "string",
+          type: "email",
         }),
         defineField({
           name: "phone",
@@ -44,24 +44,31 @@ export const bookingBlockType = defineType({
     }),
     defineField({
       name: "socialLinks",
+      type: "array",
       title: "Social Links",
-      type: "object",
-      fields: [
-        defineField({
-          name: "instagram",
-          title: "Instagram URL",
-          type: "url",
-        }),
-        defineField({
-          name: "tiktok",
-          title: "TikTok URL",
-          type: "url",
-        }),
-        defineField({
-          name: "linkedin",
-          title: "LinkedIn URL",
-          type: "url",
-        }),
+      validation: (rule) =>
+        rule
+          .min(1)
+          .max(3)
+          .error("You must add at least 1 social link and no more than 3."),
+      of: [
+        {
+          type: "object",
+          name: "socialLink",
+          title: "Social Link",
+          fields: [
+            {
+              name: "platform",
+              type: "string",
+              title: "Platform",
+            },
+            {
+              name: "url",
+              type: "url",
+              title: "URL",
+            },
+          ],
+        },
       ],
     }),
   ],

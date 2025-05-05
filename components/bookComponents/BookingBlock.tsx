@@ -19,6 +19,10 @@ export function BookingBlock({
   generalEnquiries,
   socialLinks,
 }: bookingBlockProps) {
+  // Fallback in case services is invalid
+  const validSocialLinks =
+    Array.isArray(socialLinks) && socialLinks.length > 0 ? socialLinks : [];
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -135,21 +139,13 @@ export function BookingBlock({
         <div className="spacing-32">
           <h3 className="type-detail-regular">Social Links</h3>
           <ul className="social-links-list">
-            <li>
-              <a className="type-body text-grey" href={socialLinks?.instagram}>
-                Instagram
-              </a>
-            </li>
-            <li>
-              <a className="type-body text-grey" href={socialLinks?.tiktok}>
-                TikTok
-              </a>
-            </li>
-            <li>
-              <a className="type-body text-grey" href={socialLinks?.linkedin}>
-                LinkedIn
-              </a>
-            </li>
+            {validSocialLinks.map((socialLink, index) => (
+              <li key={index}>
+                <a className="type-body text-grey" href={socialLink.url}>
+                  {socialLink.platform}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
       </div>

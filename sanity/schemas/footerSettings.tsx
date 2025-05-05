@@ -8,23 +8,24 @@ export const footerSettingsType = defineType({
   icon: ControlsIcon,
   fields: [
     defineField({
-      name: "image",
-      type: "image",
-      title: "Logo",
-      options: {
-        hotspot: true,
-      },
-      fields: [
-        defineField({
-          name: "caption",
-          type: "string",
-        }),
-      ],
+      name: "email",
+      type: "email",
+      title: "Email",
+    }),
+    defineField({
+      name: "phoneNumber",
+      type: "string",
+      title: "Mobile Phone Number",
     }),
     defineField({
       name: "socialLinks",
       type: "array",
       title: "Social Links",
+      validation: (rule) =>
+        rule
+          .min(1)
+          .max(3)
+          .error("You must add at least 1 social link and no more than 3."),
       of: [
         {
           type: "object",

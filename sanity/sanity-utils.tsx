@@ -17,5 +17,5 @@ export const client = createClient({
   projectId: "qzoemo7f",
   dataset: "production",
   apiVersion: "2025-03-11",
-  useCdn: false, // Set to true for faster performance (but may show stale data)
+  useCdn: true,
 });

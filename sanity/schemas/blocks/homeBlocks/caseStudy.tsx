@@ -14,6 +14,11 @@ export const caseStudyType = defineType({
       name: "caseStudies",
       type: "array",
       title: "Case Studies",
+      validation: (rule) =>
+        rule
+          .min(1)
+          .max(3)
+          .error("You must add at least 1 case study and no more than 3."),
       of: [
         {
           type: "object",

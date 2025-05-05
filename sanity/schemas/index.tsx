@@ -20,12 +20,14 @@ import { footerSettingsType } from "./footerSettings";
 import { bookingBlockType } from "./blocks/bookBlocks/bookingBlock";
 import { brandsBlockType } from "./blocks/capabilitiesBlocks/brandsBlock";
 import { locationBlockType } from "./blocks/homeBlocks/locationBlock";
+import { siteSettings } from "./siteSettings";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
     pageBuilderType,
     pageType,
     footerSettingsType,
+    siteSettings,
 
     fullBleedType,
     largeImageType,
