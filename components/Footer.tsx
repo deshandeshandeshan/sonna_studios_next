@@ -1,49 +1,15 @@
-"use client";
-
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import WhiteLogo from "@/public/White-Logo.svg";
 import { client } from "@/sanity/sanity-utils";
 import { FOOTER_SETTINGS } from "@/sanity/lib/queries";
+import { FooterSettings } from "@/sanity/types";
 
 import "./Footer.css";
 import "./grid.css";
 
-interface SocialLink {
-  platform: string;
-  url: string;
-}
-
-interface FooterSettings {
-  email: string;
-  phoneNumber: string;
-  socialLinks: SocialLink[];
-  copyright: string;
-}
-
-export default function Footer() {
-  const [isClient, setIsClient] = useState(false);
-  const [routerPath, setRouterPath] = useState<string>("");
-  const [footerSettings, setFooterSettings] = useState<FooterSettings | null>(
-    null
-  );
-
-  // Check if we are on the client-side by using typeof window
-  useEffect(() => {
-    setIsClient(true);
-    setRouterPath(window.location.pathname);
-
-    // Fetch footer settings from Sanity
-    client
-      .fetch(FOOTER_SETTINGS) // Sanity query to fetch the first document of type "footerSettings"
-      .then((data) => setFooterSettings(data))
-      .catch(console.error); // Log any errors for debugging
-  }, []);
-
-  // Skip rendering the footer if it's the Sanity Studio admin page
-  if (!isClient || routerPath.includes("/admin")) return null;
-
-  if (!footerSettings) return <footer>Loading...</footer>;
+export default async function Footer() {
+  const footerSettings = await client.fetch<FooterSettings>(FOOTER_SETTINGS);
+  type SocialLink = NonNullable<FooterSettings["socialLinks"]>[number];
 
   return (
     <footer className="footer-container grid section-padding-top">
@@ -67,10 +33,10 @@ export default function Footer() {
             <li>{footerSettings.phoneNumber}</li>
           </ul>
           <ul className="type-body text-grey">
-            {footerSettings.socialLinks.map((social, index) => {
-              if (!social.url) return null; // Skip invalid links
+            {footerSettings.socialLinks?.map((social: SocialLink) => {
+              if (!social.url) return null;
               return (
-                <li key={index}>
+                <li key={social._key}>
                   <a href={social.url}>{social.platform}</a>
                 </li>
               );
