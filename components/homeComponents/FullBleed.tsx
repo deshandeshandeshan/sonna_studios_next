@@ -15,9 +15,9 @@ export function FullBleed({ image, text }: fullBlledProps) {
       <div className="full-bleed-image caption-spacing">
         {image ? (
           <Image
-            src={urlFor(image).url()}
-            width={1600}
-            height={800}
+            src={urlFor(image).width(3840).auto("format").quality(100).url()}
+            width={3840}
+            height={2160}
             alt={image.alt || ""}
             className="full-bleed-image-img"
           />
