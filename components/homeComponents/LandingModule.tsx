@@ -56,10 +56,10 @@ export function LandingModule({ image, video }: LandingModuleProps) {
         <div className="media-wrapper">
           {image ? (
             <Image
-              src={urlFor(image).url()}
-              width={1000}
-              height={500}
+              src={urlFor(image).width(3840).auto("format").quality(85).url()}
               alt={image.alt || ""}
+              fill
+              priority // ensures fast LCP for landing images
               className={`landing-media landing-module-image ${
                 activeMedia === "image" ? "visible" : ""
               }`}
