@@ -59,7 +59,7 @@ export default function FooterClient({ footerSettings }: Props) {
         </div>
         <div className="footer-timezone spacing-120">
           <ul className="type-detail-regular">
-            <li className="spacing-16">
+            {/* <li className="spacing-16">
               <p>Auckland, New Zealand</p>
               <p>12:49:03</p>
               <p className="text-grey">Friday, 10 January 2025</p>
@@ -68,6 +68,14 @@ export default function FooterClient({ footerSettings }: Props) {
               <p>Sydney, Australia</p>
               <p>8:49:03</p>
               <p className="text-grey">Friday, 10 January 2025</p>
+            </li> */}
+            <li className="spacing-16">
+              <p>Auckland</p>
+              <p className="text-grey">New Zealand</p>
+            </li>
+            <li>
+              <p>Sydney</p>
+              <p className="text-grey">Australia</p>
             </li>
           </ul>
         </div>

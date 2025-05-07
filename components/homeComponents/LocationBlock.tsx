@@ -15,7 +15,7 @@ export function LocationBlock({ title, text }: locationBlockProps) {
         <p className="type-heading">{text}</p>
       </div>
       <ul className="location-list">
-        <li className="type-body spacing-32">
+        {/* <li className="type-body spacing-32">
           <p>Auckland, New Zealand</p>
           <p>12:49:03</p>
           <p className="text-grey">Friday, 10 Janruary 2025</p>
@@ -34,6 +34,34 @@ export function LocationBlock({ title, text }: locationBlockProps) {
           <p>Sydney, Australia</p>
           <p>8:49:03</p>
           <p className="text-grey">Friday, 10 Janruary 2025</p>
+        </li> */}
+        <li className="type-body spacing-32">
+          <p>Auckland</p>
+          <p className="text-grey">New Zealand</p>
+        </li>
+        <li className="type-body spacing-32">
+          <p>Sydney</p>
+          <p className="text-grey">Australia</p>
+        </li>
+        <li className="type-body spacing-32">
+          <p>Melbourne</p>
+          <p className="text-grey">Australia</p>
+        </li>
+        <li className="type-body spacing-32">
+          <p>Brisbane</p>
+          <p className="text-grey">Australia</p>
+        </li>
+        <li className="type-body spacing-32">
+          <p>Gold Coast</p>
+          <p className="text-grey">Australia</p>
+        </li>
+        <li className="type-body spacing-32">
+          <p>London</p>
+          <p className="text-grey">England</p>
+        </li>
+        <li className="type-body spacing-32">
+          <p>Los Angeles</p>
+          <p className="text-grey">USA</p>
         </li>
       </ul>
     </section>
