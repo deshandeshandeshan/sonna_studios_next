@@ -78,10 +78,10 @@ export function BookingBlock({
 
     try {
       const result = await emailjs.send(
-        "service_fo7k588", // replace with your service ID
-        "template_o4whk57", // replace with your template ID
+        "service_8cj18f6", // replace with your service ID
+        "template_6ep1los", // replace with your template ID
         formData, // form data
-        "BhXOBMaWwXZHw1PW6" // replace with your user ID
+        "Prj0NjWvdRqcp1nBj" // replace with your user ID
       );
 
       if (result.status === 200) {
@@ -217,7 +217,7 @@ export function BookingBlock({
                 onChange={handleChange}
               />
             </div>
-            <div className="">
+            <div className="spacing-24">
               <label htmlFor="location" className="sr-only">
                 Location
               </label>
@@ -232,14 +232,7 @@ export function BookingBlock({
                 onChange={handleChange}
               />
             </div>
-          </fieldset>
-
-          <fieldset className="fieldset fieldset-margin">
-            <legend className="form-legend spacing-40 type-body">
-              <div className="type-detail-regular text-grey">2.0</div>Tell us
-              about your business
-            </legend>
-            <div className="spacing-24">
+            <div className="">
               <label htmlFor="businessName" className="sr-only">
                 What is your business name?
               </label>
@@ -254,41 +247,11 @@ export function BookingBlock({
                 onChange={handleChange}
               />
             </div>
-            <div className="spacing-24">
-              <label htmlFor="occupation" className="sr-only">
-                What do you do?
-              </label>
-              <input
-                id="occupation"
-                name="occupation"
-                type="text"
-                required
-                className="input type-body"
-                placeholder="What do you do?"
-                value={formData.occupation}
-                onChange={handleChange}
-              />
-            </div>
-            <div className="">
-              <label htmlFor="operationLength" className="sr-only">
-                How long have you been operating?
-              </label>
-              <input
-                id="operationLength"
-                name="operationLength"
-                type="text"
-                required
-                className="input type-body"
-                placeholder="How long have you been operating?"
-                value={formData.operationLength}
-                onChange={handleChange}
-              />
-            </div>
           </fieldset>
 
           <fieldset className="fieldset">
             <legend className="form-legend spacing-40 type-body">
-              <div className="type-detail-regular text-grey">3.0</div>Tell us
+              <div className="type-detail-regular text-grey">2.0</div>Tell us
               about your project
             </legend>
             <div className="spacing-24">
@@ -304,8 +267,10 @@ export function BookingBlock({
               >
                 <option value="">Choose a service</option>
                 <option value="photography">Photography</option>
-                <option value="videography">Branding</option>
-                <option value="post-production-">Post-Production</option>
+                <option value="videography">Videography</option>
+                <option value="post-production-">
+                  Photography and Videography
+                </option>
               </select>
             </div>
             <div className="spacing-24">
@@ -339,7 +304,11 @@ export function BookingBlock({
                 className="type-body form-select"
               >
                 <option value="">What is your budget for this project?</option>
-                <option value="1000">$1000</option>
+                <option value="1000">&lt; $1000</option>
+                <option value="1000">$1000 - $2500</option>
+                <option value="1000">$2500 - $5000</option>
+                <option value="1000">$5000 - $10,000</option>
+                <option value="1000">&gt; $10,000</option>
               </select>
             </div>
             <div className="hidden sr-only">

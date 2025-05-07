@@ -6,6 +6,7 @@ import { HOME_QUERYResult } from "@/sanity/types";
 import MuxPlayer from "@mux/mux-player-react";
 import Image from "next/image";
 import "./LandingModule.css";
+import Link from "next/link";
 
 type LandingModuleProps = Extract<
   NonNullable<NonNullable<HOME_QUERYResult>["content"]>[number],
@@ -48,10 +49,11 @@ export function LandingModule({ image, video }: LandingModuleProps) {
               Videography
             </span>
           </h1>
-
-          <button className="landing-module-button link-button type-body">
-            Make an Enquiry →
-          </button>
+          <Link href={"/book"}>
+            <button className="landing-module-button link-button type-body">
+              Make an Enquiry →
+            </button>
+          </Link>
         </div>
         <div className="media-wrapper">
           {image ? (

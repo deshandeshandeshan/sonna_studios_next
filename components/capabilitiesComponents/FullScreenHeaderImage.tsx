@@ -17,9 +17,9 @@ export function FullScreenHeaderImage({
       <div className="header-image">
         {image ? (
           <Image
-            src={urlFor(image).url()}
-            width={1600}
-            height={800}
+            src={urlFor(image).width(3840).auto("format").quality(85).url()}
+            width={3840}
+            height={2160}
             alt={image.caption || ""}
             className="header-img caption-spacing"
           />
