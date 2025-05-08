@@ -4,16 +4,30 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import "./Nav.css";
 import BlackLogo from "@/public/Black-Logo.svg";
+import { DateTime } from "luxon";
 
 interface NavLink {
   title: string;
   slug: string;
 }
 
+type City = {
+  name: string;
+  timeZone: string;
+};
+
+const cities: City[] = [
+  { name: "Auckland, New Zealand", timeZone: "Pacific/Auckland" },
+  { name: "Sydney, Australia", timeZone: "Australia/Sydney" },
+];
+
 export default function Navbar({ links }: { links: NavLink[] }) {
   const [isClient, setIsClient] = useState(false);
   const [routerPath, setRouterPath] = useState<string>("");
   const [menuOpen, setMenuOpen] = useState(false);
+  const [times, setTimes] = useState(() =>
+    cities.map(({ timeZone }) => DateTime.now().setZone(timeZone))
+  );
 
   useEffect(() => {
     setIsClient(true);
@@ -22,6 +36,11 @@ export default function Navbar({ links }: { links: NavLink[] }) {
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
+    const interval = setInterval(() => {
+      setTimes(cities.map(({ timeZone }) => DateTime.now().setZone(timeZone)));
+    }, 1000);
+
+    return () => clearInterval(interval);
   }, [menuOpen]);
 
   if (!isClient || routerPath.includes("/admin")) return null;
@@ -69,18 +88,18 @@ export default function Navbar({ links }: { links: NavLink[] }) {
           </div>
           <div className="overlay-time-zone">
             <ul className="type-detail-regular">
-              <li className="spacing-16">
-                <p>Auckland</p>
-                <p className="text-grey">New Zealand</p>
-                {/* <p>12:49:03</p>
-                <p className="text-grey">Friday, 10 Janruary 2025</p> */}
-              </li>
-              <li>
-                <p>Sydney</p>
-                <p className="text-grey">Australia</p>
-                {/* <p>8:49:03</p>
-                <p className="text-grey">Friday, 10 Janruary 2025</p> */}
-              </li>
+              {cities.map((city, index) => {
+                const time = times[index];
+                return (
+                  <li key={city.name} className="spacing-16">
+                    <p>{city.name}</p>
+                    <p>{time.toFormat("HH:mm:ss")}</p>
+                    <p className="text-grey">
+                      {time.toFormat("EEEE, dd LLLL yyyy")}
+                    </p>
+                  </li>
+                );
+              })}
             </ul>
           </div>
           <div className="overlay-contact">

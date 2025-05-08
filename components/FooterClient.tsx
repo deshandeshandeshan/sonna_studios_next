@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import WhiteLogo from "@/public/White-Logo.svg";
 import { FooterSettings } from "@/sanity/types";
+import { DateTime } from "luxon";
 
 import "./Footer.css";
 import "./grid.css";
@@ -12,11 +13,32 @@ type Props = {
   footerSettings: FooterSettings;
 };
 
+type City = {
+  name: string;
+  timeZone: string;
+};
+
+const cities: City[] = [
+  { name: "Auckland, New Zealand", timeZone: "Pacific/Auckland" },
+  { name: "Sydney, Australia", timeZone: "Australia/Sydney" },
+];
+
 type SocialLink = NonNullable<FooterSettings["socialLinks"]>[number];
 
 export default function FooterClient({ footerSettings }: Props) {
   const [isClient, setIsClient] = useState(false);
   const [routerPath, setRouterPath] = useState("");
+  const [times, setTimes] = useState(() =>
+    cities.map(({ timeZone }) => DateTime.now().setZone(timeZone))
+  );
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTimes(cities.map(({ timeZone }) => DateTime.now().setZone(timeZone)));
+    }, 1000); // Update every second
+
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     setIsClient(true);
@@ -59,24 +81,18 @@ export default function FooterClient({ footerSettings }: Props) {
         </div>
         <div className="footer-timezone spacing-120">
           <ul className="type-detail-regular">
-            {/* <li className="spacing-16">
-              <p>Auckland, New Zealand</p>
-              <p>12:49:03</p>
-              <p className="text-grey">Friday, 10 January 2025</p>
-            </li>
-            <li>
-              <p>Sydney, Australia</p>
-              <p>8:49:03</p>
-              <p className="text-grey">Friday, 10 January 2025</p>
-            </li> */}
-            <li className="spacing-16">
-              <p>Auckland</p>
-              <p className="text-grey">New Zealand</p>
-            </li>
-            <li>
-              <p>Sydney</p>
-              <p className="text-grey">Australia</p>
-            </li>
+            {cities.map((city, index) => {
+              const time = times[index];
+              return (
+                <li key={city.name} className="spacing-16">
+                  <p>{city.name}</p>
+                  <p>{time.toFormat("HH:mm:ss")}</p>
+                  <p className="text-grey">
+                    {time.toFormat("EEEE, dd LLLL yyyy")}
+                  </p>
+                </li>
+              );
+            })}
           </ul>
         </div>
         <div className="footer-site-credits type-detail-regular spacing-64">
