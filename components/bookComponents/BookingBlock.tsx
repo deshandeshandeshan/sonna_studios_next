@@ -268,7 +268,7 @@ export function BookingBlock({
                 <option value="">Choose a service</option>
                 <option value="photography">Photography</option>
                 <option value="videography">Videography</option>
-                <option value="post-production-">
+                <option value="photography-and-videography-">
                   Photography and Videography
                 </option>
               </select>
@@ -293,7 +293,7 @@ export function BookingBlock({
               ></textarea>
             </div>
             <div className="spacing-24">
-              <label htmlFor="budget" className="sr-only ">
+              <label htmlFor="budget" className="sr-only">
                 What is your budget for this project?
               </label>
               <select
@@ -304,11 +304,11 @@ export function BookingBlock({
                 className="type-body form-select"
               >
                 <option value="">What is your budget for this project?</option>
-                <option value="1000">&lt; $1000</option>
-                <option value="1000">$1000 - $2500</option>
-                <option value="1000">$2500 - $5000</option>
-                <option value="1000">$5000 - $10,000</option>
-                <option value="1000">&gt; $10,000</option>
+                <option value="<1000">&lt; $1000</option>
+                <option value="1000-2500">$1000 - $2500</option>
+                <option value="2500-5000">$2500 - $5000</option>
+                <option value="5000-10000">$5000 - $10,000</option>
+                <option value=">10000">&gt; $10,000</option>
               </select>
             </div>
             <div className="hidden sr-only">
