@@ -29,8 +29,6 @@ export function BookingBlock({
     phone: "",
     location: "",
     businessName: "",
-    occupation: "",
-    operationLength: "",
     service: "",
     projectDescription: "",
     budget: "",
@@ -78,10 +76,10 @@ export function BookingBlock({
 
     try {
       const result = await emailjs.send(
-        "service_8cj18f6", // replace with your service ID
-        "template_6ep1los", // replace with your template ID
-        formData, // form data
-        "Prj0NjWvdRqcp1nBj" // replace with your user ID
+        "service_8cj18f6",
+        "template_6ep1los",
+        formData,
+        "Prj0NjWvdRqcp1nBj"
       );
 
       if (result.status === 200) {
@@ -92,8 +90,6 @@ export function BookingBlock({
           phone: "",
           location: "",
           businessName: "",
-          occupation: "",
-          operationLength: "",
           service: "",
           projectDescription: "",
           budget: "",
@@ -132,8 +128,16 @@ export function BookingBlock({
         <div className="spacing-32">
           <h3 className="type-detail-regular">General Enquiries</h3>
           <ul>
-            <li className="type-body text-grey">{generalEnquiries?.email}</li>
-            <li className="type-body text-grey">{generalEnquiries?.phone}</li>
+            <li className="type-body text-grey link">
+              <a href={`mailto:${generalEnquiries?.email}`}>
+                {generalEnquiries?.email}
+              </a>
+            </li>
+            <li className="type-body text-grey link">
+              <a href={`tel:${generalEnquiries?.phone?.replace(/\s+/g, "")}`}>
+                {generalEnquiries?.phone}
+              </a>
+            </li>
           </ul>
         </div>
         <div className="spacing-32">
@@ -141,7 +145,7 @@ export function BookingBlock({
           <ul className="social-links-list">
             {validSocialLinks.map((socialLink, index) => (
               <li key={index}>
-                <a className="type-body text-grey" href={socialLink.url}>
+                <a className="type-body text-grey link" href={socialLink.url}>
                   {socialLink.platform}
                 </a>
               </li>

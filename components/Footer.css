@@ -16,6 +16,35 @@
   display: none;
 }
 
+.footer-site-credits {
+  position: relative;
+  cursor: default;
+}
+
+/* Hide the site credits initially */
+.site-credits {
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.5s ease,
+    visibility 0.5s ease;
+}
+
+/* Reveal them on hover */
+.site-credits-title:hover + .site-credits,
+.site-credits-title:hover + .site-credits + .site-credits {
+  opacity: 1;
+  visibility: visible;
+}
+
+.footer-book-now {
+  transition: 0.5s;
+}
+
+.footer-book-now:hover {
+  color: #808285;
+}
+
 @media screen and (min-width: 480px) {
   .footer-contact-heading {
     grid-column: 15 / 17;

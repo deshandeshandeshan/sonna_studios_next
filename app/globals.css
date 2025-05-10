@@ -49,8 +49,7 @@ button {
 }
 
 .link-button {
-  opacity: 100%;
-  background-color: #f9f9f9;
+  background-color: rgba(249, 249, 249, 0.3);
   padding: 5px 15px;
   border-radius: 5px;
   display: flex;
@@ -58,11 +57,15 @@ button {
 }
 
 .link-button:hover {
-  opacity: 30%;
-  background-color: #f9f9f9;
-  padding: 5px 15px;
-  border-radius: 5px;
-  display: flex;
+  background-color: rgba(249, 249, 249, 1);
+}
+
+.link {
+  transition: 0.5s;
+}
+
+.link:hover {
+  color: #414242;
 }
 
 mux-player {

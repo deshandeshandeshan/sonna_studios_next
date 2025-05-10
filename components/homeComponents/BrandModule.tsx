@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useState } from "react";
 import "../grid.css";
 import "./BrandModule.css";
+import Link from "next/link";
 
 type brandModuleProps = Extract<
   NonNullable<NonNullable<HOME_QUERYResult>["content"]>[number],
@@ -29,6 +30,12 @@ export function BrandModule({ brands }: brandModuleProps) {
       <h1 className="brand-selected-clients type-body spacing-16">
         Selected Clients
       </h1>
+      <Link
+        href={"/book"}
+        className="brand-module-button link-button type-body"
+      >
+        Book a Shoot →
+      </Link>
       {selectedBrand.image ? (
         <Image
           src={urlFor(selectedBrand.image).auto("format").quality(80).url()}
@@ -38,7 +45,7 @@ export function BrandModule({ brands }: brandModuleProps) {
           placeholder="blur"
           blurDataURL={urlFor(selectedBrand.image).width(10).blur(10).url()}
           alt={selectedBrand.image.alt || ""}
-          className="brand-img caption-spacing"
+          className="brand-img"
         />
       ) : null}
       <p className="brand-description type-body">{selectedBrand.description}</p>
