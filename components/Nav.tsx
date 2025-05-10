@@ -104,8 +104,14 @@ export default function Navbar({ links }: { links: NavLink[] }) {
           </div>
           <div className="overlay-contact">
             <ul className="type-detail-regular text-grey">
-              <li>hello@sonnastudios.com</li>
-              <li>(+64) 21 230 1922</li>
+              <li>
+                <a href="mailto:hello@sonnastudios.com">
+                  hello@sonnastudios.com
+                </a>
+              </li>
+              <li>
+                <a href="tel:+64212301922">(+64) 21 230 1922</a>
+              </li>
             </ul>
           </div>
         </div>

@@ -60,26 +60,36 @@ export default function FooterClient({ footerSettings }: Props) {
               Tell us about your project. For all enquiries, collaborations and
               commissions get in touch.
             </p>
-            <Link href="/book" className="type-body">
+            <Link href="/book" className="type-body footer-book-now">
               Book Now →
             </Link>
           </div>
-          <ul className="spacing-40 type-body text-grey">
-            <li>{footerSettings.email}</li>
-            <li>{footerSettings.phoneNumber}</li>
+          <ul className="contact-details-footer spacing-40 type-body text-grey">
+            <li className="link">
+              <a href={`mailto:${footerSettings.email}`}>
+                {footerSettings.email}
+              </a>
+            </li>
+            <li className="link">
+              <a href={`tel:${footerSettings.phoneNumber}`}>
+                {footerSettings.phoneNumber}
+              </a>
+            </li>
           </ul>
           <ul className="type-body text-grey">
             {footerSettings.socialLinks?.map((social: SocialLink) => {
               if (!social.url) return null;
               return (
                 <li key={social._key}>
-                  <a href={social.url}>{social.platform}</a>
+                  <a className="link" href={social.url}>
+                    {social.platform}
+                  </a>
                 </li>
               );
             })}
           </ul>
         </div>
-        <div className="footer-timezone spacing-120">
+        <div className="footer-timezone spacing-80">
           <ul className="type-detail-regular">
             {cities.map((city, index) => {
               const time = times[index];
@@ -96,9 +106,9 @@ export default function FooterClient({ footerSettings }: Props) {
           </ul>
         </div>
         <div className="footer-site-credits type-detail-regular spacing-64">
-          <p>Site Credits</p>
-          <p>Design by Aitken Hawkins</p>
-          <p>Build by Deshan McLachlan</p>
+          <p className="site-credits-title">Site Credits</p>
+          <p className="site-credits">Design by Aitken Hawkins</p>
+          <p className="site-credits">Build by Deshan McLachlan</p>
         </div>
         <div className="footer-privacy-policy type-detail-regular">
           <p>Privacy Policy</p>

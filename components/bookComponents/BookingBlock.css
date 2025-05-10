@@ -41,7 +41,22 @@
   border: 0px;
   border-bottom: 1px solid #808285;
   background-color: #f9f9f9;
+  color: #414242;
+  font-family: var(--font-inter);
+}
+
+.booking-form .input::placeholder,
+.booking-form select::placeholder,
+.text-area::placeholder {
   color: #808285;
+  opacity: 1;
+}
+
+.booking-form .input:focus,
+.booking-form select:focus,
+.text-area:focus {
+  outline: none;
+  border-color: #414242;
 }
 
 .text-area {
@@ -51,6 +66,8 @@
   border: 1px solid #808285;
   background-color: #f9f9f9;
   margin-top: 8px;
+  font-family: var(--font-inter);
+  color: #414242;
 }
 
 .text-area-label {
