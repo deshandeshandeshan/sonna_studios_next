@@ -15,6 +15,21 @@
   grid-row: 2 / 3;
 }
 
+.sticky-button {
+  position: sticky;
+  bottom: 16px;
+  left: 16px;
+  padding: 16px 0;
+  align-self: flex-start; /* Keeps it on the left */
+  z-index: 10;
+  grid-column: 1 / 7;
+}
+
+.full-bleed-book-button {
+  pointer-events: all; /* needed if wrapper has pointer-events: none */
+  position: relative;
+}
+
 @media screen and (min-width: 480px) {
   .full-bleed-image {
     grid-column: 1 / 25;

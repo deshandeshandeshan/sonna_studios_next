@@ -3,6 +3,7 @@ import { HOME_QUERYResult } from "@/sanity/types";
 import Image from "next/image";
 import "./FullBleed.css";
 import "../grid.css";
+import Link from "next/link";
 
 type fullBlledProps = Extract<
   NonNullable<NonNullable<HOME_QUERYResult>["content"]>[number],
@@ -25,6 +26,13 @@ export function FullBleed({ image, text }: fullBlledProps) {
       </div>
       <div className="full-bleed-text mobile-padding">
         <p className="type-body">{text}</p>
+      </div>
+      <div className="sticky-button">
+        <Link href="/book">
+          <button className="full-bleed-book-button link-button type-body">
+            Book a Shoot →
+          </button>
+        </Link>
       </div>
     </section>
   );
