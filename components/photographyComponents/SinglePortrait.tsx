@@ -16,7 +16,7 @@ type singlePortraitProps = Extract<
 export function SinglePortrait({ image }: singlePortraitProps) {
   const [lightBoxOpen, setLightBoxOpen] = useState(false);
 
-  const imageUrl = image ? urlFor(image).url() : "";
+  const imageUrl = image ? urlFor(image).auto("format").quality(90).url() : "";
 
   return (
     <section className="single-potrait grid mobile-padding">
@@ -25,8 +25,8 @@ export function SinglePortrait({ image }: singlePortraitProps) {
           <Image
             onClick={() => setLightBoxOpen(!lightBoxOpen)}
             src={imageUrl}
-            width={1600}
-            height={800}
+            width={1080}
+            height={1920}
             alt={image.alt || ""}
             className="single-potrait-image caption-spacing pointer"
           />
