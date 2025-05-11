@@ -93,7 +93,7 @@ export default function Navbar({ links }: { links: NavLink[] }) {
                 return (
                   <li key={city.name} className="spacing-16">
                     <p>{city.name}</p>
-                    <p>{time.toFormat("HH:mm:ss")}</p>
+                    <p>{time.toFormat("hh:mm:ss a")}</p>
                     <p className="text-grey">
                       {time.toFormat("EEEE, dd LLLL yyyy")}
                     </p>
