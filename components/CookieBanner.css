@@ -1,0 +1,32 @@
+.cookie-banner {
+  opacity: 70%;
+  position: fixed;
+  bottom: 0;
+  width: 300px;
+  background-color: #f9f9f9;
+  color: #414242;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  margin: 16px;
+  transition: 0.5s;
+}
+
+.cookie-banner:hover {
+  opacity: 100%;
+}
+
+.cookie-banner-button {
+  color: #808285;
+  border: none;
+  padding: 0px 16px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.5s;
+}
+
+.cookie-banner-button:hover {
+  color: #414242;
+}
