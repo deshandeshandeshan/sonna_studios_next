@@ -308,11 +308,11 @@ export function BookingBlock({
                 className="type-body form-select"
               >
                 <option value="">What is your budget for this project?</option>
-                <option value="<1000">&lt; $1000</option>
+                <option value="less-than-1000">Less than $1000</option>
                 <option value="1000-2500">$1000 - $2500</option>
                 <option value="2500-5000">$2500 - $5000</option>
                 <option value="5000-10000">$5000 - $10,000</option>
-                <option value=">10000">&gt; $10,000</option>
+                <option value=">more-than-10000">More Than $10,000</option>
               </select>
             </div>
             <div className="hidden sr-only">

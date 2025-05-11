@@ -16,7 +16,7 @@ type landscapeProps = Extract<
 export function Landscape({ image }: landscapeProps) {
   const [lightBoxOpen, setLightBoxOpen] = useState(false);
 
-  const imageUrl = image ? urlFor(image).url() : "";
+  const imageUrl = image ? urlFor(image).auto("format").quality(90).url() : "";
 
   return (
     <section className="landscape grid mobile-padding">
@@ -25,8 +25,8 @@ export function Landscape({ image }: landscapeProps) {
           <Image
             onClick={() => setLightBoxOpen(!lightBoxOpen)}
             src={imageUrl}
-            width={1600}
-            height={800}
+            width={1920}
+            height={1080}
             alt={image.alt || ""}
             className="landscape-img pointer caption-spacing"
           />

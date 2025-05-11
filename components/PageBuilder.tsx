@@ -28,13 +28,17 @@ type PageBuilderBlock = NonNullable<
 
 type PageBuilderProps = {
   content: PageBuilderBlock[];
+  className?: string;
 };
 
-export function PageBuilder({ content }: PageBuilderProps) {
+export function PageBuilder({
+  content,
+  className = "page-builder",
+}: PageBuilderProps) {
   if (!Array.isArray(content)) return null;
 
   return (
-    <main className="page-builder">
+    <main className={className}>
       {content.map((block) => {
         switch (block._type) {
           case "landingModule":

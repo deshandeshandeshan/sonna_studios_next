@@ -30,9 +30,9 @@ export function ImageLargeLeft({ leftImage, rightImage }: imageLargeLeftProps) {
                 alt: leftImage.alt,
               })
             }
-            src={urlFor(leftImage).url()}
-            width={1600}
-            height={800}
+            src={urlFor(leftImage).auto("format").quality(90).url()}
+            width={1080}
+            height={1920}
             alt={leftImage.alt || ""}
             className="image-large-left-img pointer caption-spacing"
           />
@@ -52,9 +52,9 @@ export function ImageLargeLeft({ leftImage, rightImage }: imageLargeLeftProps) {
                 alt: rightImage.alt,
               })
             }
-            src={urlFor(rightImage).url()}
-            width={1600}
-            height={800}
+            src={urlFor(rightImage).auto("format").quality(90).url()}
+            width={1080}
+            height={1920}
             alt={rightImage.alt || ""}
             className="image-large-right-img pointer caption-spacing"
           />

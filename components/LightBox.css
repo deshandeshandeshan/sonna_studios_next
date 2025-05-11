@@ -41,7 +41,7 @@
 
   .lightbox-image {
     width: 50%;
-    bottom: 16px;
+    top: 16px;
     max-height: 100vh;
     display: flex;
     align-items: flex-end;

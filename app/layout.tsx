@@ -6,41 +6,36 @@ import Footer from "@/components/Footer";
 import { getNavLinks } from "@/lib/getNavLinks";
 import { SITE_SETTINGS } from "@/sanity/lib/queries";
 import { client } from "@/sanity/sanity-utils";
+import CookieBanner from "@/components/CookieBanner";
 
 export async function generateMetadata(): Promise<Metadata> {
   const settings = await client.fetch(SITE_SETTINGS);
 
-  if (!settings) {
-    return {
-      title: {
-        default: "SONNA STUDIOS",
-        template: `%s | SONNA STUDIOS`,
-      },
-      description: "",
-      keywords: [],
-      icons: {
-        icon: "/favicon.ico",
-      },
-      openGraph: {
-        images: [],
-      },
-    };
-  }
+  const siteTitle = settings?.siteTitle || "SONNA STUDIOS";
+  const description = settings?.defaultDescription || "";
+  const keywords = settings?.metaKeywords || [];
+  const favicon = settings?.favicon?.asset?.url ?? "/favicon.ico";
+  const ogImage = settings?.defaultImage?.asset?.url ?? "";
+  const appleIcon = "/apple-icon.png";
+  const manifest = "/manifest.webmanifest";
 
   return {
     title: {
-      default: settings.siteTitle || "SONNA STUDIOS",
-      template: `%s | ${settings.siteTitle || "SONNA STUDIOS"}`,
+      default: siteTitle,
+      template: `%s | ${siteTitle}`,
     },
-    description: settings.defaultDescription || "",
-    keywords: settings.metaKeywords || [],
+    description,
+    keywords,
     icons: {
-      icon: settings.favicon?.asset?.url ?? "/favicon.ico",
+      icon: favicon,
+      apple: appleIcon,
     },
+    manifest,
     openGraph: {
-      images: settings.defaultImage?.asset?.url
-        ? [settings.defaultImage.asset.url]
-        : [],
+      images: ogImage ? [ogImage] : [],
+    },
+    other: {
+      "apple-mobile-web-app-title": siteTitle,
     },
   };
 }
@@ -58,6 +53,7 @@ export default async function RootLayout({
         <Navbar links={navLinks} />
         {children}
         <Footer />
+        <CookieBanner />
       </body>
     </html>
   );

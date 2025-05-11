@@ -10,7 +10,8 @@ interface PageProps {
 
 export default async function Page(props: PageProps) {
   const params = await props.params;
-  const page = await client.fetch(PAGE_QUERY, { slug: params.slug });
+  const slug = params.slug;
+  const page = await client.fetch(PAGE_QUERY, { slug });
 
   if (!page) {
     notFound();
@@ -18,10 +19,16 @@ export default async function Page(props: PageProps) {
 
   const firstModule = page?.content?.[0]?._type;
   const hasLandingSpacing = firstModule !== "fullScreenHeaderImage";
+  const wrapperClass = hasLandingSpacing ? "landing-content-spacing" : "";
+
+  const isPhotography = slug === "photography";
 
   return page?.content ? (
-    <div className={hasLandingSpacing ? "landing-content-spacing" : ""}>
-      <PageBuilder content={page.content} />
+    <div className={wrapperClass}>
+      <PageBuilder
+        content={page.content}
+        className={`page-builder${isPhotography ? " photography" : ""}`}
+      />
     </div>
   ) : null;
 }

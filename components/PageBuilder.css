@@ -4,8 +4,16 @@
   gap: 120px;
 }
 
+.page-builder.photography {
+  gap: 80px;
+}
+
 @media screen and (min-width: 480px) {
   .page-builder {
     gap: 240px;
+  }
+
+  .page-builder.photography {
+    gap: 120px;
   }
 }
