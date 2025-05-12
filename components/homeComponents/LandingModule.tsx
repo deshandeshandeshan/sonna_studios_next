@@ -1,12 +1,14 @@
 "use client";
 
 import { urlFor } from "@/sanity/lib/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { HOME_QUERYResult } from "@/sanity/types";
 import MuxPlayer from "@mux/mux-player-react";
 import Image from "next/image";
 import "./LandingModule.css";
 import Link from "next/link";
+import MuxPlayerElement from "@mux/mux-player";
+import { useInView } from "react-intersection-observer";
 
 type LandingModuleProps = Extract<
   NonNullable<NonNullable<HOME_QUERYResult>["content"]>[number],
@@ -17,6 +19,22 @@ export function LandingModule({ image, video }: LandingModuleProps) {
   const playbackId = video?.asset?.playbackId ?? "";
 
   const [activeMedia, setActiveMedia] = useState<"image" | "video">("image");
+
+  const { ref: inViewRef, inView } = useInView({
+    threshold: 0.1,
+  });
+
+  const playerRef = useRef<MuxPlayerElement | null>(null);
+
+  useEffect(() => {
+    if (inView && playerRef.current) {
+      playerRef.current.play();
+    }
+
+    if (!inView && playerRef.current) {
+      playerRef.current.pause();
+    }
+  }, [inView]);
 
   useEffect(() => {
     if (playbackId) {
@@ -72,13 +90,15 @@ export function LandingModule({ image, video }: LandingModuleProps) {
           ) : null}
           {playbackId ? (
             <div
+              ref={inViewRef}
               className={`landing-media mux-video-container ${
                 activeMedia === "video" ? "visible" : ""
               }`}
             >
               <MuxPlayer
-                src={`https://stream.mux.com/${playbackId}.m3u8`}
-                autoPlay
+                ref={playerRef}
+                playbackId={playbackId}
+                autoPlay={false}
                 muted
                 loop
                 playsInline

@@ -1,5 +1,10 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+import MuxPlayerElement from "@mux/mux-player";
 import { HOME_QUERYResult } from "@/sanity/types";
 import MuxPlayer from "@mux/mux-player-react";
+import { useInView } from "react-intersection-observer";
 
 import "./VideoCaseStudy.css";
 import "../grid.css";
@@ -18,6 +23,22 @@ export function VideoCaseStudy({
   video,
 }: videoCaseStudyProps) {
   const playbackId = video?.asset?.playbackId ?? "";
+
+  const { ref: inViewRef, inView } = useInView({
+    threshold: 0.1,
+  });
+
+  const playerRef = useRef<MuxPlayerElement | null>(null);
+
+  useEffect(() => {
+    if (inView && playerRef.current) {
+      playerRef.current.play();
+    }
+
+    if (!inView && playerRef.current) {
+      playerRef.current.pause();
+    }
+  }, [inView]);
 
   return (
     <section className="grid mobile-padding">
@@ -41,10 +62,14 @@ export function VideoCaseStudy({
       </div>
       <div className="video-case-study-video">
         {playbackId ? (
-          <div className="video-case-study-media video-case-study-mux-video-container">
+          <div
+            ref={inViewRef}
+            className="video-case-study-media video-case-study-mux-video-container"
+          >
             <MuxPlayer
-              src={`https://stream.mux.com/${playbackId}.m3u8`}
-              autoPlay
+              ref={playerRef}
+              playbackId={playbackId}
+              autoPlay={false}
               muted
               loop
               playsInline
