@@ -77,7 +77,7 @@ export function CaseStudy({ caseStudies }: caseStudyProps) {
         View Photography →
       </Link>
       <div className="case-study-description-container">
-        <div className="case-study-cient flex-row">
+        <div className="case-study-cient flex-row spacing-12">
           <h2 className="case-study-client-heading type-detail-regular text-grey">
             Client
           </h2>
@@ -85,7 +85,7 @@ export function CaseStudy({ caseStudies }: caseStudyProps) {
             {selectedCaseStudy.client}
           </p>
         </div>
-        <div className="case-study-services flex-row">
+        <div className="case-study-services flex-row spacing-12">
           <h2 className="case-study-services-heading type-detail-regular text-grey">
             Services
           </h2>
@@ -93,7 +93,7 @@ export function CaseStudy({ caseStudies }: caseStudyProps) {
             {selectedCaseStudy.services}
           </p>
         </div>
-        <div className="case-study-industry flex-row">
+        <div className="case-study-industry flex-row spacing-12">
           <h2 className="case-study-industry-heading type-detail-regular text-grey">
             industry
           </h2>

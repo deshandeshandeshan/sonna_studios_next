@@ -7,6 +7,7 @@ import { getNavLinks } from "@/lib/getNavLinks";
 import { SITE_SETTINGS } from "@/sanity/lib/queries";
 import { client } from "@/sanity/sanity-utils";
 import CookieBanner from "@/components/CookieBanner";
+import { GoogleTagManager } from "@next/third-parties/google";
 
 export async function generateMetadata(): Promise<Metadata> {
   const settings = await client.fetch(SITE_SETTINGS);
@@ -49,6 +50,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en" className={inter.variable} suppressHydrationWarning>
+      <GoogleTagManager gtmId="GTM-KRGFGW5Z" />
       <body>
         <Navbar links={navLinks} />
         {children}

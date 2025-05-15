@@ -47,11 +47,11 @@ export function VideoCaseStudy({
         {description}
       </p>
       <div className="video-case-study-details">
-        <div className="video-case-study-client video-case-study-flex-row spacing-16">
+        <div className="video-case-study-client video-case-study-flex-row spacing-12">
           <h2 className="type-body text-grey">Client:</h2>
           <p className="type-body">{client}</p>
         </div>
-        <div className="video-case-study-industry video-case-study-flex-row spacing-16">
+        <div className="video-case-study-industry video-case-study-flex-row spacing-12">
           <h2 className="type-body text-grey">Industry:</h2>
           <p className="type-body">{industry}</p>
         </div>
