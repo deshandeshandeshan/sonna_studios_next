@@ -78,12 +78,12 @@ export function PageBuilder({
           case "bookingBlock":
             return <BookingBlock key={block._key} {...block} />;
           default: {
-            const fallbackKey =
-              (block as { _key?: string })._key ?? Math.random();
-            const fallbackType =
-              (block as { _type?: string })._type ?? "unknown";
-
-            return <div key={fallbackKey}>Unknown block: {fallbackType}</div>;
+            const fallbackBlock = block as { _type: string; _key: string };
+            return (
+              <div key={fallbackBlock._key}>
+                Block not found: {fallbackBlock._type}
+              </div>
+            );
           }
         }
       })}
