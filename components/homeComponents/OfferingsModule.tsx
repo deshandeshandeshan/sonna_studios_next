@@ -79,7 +79,7 @@ export function OfferingsModule({ services }: offeringsModuleProps) {
           className="services-img"
         />
       ) : selectedService.video?.asset?.playbackId ? (
-        <div ref={inViewRef} className="mux-video-container">
+        <div ref={inViewRef} className="offerings-mux-video-container">
           <MuxPlayer
             playbackId={selectedService.video.asset.playbackId}
             ref={playerRef}
