@@ -3,6 +3,7 @@ import { PAGE_QUERY } from "@/sanity/lib/queries";
 import { client } from "@/sanity/sanity-utils";
 import { notFound } from "next/navigation";
 import { GoogleTagManager } from "@next/third-parties/google";
+import Script from "next/script";
 
 export const revalidate = 5;
 interface PageProps {
@@ -27,6 +28,11 @@ export default async function Page(props: PageProps) {
   return page?.content ? (
     <div className={wrapperClass}>
       <GoogleTagManager gtmId="GTM-KRGFGW5Z" />
+      <Script
+        id="hubspot-script"
+        src="//js-ap1.hs-scripts.com/441814948.js"
+        strategy="afterInteractive"
+      />
       <PageBuilder
         content={page.content}
         className={`page-builder${isPhotography ? " photography" : ""}`}
