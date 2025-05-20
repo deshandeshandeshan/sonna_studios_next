@@ -43,7 +43,7 @@
   color: #414242;
 }
 
-.mux-video-container {
+.offerings-mux-video-container {
   grid-column: 1 / 7;
   grid-row: 4 / 5;
   aspect-ratio: 7 / 5;

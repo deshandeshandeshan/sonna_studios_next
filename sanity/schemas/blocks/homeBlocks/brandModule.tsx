@@ -14,11 +14,6 @@ export const brandModuleType = defineType({
       name: "brands",
       type: "array",
       title: "Brands",
-      validation: (rule) =>
-        rule
-          .min(1)
-          .max(10)
-          .error("You must add at least 1 brand and no more than 10."),
       of: [
         {
           type: "object",
