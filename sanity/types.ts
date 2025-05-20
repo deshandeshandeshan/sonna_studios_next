@@ -344,6 +344,7 @@ export type OfferingsModule = {
       alt?: string;
       _type: "image";
     };
+    video?: MuxVideo;
     description?: string;
     _type: "service";
     _key: string;
@@ -756,7 +757,7 @@ export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: sanity/lib/queries.tsx
 // Variable: HOME_QUERY
-// Query: *[_type == "page" && slug.current == "home"][0]{    ...,    content[] {      _key,      _type,      ...,      video {        asset-> {          playbackId,          assetId,          filename        }      },      services[] {         name,        description,        image {          asset-> { url },          caption,          alt        }      },      caseStudies[] {        client,        services,        industry,        location,        image {          asset-> { url },          caption,          alt        }      },      brands[] {        name,        image {          asset-> { url },          caption,          alt        },        description      },      capabilities[] {        _type,        ...,        image {          asset-> { url },          caption,          alt        },        name,        specialties,        description      }    }  }
+// Query: *[_type == "page" && slug.current == "home"][0]{    ...,    content[] {      _key,      _type,      ...,      video {        asset-> {          playbackId,          assetId,          filename        }      },      services[] {         name,        description,        image {          asset-> { url },          caption,          alt        },        video {          asset-> {          playbackId,          assetId,          filename          }        }      },      caseStudies[] {        client,        services,        industry,        location,        image {          asset-> { url },          caption,          alt        }      },      brands[] {        name,        image {          asset-> { url },          caption,          alt        },        description      },      capabilities[] {        _type,        ...,        image {          asset-> { url },          caption,          alt        },        name,        specialties,        description      }    }  }
 export type HOME_QUERYResult = {
   _id: string;
   _type: "page";
@@ -1138,6 +1139,13 @@ export type HOME_QUERYResult = {
         } | null;
         caption: string | null;
         alt: string | null;
+      } | null;
+      video: {
+        asset: {
+          playbackId: string | null;
+          assetId: string | null;
+          filename: string | null;
+        } | null;
       } | null;
     }> | null;
     video: null;
@@ -1708,7 +1716,7 @@ export type SITE_SETTINGSResult = {
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    "\n  *[_type == \"page\" && slug.current == \"home\"][0]{\n    ...,\n    content[] {\n      _key,\n      _type,\n      ...,\n      video {\n        asset-> {\n          playbackId,\n          assetId,\n          filename\n        }\n      },\n      services[] { \n        name,\n        description,\n        image {\n          asset-> { url },\n          caption,\n          alt\n        }\n      },\n      caseStudies[] {\n        client,\n        services,\n        industry,\n        location,\n        image {\n          asset-> { url },\n          caption,\n          alt\n        }\n      },\n      brands[] {\n        name,\n        image {\n          asset-> { url },\n          caption,\n          alt\n        },\n        description\n      },\n      capabilities[] {\n        _type,\n        ...,\n        image {\n          asset-> { url },\n          caption,\n          alt\n        },\n        name,\n        specialties,\n        description\n      }\n    }\n  }\n": HOME_QUERYResult;
+    "\n  *[_type == \"page\" && slug.current == \"home\"][0]{\n    ...,\n    content[] {\n      _key,\n      _type,\n      ...,\n      video {\n        asset-> {\n          playbackId,\n          assetId,\n          filename\n        }\n      },\n      services[] { \n        name,\n        description,\n        image {\n          asset-> { url },\n          caption,\n          alt\n        },\n        video {\n          asset-> {\n          playbackId,\n          assetId,\n          filename\n          }\n        }\n      },\n      caseStudies[] {\n        client,\n        services,\n        industry,\n        location,\n        image {\n          asset-> { url },\n          caption,\n          alt\n        }\n      },\n      brands[] {\n        name,\n        image {\n          asset-> { url },\n          caption,\n          alt\n        },\n        description\n      },\n      capabilities[] {\n        _type,\n        ...,\n        image {\n          asset-> { url },\n          caption,\n          alt\n        },\n        name,\n        specialties,\n        description\n      }\n    }\n  }\n": HOME_QUERYResult;
     "\n  *[_type == \"page\" && slug.current == $slug][0]{\n    ...,\n    content[] {\n      _key,\n      _type,\n      ...,\n      video {\n        asset-> {\n          playbackId,\n          assetId,\n          filename\n        }\n      },\n      services[] { \n        name,\n        description,\n        image {\n          asset-> { url },\n          caption,\n          alt\n        }\n      },\n      caseStudies[] {\n        client,\n        services,\n        industry,\n        location,\n        image {\n          asset-> { url },\n          caption,\n          alt\n        }\n      },\n      brands[] {\n        name,\n        image {\n          asset-> { url },\n          caption,\n          alt\n        },\n        description\n      },\n      capabilities[] {\n        _type,\n        ...,\n        image {\n          asset-> { url },\n          caption,\n          alt\n        },\n        name,\n        specialties,\n        description\n      }\n    }\n  }\n": PAGE_QUERYResult;
     "\n  *[_type == \"page\" && defined(slug.current)]{\n    \"title\": title,\n    \"slug\": slug.current\n  }\n": NAVIGATION_QUERYResult;
     "\n  *[_type == \"footerSettings\"][0]{\n    email,\n    phoneNumber,\n    socialLinks,\n    copyright\n  }\n": FOOTER_SETTINGSResult;

@@ -1,12 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { urlFor } from "@/sanity/lib/image";
 import { HOME_QUERYResult } from "@/sanity/types";
 import Image from "next/image";
 import "../grid.css";
 import "./OfferingsModule.css";
 import Link from "next/link";
+import MuxPlayer from "@mux/mux-player-react";
+import MuxPlayerElement from "@mux/mux-player";
+import { useInView } from "react-intersection-observer";
 
 type offeringsModuleProps = Extract<
   NonNullable<NonNullable<HOME_QUERYResult>["content"]>[number],
@@ -14,16 +17,29 @@ type offeringsModuleProps = Extract<
 >;
 
 export function OfferingsModule({ services }: offeringsModuleProps) {
-  // Fallback in case services is invalid
   const validServices =
     Array.isArray(services) && services.length > 0 ? services : [];
 
-  // Set initial state only if services are valid, fallback to null
+  const { ref: inViewRef, inView } = useInView({
+    threshold: 0.1,
+  });
+
+  useEffect(() => {
+    if (inView && playerRef.current) {
+      playerRef.current.play();
+    }
+
+    if (!inView && playerRef.current) {
+      playerRef.current.pause();
+    }
+  }, [inView]);
+
+  const playerRef = useRef<MuxPlayerElement | null>(null);
+
   const [selectedService, setSelectedService] = useState(
     validServices.length > 0 ? validServices[0] : null
   );
 
-  // If there's no valid service, don't render anything
   if (!selectedService) return null;
 
   return (
@@ -54,7 +70,7 @@ export function OfferingsModule({ services }: offeringsModuleProps) {
           {selectedService.description}
         </p>
       </div>
-      {selectedService.image?.asset?.url && (
+      {selectedService.image?.asset?.url ? (
         <Image
           src={urlFor(selectedService.image).url()}
           width={1600}
@@ -62,7 +78,19 @@ export function OfferingsModule({ services }: offeringsModuleProps) {
           alt={selectedService.image.alt || ""}
           className="services-img"
         />
-      )}
+      ) : selectedService.video?.asset?.playbackId ? (
+        <div ref={inViewRef} className="mux-video-container">
+          <MuxPlayer
+            playbackId={selectedService.video.asset.playbackId}
+            ref={playerRef}
+            autoPlay={false}
+            muted
+            loop
+            playsInline
+            className="offerings-mux-video-player"
+          />
+        </div>
+      ) : null}
     </section>
   );
 }

@@ -21,6 +21,13 @@ export const HOME_QUERY = defineQuery(`
           asset-> { url },
           caption,
           alt
+        },
+        video {
+          asset-> {
+          playbackId,
+          assetId,
+          filename
+          }
         }
       },
       caseStudies[] {
@@ -80,6 +87,13 @@ export const PAGE_QUERY = defineQuery(`
           asset-> { url },
           caption,
           alt
+        },
+        video {
+          asset-> {
+          playbackId,
+          assetId,
+          filename
+          }
         }
       },
       caseStudies[] {
