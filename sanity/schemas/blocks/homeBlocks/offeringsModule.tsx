@@ -46,11 +46,31 @@ export const offeringsModuleType = defineType({
               ],
             }),
             defineField({
+              name: "video",
+              title: "Video",
+              type: "mux.video",
+            }),
+            defineField({
               name: "description",
               type: "text",
               title: "Service Description",
             }),
           ],
+          validation: (Rule) =>
+            Rule.custom((value) => {
+              const hasImage = !!value?.image;
+              const hasVideo = !!value?.video;
+
+              if (hasImage && hasVideo) {
+                return "Only one of Image or Video should be set";
+              }
+
+              if (!hasImage && !hasVideo) {
+                return "Please add either an Image or a Video";
+              }
+
+              return true;
+            }),
         }),
       ],
     }),

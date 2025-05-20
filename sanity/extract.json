@@ -1934,6 +1934,14 @@
                   },
                   "optional": true
                 },
+                "video": {
+                  "type": "objectAttribute",
+                  "value": {
+                    "type": "inline",
+                    "name": "mux.video"
+                  },
+                  "optional": true
+                },
                 "description": {
                   "type": "objectAttribute",
                   "value": {
