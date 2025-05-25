@@ -152,16 +152,6 @@ export const SITE_SETTINGS = defineQuery(`
   *[_type == "siteSettings"][0]{
     siteTitle,
     defaultDescription,
-    metaKeywords,
-    favicon {
-      asset->{
-        url
-      }
-    },
-    defaultImage {
-      asset->{
-        url
-      }
-    }
+    metaKeywords
   }
 `);

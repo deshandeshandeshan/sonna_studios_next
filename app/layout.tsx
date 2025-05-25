@@ -15,8 +15,6 @@ export async function generateMetadata(): Promise<Metadata> {
   const siteTitle = settings?.siteTitle || "SONNA STUDIOS";
   const description = settings?.defaultDescription || "";
   const keywords = settings?.metaKeywords || [];
-  const favicon = settings?.favicon?.asset?.url ?? "/favicon.ico";
-  const ogImage = settings?.defaultImage?.asset?.url ?? "";
   const appleIcon = "/apple-icon.png";
   const manifest = "/manifest.webmanifest";
 
@@ -28,13 +26,9 @@ export async function generateMetadata(): Promise<Metadata> {
     description,
     keywords,
     icons: {
-      icon: favicon,
       apple: appleIcon,
     },
     manifest,
-    openGraph: {
-      images: ogImage ? [ogImage] : [],
-    },
     other: {
       "apple-mobile-web-app-title": siteTitle,
     },

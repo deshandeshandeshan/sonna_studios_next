@@ -16,16 +16,6 @@ export const siteSettings = defineType({
       type: "text",
     }),
     defineField({
-      name: "defaultImage",
-      title: "Default Open Graph Image",
-      type: "image",
-    }),
-    defineField({
-      name: "favicon",
-      title: "Favicon",
-      type: "image",
-    }),
-    defineField({
       name: "metaKeywords",
       title: "Meta Keywords",
       type: "array",

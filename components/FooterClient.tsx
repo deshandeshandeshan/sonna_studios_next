@@ -81,7 +81,12 @@ export default function FooterClient({ footerSettings }: Props) {
               if (!social.url) return null;
               return (
                 <li key={social._key}>
-                  <a className="link" href={social.url}>
+                  <a
+                    className="link"
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     {social.platform}
                   </a>
                 </li>
