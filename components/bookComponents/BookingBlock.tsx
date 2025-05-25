@@ -145,7 +145,12 @@ export function BookingBlock({
           <ul className="social-links-list">
             {validSocialLinks.map((socialLink, index) => (
               <li key={index}>
-                <a className="type-body text-grey link" href={socialLink.url}>
+                <a
+                  className="type-body text-grey link"
+                  href={socialLink.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   {socialLink.platform}
                 </a>
               </li>

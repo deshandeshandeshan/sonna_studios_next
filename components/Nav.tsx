@@ -77,7 +77,7 @@ export default function Navbar({ links }: { links: NavLink[] }) {
           <div className="overlay-links">
             {links.map((link) => (
               <Link
-                className="type-body"
+                className="type-heading"
                 key={link.slug}
                 href={`/${link.slug}`}
                 onClick={() => setMenuOpen(false)}
