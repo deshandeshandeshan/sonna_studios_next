@@ -4,8 +4,25 @@ import { PageBuilder } from "@/components/PageBuilder";
 import { notFound } from "next/navigation";
 import { GoogleTagManager } from "@next/third-parties/google";
 import Script from "next/script";
+import { type Metadata } from "next";
 
 export const revalidate = 5;
+
+export async function generateMetadata(): Promise<Metadata> {
+  const page = await client.fetch(HOME_QUERY);
+
+  if (!page) {
+    return {
+      title: "Home | SONNA STUDIOS",
+      description: "Welcome to SONNA STUDIOS.",
+    };
+  }
+
+  return {
+    title: page.seo?.title ?? `${page.title} | SONNA STUDIOS`,
+    description: page.seo?.description ?? "Welcome to SONNA STUDIOS.",
+  };
+}
 
 export default async function Home() {
   const page = await client.fetch(HOME_QUERY);

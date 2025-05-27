@@ -5,6 +5,7 @@ import { schema } from "./sanity/schemas";
 import { visionTool } from "@sanity/vision";
 import { unsplashImageAsset } from "sanity-plugin-asset-source-unsplash";
 import { muxInput } from "sanity-plugin-mux-input";
+import { seoMetaFields } from "sanity-plugin-seo";
 
 const config = defineConfig({
   projectId: "qzoemo7f",
@@ -20,6 +21,7 @@ const config = defineConfig({
     visionTool(),
     unsplashImageAsset(),
     muxInput(),
+    seoMetaFields(),
   ],
 });
 

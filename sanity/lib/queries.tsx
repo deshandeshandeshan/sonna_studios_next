@@ -2,7 +2,12 @@ import { defineQuery } from "next-sanity";
 
 export const HOME_QUERY = defineQuery(`
   *[_type == "page" && slug.current == "home"][0]{
-    ...,
+    title,
+    slug,
+    seo {
+      title,
+      description
+    },
     content[] {
       _key,
       _type,
@@ -68,7 +73,12 @@ export const HOME_QUERY = defineQuery(`
 
 export const PAGE_QUERY = defineQuery(`
   *[_type == "page" && slug.current == $slug][0]{
-    ...,
+    title,
+    slug,
+    seo {
+      title,
+      description
+    },
     content[] {
       _key,
       _type,
@@ -151,7 +161,6 @@ export const FOOTER_SETTINGS = defineQuery(`
 export const SITE_SETTINGS = defineQuery(`
   *[_type == "siteSettings"][0]{
     siteTitle,
-    defaultDescription,
-    metaKeywords
+    defaultDescription
   }
 `);
