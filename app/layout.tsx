@@ -12,26 +12,18 @@ import { GoogleTagManager } from "@next/third-parties/google";
 export async function generateMetadata(): Promise<Metadata> {
   const settings = await client.fetch(SITE_SETTINGS);
 
-  const siteTitle = settings?.siteTitle || "SONNA STUDIOS";
-  const description = settings?.defaultDescription || "";
-  const keywords = settings?.metaKeywords || [];
-  const appleIcon = "/apple-icon.png";
-  const manifest = "/manifest.webmanifest";
+  if (!settings) {
+    return {
+      title: "Home | Your Site Name",
+      description: "Welcome to our website.",
+    };
+  }
 
   return {
-    title: {
-      default: siteTitle,
-      template: `%s | ${siteTitle}`,
-    },
-    description,
-    keywords,
-    icons: {
-      apple: appleIcon,
-    },
-    manifest,
-    other: {
-      "apple-mobile-web-app-title": siteTitle,
-    },
+    title: settings?.siteTitle ?? "SONNA STUDIOS",
+    description:
+      settings?.defaultDescription ??
+      "Sonna Studios is a global events photography and videography company specializing in bespoke brand, corporate, and institutional coverage. With agile, high-quality production across Australia, New Zealand, Los Angeles, and London, we deliver premium visuals for launches, activations, and experiences.",
   };
 }
 
