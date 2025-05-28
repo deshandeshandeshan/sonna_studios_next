@@ -11,8 +11,10 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
-export async function generateMetadata(): Promise<Metadata> {
-  const page = await client.fetch(PAGE_QUERY);
+export async function generateMetadata(props: PageProps): Promise<Metadata> {
+  const params = await props.params;
+  const slug = params.slug;
+  const page = await client.fetch(PAGE_QUERY, { slug });
 
   if (!page) {
     return {
