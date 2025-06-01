@@ -1,3 +1,5 @@
+"use client";
+
 import { urlFor } from "@/sanity/lib/image";
 import { PAGE_QUERYResult } from "@/sanity/types";
 import Image from "next/image";
@@ -5,6 +7,10 @@ import Image from "next/image";
 import "../grid.css";
 import "./ServicesBlock.css";
 import Link from "next/link";
+import MuxPlayer from "@mux/mux-player-react";
+import { useEffect, useRef } from "react";
+import { useInView } from "react-intersection-observer";
+import MuxPlayerElement from "@mux/mux-player";
 
 type servicesBlockProps = Extract<
   NonNullable<NonNullable<PAGE_QUERYResult>["content"]>[number],
@@ -12,7 +18,24 @@ type servicesBlockProps = Extract<
 >;
 
 export function ServicesBlock({ capabilities }: servicesBlockProps) {
+  const { ref: inViewRef, inView } = useInView({
+    threshold: 0.1,
+  });
+
+  useEffect(() => {
+    if (inView && playerRef.current) {
+      playerRef.current.play();
+    }
+
+    if (!inView && playerRef.current) {
+      playerRef.current.pause();
+    }
+  }, [inView]);
+
+  const playerRef = useRef<MuxPlayerElement | null>(null);
+
   if (!Array.isArray(capabilities) || capabilities.length === 0) return null;
+
   return (
     <section className="mobile-padding">
       {capabilities.map((capability) => (
@@ -22,15 +45,27 @@ export function ServicesBlock({ capabilities }: servicesBlockProps) {
           </div>
           <hr className="solid-hr small-margin-bottom" />
           <div className="grid">
-            {capability.image?.asset?.url && (
+            {capability.image?.asset?.url ? (
               <Image
                 src={urlFor(capability.image).url()}
                 width={1600}
                 height={800}
-                alt={capability.image.caption || ""}
+                alt={capability.image.alt || ""}
                 className="capability-img"
               />
-            )}
+            ) : capability.video?.asset?.playbackId ? (
+              <div ref={inViewRef} className="capability-mux-video-container">
+                <MuxPlayer
+                  playbackId={capability.video.asset.playbackId}
+                  ref={playerRef}
+                  autoPlay={false}
+                  muted
+                  loop
+                  playsInline
+                  className="capability-mux-video-player"
+                />
+              </div>
+            ) : null}
             <h2 className="capability-name type-sub text-grey">
               {capability.name}
             </h2>

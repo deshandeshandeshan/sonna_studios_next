@@ -809,6 +809,14 @@
                   },
                   "optional": true
                 },
+                "video": {
+                  "type": "objectAttribute",
+                  "value": {
+                    "type": "inline",
+                    "name": "mux.video"
+                  },
+                  "optional": true
+                },
                 "name": {
                   "type": "objectAttribute",
                   "value": {
@@ -837,7 +845,7 @@
                   "type": "objectAttribute",
                   "value": {
                     "type": "string",
-                    "value": "capabilities"
+                    "value": "capability"
                   }
                 }
               },

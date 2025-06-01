@@ -63,6 +63,13 @@ export const HOME_QUERY = defineQuery(`
           caption,
           alt
         },
+        video {
+          asset-> {
+          playbackId,
+          assetId,
+          filename
+          }
+        },
         name,
         specialties,
         description
@@ -133,6 +140,13 @@ export const PAGE_QUERY = defineQuery(`
           asset-> { url },
           caption,
           alt
+        },
+        video {
+          asset-> {
+          playbackId,
+          assetId,
+          filename
+          }
         },
         name,
         specialties,
