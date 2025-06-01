@@ -63,6 +63,13 @@ export const HOME_QUERY = defineQuery(`
           caption,
           alt
         },
+        video {
+          asset-> {
+          playbackId,
+          assetId,
+          filename
+          }
+        },
         name,
         specialties,
         description

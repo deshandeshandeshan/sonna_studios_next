@@ -17,8 +17,8 @@ export const servicesBlockType = defineType({
       of: [
         defineField({
           type: "object",
-          name: "capabilities",
-          title: "Capabilities",
+          name: "capability",
+          title: "Capability",
           fields: [
             defineField({
               name: "image",

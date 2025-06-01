@@ -845,7 +845,7 @@
                   "type": "objectAttribute",
                   "value": {
                     "type": "string",
-                    "value": "capabilities"
+                    "value": "capability"
                   }
                 }
               },
