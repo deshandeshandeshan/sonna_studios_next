@@ -19,7 +19,6 @@ export function BookingBlock({
   generalEnquiries,
   socialLinks,
 }: bookingBlockProps) {
-  // Fallback in case services is invalid
   const validSocialLinks =
     Array.isArray(socialLinks) && socialLinks.length > 0 ? socialLinks : [];
 

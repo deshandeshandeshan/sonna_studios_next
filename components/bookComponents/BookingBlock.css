@@ -117,16 +117,6 @@
   padding-bottom: 24px;
 }
 
-/* .date-time-picker {
-  width: 100%;
-  padding: 8px 0px;
-  border: 0px;
-  border-bottom: 1px solid #808285;
-  background-color: #f9f9f9;
-  color: #414242;
-  font-family: var(--font-inter);
-} */
-
 @media screen and (min-width: 480px) {
   .booking-enquiries {
     grid-column: 9 / 25;

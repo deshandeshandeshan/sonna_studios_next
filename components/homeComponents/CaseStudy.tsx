@@ -72,7 +72,7 @@ export function CaseStudy({ caseStudies }: caseStudyProps) {
       )}
       <Link
         href={"/photography"}
-        className="case-study-button link-button type-body"
+        className="case-study-button link-button-default type-body"
       >
         View Photography →
       </Link>
