@@ -51,7 +51,7 @@ button {
 }
 
 .link-button {
-  background-color: rgba(249, 249, 249, 1);
+  background-color: #e7ff4e;
   padding: 5px 15px;
   border-radius: 5px;
   display: flex;
@@ -59,7 +59,22 @@ button {
 }
 
 .link-button:hover {
-  padding: 7px 18px;
+  background-color: #414242;
+  color: #f9f9f9;
+}
+
+.link-button-default {
+  background-color: #f9f9f9;
+  color: #414242;
+  padding: 5px 15px;
+  border-radius: 5px;
+  display: flex;
+  transition: 0.5s;
+}
+
+.link-button-default:hover {
+  background-color: #414242;
+  color: #f9f9f9;
 }
 
 .link {

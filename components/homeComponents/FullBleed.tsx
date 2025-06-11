@@ -14,7 +14,7 @@ export function FullBleed({ image, text }: fullBlledProps) {
   return (
     <section className="full-bleed-container grid">
       <div className="full-bleed-image caption-spacing">
-        {image ? (
+        {image && (
           <Image
             src={urlFor(image).auto("format").quality(100).url()}
             width={3840}
@@ -22,8 +22,8 @@ export function FullBleed({ image, text }: fullBlledProps) {
             alt={image.alt || ""}
             className="full-bleed-image-img"
           />
-        ) : null}
-        <div className="sticky-button ">
+        )}
+        <div className="sticky-button">
           <Link href="/book">
             <button className="full-bleed-book-button link-button type-body">
               Book a Shoot →

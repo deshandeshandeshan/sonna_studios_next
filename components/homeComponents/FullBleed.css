@@ -21,14 +21,13 @@
   bottom: 0;
   height: 0;
   pointer-events: none;
-  /* grid-column: 1 / 7; */
 }
 
 .full-bleed-book-button {
   position: absolute;
   left: 0;
   bottom: 0;
-  pointer-events: all; /* regain pointer access */
+  pointer-events: all;
   margin: 16px;
   z-index: 100;
 }
