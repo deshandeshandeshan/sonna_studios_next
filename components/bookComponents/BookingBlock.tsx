@@ -263,7 +263,7 @@ export function BookingBlock({
               <div className="type-detail-regular text-grey">2.0</div>Tell us
               about your project
             </legend>
-            <div className="spacing-24">
+            <div className="spacing-form-custom">
               <label htmlFor="service" className="sr-only">
                 Select a service
               </label>

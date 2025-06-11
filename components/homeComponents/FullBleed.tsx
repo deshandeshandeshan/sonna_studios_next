@@ -23,16 +23,16 @@ export function FullBleed({ image, text }: fullBlledProps) {
             className="full-bleed-image-img"
           />
         ) : null}
+        <div className="sticky-button ">
+          <Link href="/book">
+            <button className="full-bleed-book-button link-button type-body">
+              Book a Shoot →
+            </button>
+          </Link>
+        </div>
       </div>
       <div className="full-bleed-text mobile-padding">
         <p className="type-body">{text}</p>
-      </div>
-      <div className="sticky-button">
-        <Link href="/book">
-          <button className="full-bleed-book-button link-button type-body">
-            Book a Shoot →
-          </button>
-        </Link>
       </div>
     </section>
   );

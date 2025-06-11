@@ -71,7 +71,7 @@
 }
 
 .text-area-label {
-  color: #808285;
+  color: #414242;
 }
 
 .booking-form .input:focus,
@@ -113,6 +113,20 @@
   cursor: pointer;
 }
 
+.spacing-form-custom {
+  padding-bottom: 24px;
+}
+
+/* .date-time-picker {
+  width: 100%;
+  padding: 8px 0px;
+  border: 0px;
+  border-bottom: 1px solid #808285;
+  background-color: #f9f9f9;
+  color: #414242;
+  font-family: var(--font-inter);
+} */
+
 @media screen and (min-width: 480px) {
   .booking-enquiries {
     grid-column: 9 / 25;
@@ -137,5 +151,9 @@
 
   .fieldset-margin {
     margin-bottom: 80px;
+  }
+
+  .spacing-form-custom {
+    padding-bottom: 32px;
   }
 }
