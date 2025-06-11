@@ -19,7 +19,7 @@ export function Lightbox({ src, alt, onClose }: LightboxProps) {
   }, []);
 
   return (
-    <div className="lightbox-overlay">
+    <div className="lightbox-overlay" onClick={onClose}>
       <div className="lightbox-image">
         <Image
           src={src}
