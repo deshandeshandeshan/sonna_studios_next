@@ -13,7 +13,7 @@ type fullBlledProps = Extract<
 export function FullBleed({ image, text }: fullBlledProps) {
   return (
     <section className="full-bleed-container grid">
-      <div className="full-bleed-image caption-spacing">
+      <div className="full-bleed-image caption-spacing grid">
         {image && (
           <Image
             src={urlFor(image).auto("format").quality(100).url()}

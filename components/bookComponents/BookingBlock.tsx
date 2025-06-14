@@ -30,6 +30,7 @@ export function BookingBlock({
     businessName: "",
     service: "",
     projectDescription: "",
+    eventDateAndTime: "",
     budget: "",
   });
 
@@ -91,6 +92,7 @@ export function BookingBlock({
           businessName: "",
           service: "",
           projectDescription: "",
+          eventDateAndTime: "",
           budget: "",
         }); // Reset the form after successful submission
       } else {
@@ -299,6 +301,21 @@ export function BookingBlock({
                 onChange={handleChange}
                 className="type-body text-area"
               ></textarea>
+            </div>
+            <div className="spacing-24">
+              <label htmlFor="eventDateAndTime" className="sr-only">
+                Event date & time
+              </label>
+              <input
+                id="eventDateAndTime"
+                name="eventDateAndTime"
+                type="text"
+                required
+                className="input type-body"
+                placeholder="Event date & time"
+                value={formData.businessName}
+                onChange={handleChange}
+              />
             </div>
             <div className="spacing-24">
               <label htmlFor="budget" className="sr-only">
