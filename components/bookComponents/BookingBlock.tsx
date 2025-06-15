@@ -313,7 +313,7 @@ export function BookingBlock({
                 required
                 className="input type-body"
                 placeholder="Event date & time"
-                value={formData.businessName}
+                value={formData.eventDateAndTime}
                 onChange={handleChange}
               />
             </div>
