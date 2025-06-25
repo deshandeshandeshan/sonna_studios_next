@@ -116,8 +116,10 @@ export default function FooterClient({ footerSettings }: Props) {
           <p className="site-credits">Build by Deshan McLachlan</p>
         </div>
         <div className="footer-privacy-policy type-detail-regular">
-          <p>Privacy Policy</p>
-          <p className="text-grey">{footerSettings.copyright}</p>
+          <Link href="/privacy-policy">
+            <p>Privacy Policy</p>
+            <p className="text-grey">{footerSettings.copyright}</p>
+          </Link>
         </div>
       </div>
     </footer>
