@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import "./CookieBanner.css";
+import Link from "next/link";
 
 export default function CookieBanner() {
   const [visible, setVisible] = useState(false);
@@ -24,7 +25,9 @@ export default function CookieBanner() {
     <div className="cookie-banner">
       <p className="type-detail-regular">
         By continuing to browse our site you agree to our{" "}
-        <span className="text-grey cookies-policy">cookies policy.</span>
+        <Link href="/privacy-policy" className="text-grey cookies-policy">
+          cookies policy.
+        </Link>
       </p>
       <button
         className="type-detail-regular cookie-banner-button"
