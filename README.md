@@ -47,4 +47,4 @@ The content is managed via [Sanity Studio](https://www.sanity.io/).
 
 ## License
 
-This project is for the exclusive use of [Client Name]. Not open for public distribution or reuse without permission.
+This project is for the exclusive use of Sonna Studios. Not open for public distribution or reuse without permission.
